@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:48:16 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 13:05:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/10 19:15:13 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ int	main(void) {
 	std::string name = "Jokin";
 	DiamondTrap one(name);
 	
-	one.FragTrap::attack("Pablo");
-	one.ScavTrap::takeDamage(3);
-	one.ScavTrap::beRepaired(2);
-	one.FragTrap::highFivesGuys();
-
+	one.attack("Pablo");
+	one.takeDamage(30);
+	one.beRepaired(20);
+	one.highFivesGuys();
+	one.whoAmI();
 	
-	std::cout << "HitPoints -> " << one.FragTrap::getHealth() << std::endl;
-	printf("EnergyPoints-> %d\n", one.ScavTrap::getEnergyPoints());
-	std::cout << "AttackDmg -> " << one.FragTrap::getAttackDmg() << std::endl;
+	std::cout << "HitPoints -> " << one.getHealth() << std::endl;
+	printf("EnergyPoints-> %d\n", one.getEnergyPoints());
+	std::cout << "AttackDmg -> " << one.getAttackDmg() << std::endl;
 	return 0;
 }

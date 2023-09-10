@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 12:38:58 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 13:15:54 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/10 18:39:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap, public ClapTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 	private:
 		std::string name;
 
 	public:
 		DiamondTrap(std::string& name);
 		~DiamondTrap();
-		void	attack(std::string& name);
+		using ScavTrap::attack;
 		void	whoAmI(void);
 		void	setHitPoints(int amount);
 		void	setEnergyPoints(int amount);

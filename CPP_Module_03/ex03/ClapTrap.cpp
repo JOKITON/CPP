@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:37:14 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 12:49:10 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/10 19:18:07 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,38 @@ ClapTrap::ClapTrap(std::string	&name) {
 	this->HitPoints = 10;
 	this->EnergyPoints = 10;
 	this->AttackDmg = 0;
-	std::cout << "ClapTrap Constructor initialized" << std::endl;
+	std::cout << "[ClapTrap] " << name << " has been constructed!" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << "ClapTrap Destructor Called" << std::endl;
+	std::cout << "[ClapTrap] " << name << " has been destroyed!" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target) {
+	if (this->EnergyPoints < 1) {
+		std::cout << this->name << " has no EnergyPoints left!" << std::endl;
+		return ;
+	}
 	this->EnergyPoints -= 1;
-	std::cout << this->name << " attacks " << target << ", causing " << this->AttackDmg << " points of damage!" << std::endl;
+	std::cout << "[attack] " << this->name << " attacks " << target << ", causing " << this->AttackDmg << " points of damage!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
+	if (this->EnergyPoints < 1) {
+		std::cout << this->name << " has no EnergyPoints left!" << std::endl;
+		return ;
+	}
 	this->EnergyPoints -= 1;
-	std::cout << this->name << " healed " << amount << " point of health, spending 1 point of energy!" << std::endl;
 	this->HitPoints += amount;
+	std::cout << "[repair] " << this->name << " healed " << amount << " point of health, spending 1 point of energy!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	this->EnergyPoints -= 1;;
-	std::cout << this->name << " lost " << amount << " point of health, spending 1 point of energy!" << std::endl;
+	std::cout << "[damage] " << this->name << " lost " << amount << " point of health, spending 1 point of energy!" << std::endl;
+	if (this->HitPoints - amount < 1) {
+		std::cout << name << " has died!" << std::endl;
+		return ;
+	}
 	this->HitPoints -= amount;
 }
 
@@ -55,6 +66,10 @@ int	ClapTrap::getEnergyPoints() const {
 
 int	ClapTrap::getHealth() const {
 	return HitPoints;
+}
+
+void	ClapTrap::setName(std::string name) {
+	this->name = name;
 }
 
 void	ClapTrap::setHitPoints(int amount) {
