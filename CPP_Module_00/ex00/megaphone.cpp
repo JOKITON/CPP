@@ -12,6 +12,10 @@
 
 #include <unistd.h>
 
+/*
+Check -> https://stackoverflow.com/questions/63325434/can-i-use-stdstring-argv-as-main-function-argument
+/**/
+
 void	write_stdout(char	*str)
 {
 	int	len = 0;
