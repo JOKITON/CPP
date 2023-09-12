@@ -35,27 +35,3 @@ int	main(void)
 	}
 	return (0);
 }
-
-/*
-int	main(void)
-{
-	PhoneBook 	phonebook;
-	std::string	input;
-
-	std::system("clear");
-	std::cout << "1. ADD\n" << "2. SEARCH\n" << "3. EXIT\n\n$"; 
-	while (1)
-	{
-		std::getline(std::cin, input);
-		if (!input.compare("ADD"))
-			addData(&phonebook);
-		else if (!input.compare("SEARCH"))
-			phonebook.displayPhoneBook();
-		else if (!input.compare("EXIT"))
-			exit (1);
-		else
-			std::cout << "error: command not found\n$";
-	}
-	return (0);
-}*/
-
