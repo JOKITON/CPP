@@ -58,22 +58,3 @@ void	PhoneBook::contactShow(void) {
 		i++;
 	}
 }
-
-/*void	PhoneBook::contactAdd(int id) {
-	std::system("clear");
-	std::cout << "Enter FirstName : ";
-	std::getline(std::cin, this->FirstName);
-	std::cout << "\nEnter LastName : ";
-	std::getline(std::cin, this->LastName);
-	std::cout << "\nEnter NickName : ";
-	std::getline(std::cin, this->NickName);
-	std::cout << "\nEnter PhoneNumber : ";
-	std::getline(std::cin, this->Phone);
-	std::cout << "\nEnter Secret : "
-	std::getline(std::cin, this->Secret);
-	std:: cout << std::endl;
-	this->idContact = id;
-}*/
-
-
-
