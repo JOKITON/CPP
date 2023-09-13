@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 10:47:16 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/13 10:13:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:23:58 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /*
 Check -> https://stackoverflow.com/questions/63325434/can-i-use-stdstring-argv-as-main-function-argument
-/**/
+//*/
 
-void	write_stdout(char	*str)
+void	put_str(char	*str)
 {
 	int	len = 0;
 	while(str[len])
@@ -44,9 +44,9 @@ int	main(int ac, char **ar)
 	if (ac > 1)
 	{
 		while (ar[len])
-			write_stdout(convert_alpha(ar[len++]));
+			put_str(convert_alpha(ar[len++]));
 	}
 	else if (ac == 1)
-		write_stdout((char *)"* LOUD AND UNBEARABLE FEEDBACK NOISE *");
+		put_str((char *)"* LOUD AND UNBEARABLE FEEDBACK NOISE *");
 	write(1, "\n", 1);
 }

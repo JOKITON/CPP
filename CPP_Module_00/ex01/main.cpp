@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 10:50:30 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/28 08:41:16 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/13 15:07:58 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+/*
+	Adding more than 8 Contacts breaks the variables inside Contact. 
+//*/
 
 int	main(void)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:19:29 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/27 09:27:52 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/13 15:25:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 Contact::Contact(void) {
 	std::cout << "Contact Constructor was called" << std::endl;
-	this->FirstName = "";
-	this->LastName = "";
-	this->NickName = "";
-	this->Phone = "";
-	this->Secret = "";
 }
 
 Contact::~Contact(void) {
@@ -62,5 +57,26 @@ std::string	Contact::getSecret(void) const {
 	return (Secret);
 }
 
+void	Contact::setFirstName(std::string param) {
+	this->FirstName = param;
+}
 
+void	Contact::setLastName(std::string param) {
+	this->LastName = param;
+}
 
+void	Contact::setNickName(std::string param) {
+	this->NickName = param;
+}
+
+void	Contact::setPhone(std::string param) {
+	this->Phone = param;
+}
+
+void	Contact::setSecret(std::string param) {
+	this->Secret = param;
+}
+
+void	Contact::setId(int param) {
+	this->idContact = param;
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:31:14 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/27 09:26:26 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/13 15:18:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ class Contact {
 		std::string	getNickName ( void ) const;
 		std::string	getPhone ( void ) const;
 		std::string	getSecret ( void ) const;	
+		void		setFirstName( std::string param );
+		void		setLastName( std::string param  );
+		void		setNickName( std::string param  );
+		void		setPhone( std::string param  );
+		void		setSecret( std::string param  );
+		void		setId( int param );
 };
 
 #endif

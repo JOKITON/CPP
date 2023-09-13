@@ -4,7 +4,7 @@ CC = c++
 
 RM = rm
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
 STD = -std=c++98
 
@@ -26,3 +26,5 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+
+re : fclean all

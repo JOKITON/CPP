@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:15:07 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/28 08:53:45 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/13 15:20:46 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,37 @@ PhoneBook::~PhoneBook(void) {
 
 
 void	PhoneBook::contactAdd(void) {
-	if (this->numContacts == 8) {
-		this->contacts[0].setContact(0);	
+	std::string str;
+
+	str = "";
+	if (this->numContacts > 7) {
+		std::cout << "You are about to re-edit a existent Contact!" << std::endl;
 	}
-	else {
-		this->contacts[this->numContacts].setContact(this->numContacts);
-		this->numContacts++;
-	}
+	std::system("clear");
+	std::cout << "Enter FirstName : ";
+	std::getline(std::cin, str);
+	this->contacts[this->numContacts % 8].setFirstName(str);
+	
+	std::cout << "\nEnter LastName : ";
+	std::getline(std::cin, str);
+	this->contacts[this->numContacts % 8].setLastName(str);
+	
+	std::cout << "\nEnter NickName : ";
+	std::getline(std::cin, str);
+	this->contacts[this->numContacts % 8].setNickName(str);
+	
+	std::cout << "\nEnter PhoneNumber : ";
+	std::getline(std::cin, str);
+	this->contacts[this->numContacts % 8].setPhone(str);
+	
+	std::cout << "\nEnter Secret : ";
+	std::getline(std::cin, str);
+	this->contacts[this->numContacts % 8].setSecret(str);
+	
+	std:: cout << std::endl;
+	this->contacts[this->numContacts % 8].setId(this->numContacts % 8);
+	std::system("clear");
+	this->numContacts++;
 }
 
 void	PhoneBook::contactShow(void) {

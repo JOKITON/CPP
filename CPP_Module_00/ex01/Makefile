@@ -3,7 +3,7 @@ CC = c++
 
 RM = rm
 
-CFLAGS = -Wall -Wextra -Werror -g3 -std=c++98
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror -g3 -std=c++98
 
 STD = -std=c++98
 
