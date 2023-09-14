@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:15:07 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/13 15:20:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/14 10:49:53 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,35 @@ void	PhoneBook::contactAdd(void) {
 		std::cout << "You are about to re-edit a existent Contact!" << std::endl;
 	}
 	std::system("clear");
+	while (!std::cin.eof() && str == "") {
 	std::cout << "Enter FirstName : ";
-	std::getline(std::cin, str);
-	this->contacts[this->numContacts % 8].setFirstName(str);
-	
+	if (std::getline(std::cin, str) && str != "")
+		this->contacts[this->numContacts % 8].setFirstName(str);
+	}
+	str = "";
+ 	while (!std::cin.eof() && str == "") {
 	std::cout << "\nEnter LastName : ";
-	std::getline(std::cin, str);
-	this->contacts[this->numContacts % 8].setLastName(str);
-	
+	if (std::getline(std::cin, str) && str != "")
+		this->contacts[this->numContacts % 8].setLastName(str);
+	}
+	str = "";
+	while (str == "") {
 	std::cout << "\nEnter NickName : ";
-	std::getline(std::cin, str);
-	this->contacts[this->numContacts % 8].setNickName(str);
-	
+	if (std::getline(std::cin, str) && str != "")
+		this->contacts[this->numContacts % 8].setNickName(str);
+	}
+	str = "";
+	while (str == "") {
 	std::cout << "\nEnter PhoneNumber : ";
-	std::getline(std::cin, str);
-	this->contacts[this->numContacts % 8].setPhone(str);
-	
+	if (std::getline(std::cin, str) && str != "")
+		this->contacts[this->numContacts % 8].setPhone(str);
+	}
+	str = "";
+	while (str == "") {
 	std::cout << "\nEnter Secret : ";
-	std::getline(std::cin, str);
-	this->contacts[this->numContacts % 8].setSecret(str);
-	
+	if (std::getline(std::cin, str) && str != "")
+		this->contacts[this->numContacts % 8].setSecret(str);
+	}
 	std:: cout << std::endl;
 	this->contacts[this->numContacts % 8].setId(this->numContacts % 8);
 	std::system("clear");
@@ -66,7 +75,7 @@ void	PhoneBook::contactShow(void) {
 		return ;
 	}
 	std::cout << "\t\tPhoneBook : \n\n\n";
-	while (i < this->numContacts) {
+	while (i < (8)) {
 		std::string	truncFirstName = this->contacts[i].getFirstName().substr(0, 10);
 		std::string	truncLastName = this->contacts[i].getLastName().substr(0, 10);
 		std::string	truncNickName = this->contacts[i].getNickName().substr (0, 10);
