@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:31:14 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/13 15:18:33 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:35:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class Contact {
 	public:
 		Contact( void );
 		~Contact( void );
-		void		setContact(int id);
 		std::string	getFirstName( void ) const;
 		std::string	getLastName ( void ) const;
 		std::string	getNickName ( void ) const;

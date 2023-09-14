@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:15:07 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/14 10:53:41 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:34:50 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ void	PhoneBook::contactShow(void) {
 		return ;
 	}
 	std::cout << "\t\tPhoneBook : \n\n\n";
+	std::cout << "-------------------------------------------------" << std::endl;
+	std::cout << "|" << std::setw(10) << "Index" << "|" << std::setw(10) << "FirstName" << "|" << std::setw(10) << "LastName" << "|" << std::setw(10) << "NickName" << "|||||" << std::endl; 
+	std::cout << "-------------------------------------------------" << std::endl;
 	while (i < (8)) {
 		std::string	truncFirstName = this->contacts[i].getFirstName().substr(0, 10);
 		std::string	truncLastName = this->contacts[i].getLastName().substr(0, 10);
@@ -87,7 +90,36 @@ void	PhoneBook::contactShow(void) {
 			truncLastName[9] = '.';
 		if (truncNickName.length() > 9)
 			truncNickName[9] = '.';
-		std::cout << std::setw(10) << i + 1 << "|" << std::setw(10) << truncFirstName << "|" << std::setw(10) << truncLastName << "|" << std::setw(10) << truncNickName << std::endl;
+		std::cout << "|" << std::setw(10) << i + 1 << "|" << std::setw(10) << truncFirstName << "|" << std::setw(10) << truncLastName << "|" << std::setw(10) << truncNickName << "|||||" << std::endl;
 		i++;
+	}
+	std::cout << "-------------------------------------------------" << std::endl;
+	indexShow();
+}
+
+void	PhoneBook::indexShow(void) {
+	std::string str;
+	int index = 0;
+	str == "";
+	while (str == "" || this->numContacts < index || index < 1) {
+	std::cout << "Select an existent Index : ";
+	if (std::getline(std::cin, str) && str != "") {
+		index = atoi(str.c_str());
+		if (this->numContacts < index || index < 1) {
+			std::cout << "Non-existent Contact" << std::endl;
+			usleep(1000000);
+		}
+		else {
+			std::system("clear");
+			std::cout << "Fist name : " << this->contacts[index - 1].getFirstName() << std::endl;
+			std::cout << "Last name : " << this->contacts[index - 1].getLastName() << std::endl;
+			std::cout << "Nick name : " << this->contacts[index - 1].getNickName() << std::endl;
+			std::cout << "Phone Number : " << this->contacts[index - 1].getPhone() << std::endl;
+			std::cout << "Darkest Secret : " << this->contacts[index - 1].getSecret() << std::endl;
+			std:: cout << std::endl;
+			usleep(1000000);
+			return ;
+		}
+	}
 	}
 }

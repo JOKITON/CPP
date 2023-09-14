@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:26:13 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/13 15:02:49 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:33:09 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <cstring>
 #include <unistd.h> 
 #include <stdio.h>
+#include <string>
 
 class	PhoneBook {
 	
@@ -31,6 +32,7 @@ class	PhoneBook {
 		~PhoneBook ( void );
 		void	contactAdd( void );
 		void	contactShow( void );
+		void	indexShow(void);
 };
 
 #endif

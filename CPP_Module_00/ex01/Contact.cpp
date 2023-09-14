@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:19:29 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/13 15:25:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:35:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,6 @@ Contact::Contact(void) {
 
 Contact::~Contact(void) {
 	std::cout << "Contact Destructor was called!" << std::endl;
-}
-
-void    Contact::setContact(int id) {
-	std::system("clear");
-	std::cout << "Enter FirstName : ";
-	std::getline(std::cin, this->FirstName);
-	std::cout << "\nEnter LastName : ";
-	std::getline(std::cin, this->LastName);
-	std::cout << "\nEnter NickName : ";
-	std::getline(std::cin, this->NickName);
-	std::cout << "\nEnter PhoneNumber : ";
-	std::getline(std::cin, this->Phone);
-	std::cout << "\nEnter Secret : ";
-	std::getline(std::cin, this->Secret);
-	std:: cout << std::endl;
-	this->idContact = id;
-	std::system("clear");
 }
 
 std::string	Contact::getFirstName(void) const {
