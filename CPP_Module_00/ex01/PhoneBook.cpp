@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:15:07 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/14 10:49:53 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/14 10:53:41 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	PhoneBook::contactAdd(void) {
 	std::string str;
 
 	str = "";
-	if (this->numContacts > 7) {
-		std::cout << "You are about to re-edit a existent Contact!" << std::endl;
-	}
 	std::system("clear");
+	if (this->numContacts > 7) {
+		std::cout << "You are about to rewrite a existent Contact!" << std::endl;
+	}
 	while (!std::cin.eof() && str == "") {
 	std::cout << "Enter FirstName : ";
 	if (std::getline(std::cin, str) && str != "")
