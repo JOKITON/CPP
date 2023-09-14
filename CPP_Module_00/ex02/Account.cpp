@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 14:09:32 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/29 14:09:36 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/14 15:48:06 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,21 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
-/*void	Account::_displayTimestamp() {
-	time_t	sec;
-	tm*	local;
+Account::Account(int initial_deposit) {
+	_totalAmount += initial_deposit;
+	this->_amount = initial_deposit;
+	this->_accountIndex = _nbAccounts;
+	_nbAccounts++;
+	Account::_displayTimestamp(); 
+	std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
+}
 
-	sec = time(NULL);
-	local = localtime(&sec);
-	std::ostringstream oss;
-	//oss << '[' << std::put_time(local, "%Y%m%d_%H%M%S") << ']';
-	strftime(local, sizeof(local), "%Y%m%d_%H%M%S", localtime(sec));
-    std::cout << oss.str();
-}*/
+Account::~Account(void) {
+	Account::_displayTimestamp();
+	std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount << ";closed" << std::endl;
+	return ;
+
+}
 
 void Account::_displayTimestamp() {
         time_t now = time(0);
@@ -36,7 +40,7 @@ void Account::_displayTimestamp() {
 
         std::ostringstream oss;
         oss << '[' << local << ']';
-        std::cout << oss.str() << std::endl;
+		std::cout << oss.str();
     }
 
 int	Account::getNbAccounts() {
@@ -55,22 +59,6 @@ int	Account::getNbWithdrawals() {
 	return _totalNbWithdrawals;
 }
 
-Account::Account(int initial_deposit) {
-	_totalAmount += initial_deposit;
-	this->_amount = initial_deposit;
-	this->_accountIndex = _nbAccounts;
-	_nbAccounts++;
-	Account::_displayTimestamp(); 
-	std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
-}
-
-Account::~Account(void) {
-	Account::_displayTimestamp();
-	std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount << ";closed" << std::endl;
-	return ;
-
-}
-
 int	Account::checkAmount(void) const {
 	return _amount;
 }
@@ -83,7 +71,6 @@ void	Account::displayStatus(void) const {
 void Account::displayAccountsInfos(void) {
 	Account::_displayTimestamp();
 	std::cout << " accounts:" << getNbAccounts() << ";total:" << getTotalAmount() << ";deposits:" << getNbDeposits() << ";withdrawals:" << getNbWithdrawals() << std::endl;
-	/*std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount << ";deposits:" << this->_nbDeposits << ";withdrawals:" << this->_nbWithdrawals << std::endl;*/
 }
 
 void	Account::makeDeposit(int deposit) {
@@ -99,7 +86,7 @@ void	Account::makeDeposit(int deposit) {
 
 bool	Account::makeWithdrawal(int withdrawal) {
 	Account::_displayTimestamp();
-	std::cout << " index:" << this->_accountIndex << ";p_amount:" << this->_amount << ";wtihdrawal:";
+	std::cout << " index:" << this->_accountIndex << ";p_amount:" << this->_amount << ";withdrawal:";
 	if (withdrawal > this->_amount) {
 		std::cout << "refused" << std::endl;
 		return (FALSE); }
