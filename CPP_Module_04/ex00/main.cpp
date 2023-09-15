@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/11 19:36:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:12:04 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,10 @@ std::cout << &h << " " << std::endl;
 g->makeSound();
 h->makeSound();
 
+delete(meta);
+delete(j);
+delete(i);
+delete(g);
+delete(h);
 return 0;
 }

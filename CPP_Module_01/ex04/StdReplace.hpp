@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   StdReplace.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:27:00 by jokin             #+#    #+#             */
-/*   Updated: 2023/07/06 08:57:10 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/15 17:00:55 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <cstdlib>
 
 void	clearTerminal(void);
 void	rpStringInFile(const std::string& filename, const std::string& s1, const std::string& s2);

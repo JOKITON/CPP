@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:26:01 by jokin             #+#    #+#             */
-/*   Updated: 2023/07/06 08:54:42 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/15 18:26:28 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	main(void) {
 	const std::string	s2 = util;
 	std::cout << std::endl;
 	
-	if (s1.empty() || s2.empty()) {
-		std::cerr << "String not valid" << std::endl;
+	if (s1.empty() || s2.empty() || !s1.compare(s2)) {
+		std::cerr << "Not valid arguments" << std::endl;
 		return (1); }
 	rpStringInFile(filename, s1, s2);
 	return (0);

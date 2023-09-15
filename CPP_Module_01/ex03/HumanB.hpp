@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 12:51:04 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/30 13:59:22 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/15 12:10:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ class HumanB {
 		std::string	name;
 		Weapon		*weapon;
 	public:
-		HumanB(std::string name);
+		HumanB( void );
 		~HumanB( void );
+		HumanB(std::string name);
 		void	setWeapon(Weapon &newWeapon);
 		void	attack( void );
 };

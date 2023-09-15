@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 12:48:34 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/30 13:53:56 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/15 12:05:52 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Weapon {
 		Weapon( void );
 		Weapon(std::string type);
 		~Weapon( void );
-		std::string&	getType( void );
+		std::string	getType( void ) const;
 		void	setType(std::string rep);
 };
 

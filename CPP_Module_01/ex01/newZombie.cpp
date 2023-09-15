@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 19:56:08 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/30 08:48:28 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/14 16:23:08 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie	*Zombie::newZombie(std::string& name) {
+Zombie	*Zombie::newZombie(std::string name) {
 	Zombie *newZombie = new Zombie();
 
 	newZombie->name = name;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 19:48:55 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/29 20:22:04 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/14 16:17:15 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Zombie {
 		Zombie( void );
 		~Zombie( void );
 		void	announce( void );
-		Zombie*	newZombie( std::string& name );
-		void	randomChump( std::string& name);
+		Zombie*	newZombie( std::string name );
+		void	randomChump( std::string name);
 };
 

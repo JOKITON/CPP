@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 08:18:47 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/30 08:51:46 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/15 11:57:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 
-Zombie*	Zombie::zombieHorde(int N, std::string& name) {
+Zombie*	Zombie::zombieHorde(int N, std::string name) {
 	int	i;
+	std::cout << "[zombieHorde.cpp(Start)]" << std::endl;
 	Zombie	*first = new Zombie();
 	Zombie	*firstZombie;
 
@@ -32,5 +33,6 @@ Zombie*	Zombie::zombieHorde(int N, std::string& name) {
 		i++;
 	}
 	delete first;
+	std::cout << "[zombieHord.cpp(End)]" << std::endl;
 	return (firstZombie);
 }

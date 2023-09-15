@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 12:59:06 by jokin             #+#    #+#             */
-/*   Updated: 2023/06/30 13:54:14 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/15 12:05:59 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Weapon::~Weapon(void) {
 	return ;
 }
 
-std::string&	Weapon::getType(void) {
+std::string	Weapon::getType(void) const {
 	return type;
 }
 

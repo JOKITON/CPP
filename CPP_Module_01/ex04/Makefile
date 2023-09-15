@@ -1,5 +1,5 @@
 NAME = a.out
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror
 STD = -std=c++98
 
 SRCS = main.cpp StdReplace.cpp
@@ -23,3 +23,4 @@ clean:
 fclean: clean
 	    $(RM) $(NAME)
 
+re : fclean all
