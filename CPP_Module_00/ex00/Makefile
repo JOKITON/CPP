@@ -12,7 +12,6 @@ SRCS = megaphone.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-
 all : $(NAME)
 
 %.o : %.cpp
