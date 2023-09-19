@@ -3,36 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 10:47:16 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/18 17:04:24 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/19 10:46:04 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-/*
-* Can I have as input argument a std::string instead of a char**?
-
-TODO: Check -> https://stackoverflow.com/questions/63325434/can-i-use-stdstring-argv-as-main-function-argument
-
-* 1. main argument must be char** argv or char* argv[]
-* 2. You can assign it to a variable, like this: 
- if(argc > 1)
-    { 
-        std::string str = argv[1]; 
-    }
-* 3. There is also the possibility to construct the string using `parameter constructor´:
-	std::string str(ar[1]); //(always that ar[1] exists, check)
-
- * 4. There is also a method to use a initializer list (C++11)
-*/
-
 /**
- * @brief
- * * Writes to standard output all the characters inside the string, until end(NULL).
- * @param str 
+ * @brief Writes all characters in the string to standard output until the null terminator.
+ * 
+ * @param str The input string
  */
 void	putStr(char	*str)
 {
@@ -45,13 +28,10 @@ void	putStr(char	*str)
 }
 
 /**
- * convertAlpha
+ * @brief Converts all lowercase characters in a string to uppercase.
  * 
- *
- * @brief 
- * * Converts all the lower case characters inside a string to capital letters.
- * @param str 
- * @return char* 
+ * @param str The input string
+ * @return char* The modified string
  */
 char	*convertAlpha(char	*str)
 {
@@ -66,12 +46,11 @@ char	*convertAlpha(char	*str)
 }
 
 /**
- * @brief 
- * * 1: In first condition, if more than one argument is given, we use putStr along with convertAlpha function.
- * * 2: In second condition, if there is only one argument, we print to standard output a default string.
- * @param ac 
- * @param ar 
- * @return int 
+ * @brief Main function that processes command line arguments.
+ * 
+ * @param argc Number of command line arguments
+ * @param argv Array of command line arguments
+ * @return int Program exit code
  */
 int	main(int ac, char **ar)
 {
