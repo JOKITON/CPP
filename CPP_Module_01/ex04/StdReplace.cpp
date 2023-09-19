@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:27:28 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/15 19:03:21 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:47:49 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,14 @@ void	rpStringInFile(const std::string& filename, const std::string& s1, const st
 	Buf = StrBuf.str();
 	pos = Buf.find(s1);
 	input.close();
+
 	while (true) {
-		pos = Buf.find(s1, pos); // Busca la siguiente instancia de s1 a partir de pos
+		pos = Buf.find(s1, pos); // Finds the next instance of s1 starting from pos
 		if (pos == std::string::npos) {
-			break; // Si no se encuentra más s1, sal del bucle
+			break; // If no s1 is found, break.
 		}
-		rpSubstr(Buf, pos, s1, s2); // Reemplaza esta instancia de s1 por s2
-		pos += s2.length(); // Avanza pos más allá de s2 para evitar bucles infinitos
+		rpSubstr(Buf, pos, s1, s2); // Substitutes s2 instance with s1.
+		pos += s2.length(); // Position is increased so more instances can be found.
 	}
 
 	std::ofstream		output((filename + ".replace").c_str());

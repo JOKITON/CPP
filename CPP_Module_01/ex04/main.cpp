@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:26:01 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/15 18:26:28 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:46:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,22 @@ int	main(void) {
 	clearTerminal();
 
 	std::string	util;
-	std::cout << "Enter the filename : ";
-	std::cin >> util;
+	util = "";
+	while (util == "") {
+		std::cout << "Enter the filename : ";
+		std::getline(std::cin, util); }
 	const std::string	filename = util;
 
+	util = "";
+	while (util == "") {
 	std::cout << "\n" << "Enter the string you want to replace : ";
-	std::cin >> util;
+	std::getline(std::cin, util); }
 	const std::string	s1 = util;
 	
+	util = "";
+	while (util == "") {
 	std::cout << "\n" << "Enter the string you want instead : ";
-	std::cin >> util;
+	std::getline(std::cin, util); }
 	const std::string	s2 = util;
 	std::cout << std::endl;
 	
