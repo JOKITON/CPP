@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:15:07 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/18 18:11:24 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/19 10:43:54 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * 
  */
 PhoneBook::PhoneBook(void) {
-	std::cout << "PhoneBook Constructor was called" << std::endl;
+	std::cout << "[PhoneBook] Constructor was called" << std::endl;
 	this->numContacts = 0; 
 }
 /**
@@ -25,11 +25,11 @@ PhoneBook::PhoneBook(void) {
  * 
  */
 PhoneBook::~PhoneBook(void) {
-	std::cout << "PhoneBook Destructor was called" << std::endl; }
+	std::cout << "[PhoneBook] Destructor was called" << std::endl; }
 
 /**
- * @brief Acceses the Array of Contacts and creates a new Contact or rewrites an already-existent Contact.
- * ! It will not accept empty strings and it will warn you before re-writing a Contact.
+ * @brief Adds a new contact or rewrites an existing contact in the PhoneBook.
+ *        It does not accept empty strings and warns before overwriting.
  */
 void	PhoneBook::contactAdd(void) {
 	std::string str;
@@ -75,9 +75,7 @@ void	PhoneBook::contactAdd(void) {
 }
 
 /**
- * @brief It shows the array of Contacts(8) that we store inside PhoneBook.
- * 	It has a nice interface, made by the best amateur programmer.
- * 
+ * @brief Displays the contacts stored in the PhoneBook with a nice interface.
  */
 void	PhoneBook::contactShow(void) {
 	int	i;
@@ -112,9 +110,10 @@ void	PhoneBook::contactShow(void) {
 	indexShow();
 }
 
+
 /**
- * @brief Inside the SEARCH functionality, you are allowed to search and display any Contact you want.
- * ! If the given number does not link to any existent Contact, it will display an Error!
+ * @brief Allows selecting and displaying an existing contact by index.
+ *        Displays an error message if the index is out of bounds.
  */
 void	PhoneBook::indexShow(void) {
 	std::string str;
