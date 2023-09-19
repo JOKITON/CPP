@@ -1,5 +1,5 @@
 
-NAME = Bankinter
+NAME = a.out
 
 CFLAGS = -Wall -Wextra -Werror
 
