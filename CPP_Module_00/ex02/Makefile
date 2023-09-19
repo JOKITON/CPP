@@ -1,9 +1,7 @@
 
-NAME = a.out
+NAME = account
 
-CFLAGS = -Wall -Wextra -Werror
-
-STD = -std=c++98
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
 SRCS = Account.cpp tests.cpp
 
@@ -16,10 +14,10 @@ RM = rm
 all : $(NAME)
 
 %.o : %.cpp
-	$(CC) $(CFLAGS) $(STD) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
@@ -28,3 +26,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re : fclean all
+
+.PHONY : clean fclean re

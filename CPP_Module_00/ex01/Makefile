@@ -1,17 +1,16 @@
+NAME = phonebook
 
 CC = c++
 
 RM = rm
 
-CFLAGS = -fsanitize=address -Wall -Wextra -Werror -g3 -std=c++98
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
 STD = -std=c++98
 
 SRCS = PhoneBook.cpp Contact.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
-
-NAME = PhoneBook
 
 all : $(NAME)
 
@@ -28,3 +27,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY : clean fclean re
