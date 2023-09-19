@@ -3,46 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 10:47:16 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/19 10:46:04 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:26:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <iostream>
 
 /**
- * @brief Writes all characters in the string to standard output until the null terminator.
+ * @brief Converts all lowercase characters in a std::string to uppercase.
  * 
- * @param str The input string
+ * @param str The input string in std::string format.
  */
-void	putStr(char	*str)
+void	convertAlpha(const std::string arg)
 {
-	int	len = 0;
-	while(str[len])
-	{
-		write(1, &str[len], 1);
-		len++;
-	}
-}
+	std::string	prt;
+	int			len;
+	const	std::locale loc;
 
-/**
- * @brief Converts all lowercase characters in a string to uppercase.
- * 
- * @param str The input string
- * @return char* The modified string
- */
-char	*convertAlpha(char	*str)
-{
-	int	len = 0;
-	while (str[len])
-	{
-		if (str[len] >= 97 && str[len] <= 122)
-			str[len] -= 32;
-		len++;
+	len = arg.length();
+	prt.reserve(len);
+	for (int i = 0; i < len; i++) {
+		prt += std::toupper(arg[i], loc);
 	}
-	return (str);
+	std::cout << prt;
 }
 
 /**
@@ -58,9 +44,8 @@ int	main(int ac, char **ar)
 	if (ac > 1)
 	{
 		while (ar[len])
-			putStr(convertAlpha(ar[len++]));
+			convertAlpha(ar[len++]);
 	}
 	else if (ac == 1)
-		putStr((char *)"* LOUD AND UNBEARABLE FEEDBACK NOISE *");
-	write(1, "\n", 1);
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 }
