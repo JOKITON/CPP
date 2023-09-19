@@ -6,11 +6,10 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 13:04:01 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/15 12:13:32 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:13:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
