@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:58:07 by jokin             #+#    #+#             */
-/*   Updated: 2023/07/07 08:37:32 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/20 13:03:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,7 @@ int	main(int ac, char **ar) {
 			std::cout << "1. [DEBUG]\n" << "\t2. [INFO]\n" << "\t3. [WARNING]\n" << "\t4. [ERROR]\n";
 			return (1);
 		case (2):
-			std::string	input = ar[1];
-			LogLevel level;
-            
-            if (input == "DEBUG")
-        	  level = DEBUG;
-            else if (input == "INFO")
-              level = INFO;
-            else if (input == "WARNING")
-              level = WARNING;
-            else if (input == "ERROR")
-              level = ERROR;
-			else
-				std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-            obj.complain(level);
+			obj.complain(ar[1]);
     }
 	return (0);
 }

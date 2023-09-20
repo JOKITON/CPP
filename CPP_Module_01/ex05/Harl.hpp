@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:36:01 by jokin             #+#    #+#             */
-/*   Updated: 2023/07/06 10:38:24 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/20 13:12:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ class	Harl {
 		void	error( void );
 	
 	public:
+		Harl( void );
+		~Harl( void );
 		void	complain( std::string level );
+		int		checkStr( std::string arg );
 
 };
 

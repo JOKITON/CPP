@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:38:23 by jokin             #+#    #+#             */
-/*   Updated: 2023/07/07 08:36:33 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/20 13:09:31 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+Harl::Harl( void ) {
+	std::cout << "[Harl] has been constructed!" << std::endl;
+	return ;
+}
+
+Harl::~Harl( void ) {
+	std::cout << "[Harl] has been destroyed!" << std::endl;
+	return ;
+}
 
 void	clearTerminal(void) {
 	std::cout << "\033[2J\033[1;1H";
@@ -40,21 +50,38 @@ void	Harl::error(void) {
 	std::cout << "[ ERROR ]\n" << "This is unacceptable! I want to speak to the manager now.\n" << std::endl;
 }
 
-void	Harl::complain(LogLevel level) {
-	if (level == (DEBUG)) {
-		this->debug();
-		this->info();
-		this->warning();
-		this->error(); }
-	else if (level == (INFO)) {
-		this->info();
-		this->warning();
-		this->error(); }
-	else if (level == (WARNING)) {
-		this->warning();
-		this->error(); }
-	else if (level == (ERROR))
-		this->error();
-	return;
+int	Harl::checkStr(std::string arg) {
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	for (int i = 0; i < 4; i++) {
+		if (arg == levels[i])
+			return (i);
+	}
+	return (-1);
 }
 
+void	Harl::complain(std::string level) {
+	switch (checkStr(level)) {
+		case 0:
+			this->debug();
+			this->info();
+			this->warning();
+			this->error();
+			break ;
+		case 1:
+			this->info();
+			this->warning();
+			this->error();
+			break ;
+		case 2:
+			this->warning();
+			this->error();
+			break ;
+		case 3:
+			this->error();
+			break ;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
+	return;
+}

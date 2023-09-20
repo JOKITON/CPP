@@ -3,26 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jokin </var/mail/jokin>                    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:38:23 by jokin             #+#    #+#             */
-/*   Updated: 2023/07/06 10:55:42 by jokin            ###   ########.fr       */
+/*   Updated: 2023/09/20 13:11:58 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-/*void	clearTerminal(void) {
-	std::cout << "\033[2J\033[1;1H";
-	return;
+Harl::Harl( void ) {
+	std::cout << "[Harl] has been constructed!" << std::endl;
+	return ;
 }
 
-void	CoutMenu(void) {
-		clearTerminal();
-		std::cout << "\tChoose between these four options for Harl : \n\n\t";
-	       	std::cout << "1. [DEBUG]\n" << "\t2. [INFO]\n" << "\t3. [WARNING]\n" << "\t4. [ERROR]\n";
-		std::cout << "$";
-		return; }*/
+Harl::~Harl( void ) {
+	std::cout << "[Harl] has been destroyed!" << std::endl;
+	return ;
+}
 
 void	Harl::debug(void) {
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
@@ -40,15 +38,33 @@ void	Harl::error(void) {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+int	Harl::checkStr(std::string arg) {
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	for (int i = 0; i < 4; i++) {
+		if (arg == levels[i])
+			return (i);
+	}
+	return (-1);
+}
+
 void	Harl::complain(std::string level) {
-	if (!level.compare("DEBUG"))
-		this->debug();
-	else if (!level.compare("INFO"))
-		this->info();
-	else if (!level.compare("WARNING"))
-		this->warning();
-	else if (!level.compare("ERROR"))
-		this->error();
+	switch (checkStr(level)) {
+		case 0:
+			this->debug();
+			break ;
+		case 1:
+			this->info();
+			break ;
+		case 2:
+			this->warning();
+			break ;
+		case 3:
+			this->error();
+			break ;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
 	return;
 }
 
@@ -67,16 +83,4 @@ void	HarlLife(void) {
 		usleep(1500000);
 		std::cout << "\n\t----------------------------\n";
 	}
-	/*CoutMenu();
-	while (1) {
-		std::cin >> input;
-		if (!input.compare("DEBUG") || !input.compare("INFO") || !input.compare("WARNING") || !input.compare("ERROR")) {
-			person.complain(input);
-			std::cout << "\n$"; }
-		else {
-			std::cout << "\nHarl : command not found";
-			usleep(1000000);
-	       		CoutMenu(); }
-		}*/
 }
-

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:27:00 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/19 12:40:34 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:25:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@
 #include <sstream>
 #include <cstdlib>
 
-/**
- * @brief 
- * 
- */
+
 void	clearTerminal(void);
 void	rpStringInFile(const std::string& filename, const std::string& s1, const std::string& s2);
 

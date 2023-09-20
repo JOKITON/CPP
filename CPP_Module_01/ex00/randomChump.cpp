@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 19:57:09 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/19 11:25:40 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:44:13 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @brief Creates a zombie with the specified name.
  * 
  * This function creates a new Zombie object with the given name
- * and then announces its presence.
+ * and then announces its presence in the stack (non-allocated).
  * 
  * @param name The name of the random zombie.
  */

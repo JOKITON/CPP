@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 12:51:04 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/15 12:10:39 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:33:58 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ class HumanB {
 		std::string	name;
 		Weapon		*weapon;
 	public:
-		HumanB( void );
-		~HumanB( void );
 		HumanB(std::string name);
+		~HumanB( void );
 		void	setWeapon(Weapon &newWeapon);
 		void	attack( void );
 };

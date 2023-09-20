@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:27:28 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/19 12:47:49 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:18:57 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,11 @@ void	rpSubstr(std::string& buf, size_t pos, const std::string s1, const std::str
 	temp = buf.substr(0, pos) + s2 + buf.substr(pos + s1.length());
 	buf = temp; }
 
-/* std::ifstream	getFile(const std::string filename) {
-	std::ifstream		input(filename.c_str());
-	if (!input.is_open()) {
-		clearTerminal();
-		std::cerr << "File not found" << std::endl;
-		return ""; }
-	else
-		return input;
-
-} //*/
-// Cannot work without a structure, std::ifstream limits the way return values are handled.
-
-
 void	rpStringInFile(const std::string& filename, const std::string& s1, const std::string& s2) {
 	std::ifstream		input(filename.c_str());
 	if (!input.is_open()) {
 		clearTerminal();
-		std::cerr << "File not found" << std::endl;
+		std::cerr << "File not found OR Not adequate file permissions" << std::endl;
 		return ; }
 		
 	std::stringstream	StrBuf;

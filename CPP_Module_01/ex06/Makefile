@@ -1,5 +1,5 @@
 NAME = harlFilter
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror
 STD = -std=c++98
 SRCS = main.cpp Harl.cpp
 RM = rm
@@ -21,3 +21,6 @@ clean:
 fclean: clean
 	    $(RM) $(NAME)
 
+re : fclean all
+
+.PHONY : fclean clean re
