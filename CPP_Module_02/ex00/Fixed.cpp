@@ -25,7 +25,6 @@ Fixed::~Fixed( void ) {
 
 Fixed::Fixed( Fixed& p) {
 	std::cout << "[Fixed] Copy Constructor called." << std::endl;
-// Should copy constructor get a referente from &p?
 	this->fixed = p.fixed;
 }
 
