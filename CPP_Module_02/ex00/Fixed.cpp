@@ -13,18 +13,19 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed( void ) {
-	std::cout << "Default Constructor called~" << std::endl;
+	std::cout << "[Fixed] Default Constructor called." << std::endl;
 	this->fixed = 0;
 	return ;
 }
 
 Fixed::~Fixed( void ) {
-	std::cout << "Default Destructor called~" << std::endl;
+	std::cout << "[Fixed] Default Destructor called."
 	return ;
 }
 
 Fixed::Fixed( Fixed& p) {
-	std::cout << "Copy Constructor called~" << std::endl;
+	std::cout << "[Fixed] Copy Constructor called." << std::endl;
+// Should copy constructor get a referente from &p?
 	this->fixed = p.fixed;
 }
 
