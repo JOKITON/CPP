@@ -1,8 +1,13 @@
 NAME = harlFilter
+
 CFLAGS = -fsanitize=address -Wall -Wextra -Werror
+
 STD = -std=c++98
+
 SRCS = main.cpp Harl.cpp
+
 RM = rm
+
 CC = c++
 
 OBJS = $(SRCS:.cpp=.o)

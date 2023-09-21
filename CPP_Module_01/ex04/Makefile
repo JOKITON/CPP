@@ -1,10 +1,13 @@
 NAME = a.out
+
 CFLAGS = -fsanitize=address -Wall -Wextra -Werror
+
 STD = -std=c++98
 
 SRCS = main.cpp StdReplace.cpp
 
 RM = rm
+
 CC = c++
 
 OBJS = $(SRCS:.cpp=.o)
