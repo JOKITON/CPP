@@ -6,8 +6,6 @@ RM = rm
 
 CFLAGS = -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
-STD = -std=c++98
-
 SRCS = megaphone.cpp
 
 OBJS = $(SRCS:.cpp=.o)
@@ -15,7 +13,7 @@ OBJS = $(SRCS:.cpp=.o)
 all : $(NAME)
 
 %.o : %.cpp
-	$(CC) $(CFLAGS) $(STD) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

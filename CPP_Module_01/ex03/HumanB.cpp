@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 12:57:56 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/21 12:51:37 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:15:22 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	HumanB::attack(void) {
 }
 
 void	HumanB::setWeapon(Weapon &newWeapon) {
+	// Important to point to newWeapon, as changes will affect HumanB.
 	weapon = &newWeapon;
 	return ;
 }

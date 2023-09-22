@@ -6,35 +6,34 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/11 10:57:48 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:41:25 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 // EX00-F
-
 Fixed::Fixed( void ) {
-	std::cout << "Default Constructor called~" << std::endl;
+	std::cout << "[Fixed] Constructor called" << std::endl;
 	this->fixed = 0;
 	return ;
 }
 
 Fixed::~Fixed( void ) {
-	std::cout << "Default Destructor called~" << std::endl;
+	std::cout << "[Fixed] Destructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed( Fixed& p) {
-	std::cout << "Copy Constructor called~" << std::endl;
+	std::cout << "[Fixed] Copy Constructor called" << std::endl;
 	this->fixed = p.fixed;
 }
 
 Fixed& Fixed::operator=(const Fixed& p) {
-    std::cout << "Copy Assignment Operator called~" << std::endl;
     if (this != &p) { // Check for self-assignment
         this->fixed = p.fixed;
     }
+    std::cout << "[Fixed] Copy Assigment Operator Called" << std::endl;
     return *this;
 }
 
@@ -49,17 +48,17 @@ void	Fixed::setRawBits( int const raw ) {
 // EX01-F
 
 Fixed::Fixed ( const Fixed& p) {
-	std::cout << "Const Copy Constuctor called~" << std::endl;
-	*this = p;
+	std::cout << "[Fixed] Const Copy Constuctor called." << std::endl;
+	*this = p; // Calls Copy Assigment Operator
 }
 
 Fixed::Fixed ( const int p) {
-	std::cout << "Int Constuctor called~" << std::endl;
+	std::cout << "[Fixed] Int Constuctor called." << std::endl;
 	this->fixed = p * (1 << this->fract);
 }
 
 Fixed::Fixed ( const float p) {
-	std::cout << "Float Constuctor called~" << std::endl;
+	std::cout << "[Fixed] Float Constuctor called." << std::endl;
 	this->fixed = roundf(p * (1 << this->fract));
 }
 
@@ -71,8 +70,8 @@ int	Fixed::toInt ( void ) const {
 	return (int)(this->fixed / ( 1 << this->fract));
 }
 
-std::ostream& operator<<(std::ostream& out, const Fixed& p) {
-    out << p.toFloat();
+std::ostream& operator<<(std::ostream& out, const Fixed& t) {
+    out << t.toFloat();
     return out;
 }
 
@@ -141,26 +140,26 @@ Fixed Fixed::operator/(const Fixed& p) const {
 }
 
 Fixed& Fixed::operator++( void ) {
-    std::cout << "Pre-increment operator called" << std::endl;
+    std::cout << "[Fixed] Pre-increment operator called" << std::endl;
 	this->fixed++;
 	return (*this);
 }
 
 Fixed Fixed::operator++( int ) {
-    std::cout << "Post-increment operator called" << std::endl;
+    std::cout << "[Fixed] Post-increment operator called" << std::endl;
 	Fixed t(*this);
 	this->fixed++;
 	return (t);
 }
 
 Fixed& Fixed::operator--( void ) {
-    std::cout << "Pre-decrement operator called" << std::endl;
+    std::cout << "[Fixed] Pre-decrement operator called" << std::endl;
 	this->fixed--;
 	return (*this);
 }
 
 Fixed Fixed::operator--( int ) {
-    std::cout << "Post-increment operator called" << std::endl;
+    std::cout << "[Fixed] Post-decrement operator called" << std::endl;
 	Fixed t(*this);
 	this->fixed--;
 	return (t);
