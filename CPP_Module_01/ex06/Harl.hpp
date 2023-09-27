@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:36:01 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/20 12:59:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 01:57:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,5 @@ class	Harl {
 		void	complain( std::string level );
 
 };
-
-void	HarlLife(void);
-
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:27:28 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/22 17:20:31 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 01:56:16 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rpSubstr(std::string& buf, size_t pos, const std::string s1, const std::str
 
 void	rpStringInFile(const std::string& filename, const std::string& s1, const std::string& s2) {
 	std::ifstream		input(filename.c_str());
-	if (!input.is_open() || !filename.compare(".") || !filename.compare("..")) {
+	if (!input.is_open() || !filename.compare(".") || !filename.compare("..")) { // Error handling
 		clearTerminal();
 		if (!filename.compare(".") || !filename.compare(".."))
 			std::cerr << "Directories not accepted\n" << std::endl;
@@ -36,7 +36,7 @@ void	rpStringInFile(const std::string& filename, const std::string& s1, const st
 	std::string		Buf;
 	size_t			pos;
 	pos = 0;
-	StrBuf << input.rdbuf();
+	StrBuf << input.rdbuf(); // Copy content to StrBuf from file
 	Buf = StrBuf.str();
 	pos = Buf.find(s1);
 	input.close();
@@ -51,10 +51,10 @@ void	rpStringInFile(const std::string& filename, const std::string& s1, const st
 	}
 
 	std::ofstream		output((filename + ".replace").c_str());
-	if (!output.is_open()) {
+	if (!output.is_open()) { // Error handling
 		std::cerr << "Failed to create output file" << std::endl;
 		return ; }
-	output.seekp(0);
+	output.seekp(0); // Start from pos 0
 	output << Buf;
 	output.close();
 	return ;

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:38:23 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/20 13:11:58 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 01:56:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	Harl::error(void) {
 }
 
 int	Harl::checkStr(std::string arg) {
-	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"}; // string to handle switch statement
 
 	for (int i = 0; i < 4; i++) {
 		if (arg == levels[i])

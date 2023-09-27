@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 12:48:34 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/19 12:00:34 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 01:54:00 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,42 +25,13 @@
 class Weapon {
 	
 	private:
-		std::string	type; // The type of weapon.
+		std::string	type;
 	public:
-		/**
-		 * @brief Construct a new Weapon object with an empty type.
-		 * 
-		 * The default constructor initializes the weapon type to an empty string.
-		 */
 		Weapon( void );
-
-		/**
-		 * @brief Construct a new Weapon object with the specified type.
-		 * 
-		 * @param type The type of weapon to set during construction.
-		 */
-		Weapon(std::string type);
-
-		/**
-		 * @brief Destroy the Weapon object.
-		 * 
-		 * The destructor is responsible for cleaning up resources when a Weapon
-		 * object is no longer in use.
-		 */
 		~Weapon( void );
 
-		/**
-		 * @brief Get the type of the weapon.
-		 * 
-		 * @return std::string The type of the weapon as a string.
-		 */
+		Weapon(std::string type);
 		std::string getType( void ) const;
-
-		/**
-		 * @brief Set the type of the weapon.
-		 * 
-		 * @param rep The new type to set for the weapon.
-		 */
 		void setType(std::string rep);
 };
 
