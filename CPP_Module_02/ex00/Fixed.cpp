@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/22 17:09:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/27 23:48:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@ Fixed::Fixed( Fixed& p) {
 }
 
 Fixed& Fixed::operator=( Fixed& p ) {
-	if (this != &p)
-		this->fixed = p.getRawBits();
 	std::cout << "[Fixed] Copy Assigment Operator Called" << std::endl;
+	if (this != &p) // Check for self-assignment
+		this->fixed = p.getRawBits();
 	return (p);
 }
 
 int	Fixed::getRawBits() const {
+	std::cout << "[Fixed] getRawBits called" << std::endl;
 	return (this->fixed);
 }
 

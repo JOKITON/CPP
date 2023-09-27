@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/20 15:30:31 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 00:01:09 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int main( void ) {
 Fixed a;
-Fixed const b( 10 ); // Int Constructor
-Fixed const c( 42.42f ); // Float Constructor
+Fixed const b( 10 );
+Fixed const c( 42.42f );
 
 std::cout << std::endl;
-Fixed const d( b ); // (const) Copy Constructor
+Fixed const d( b );
 
 std::cout << std::endl;
-a = Fixed( 1234.4321f ); // Copy Assigment Operator
+a = Fixed( 1234.4321f );
 
 std::cout << "\na is " << a << std::endl;
 std::cout << "b is " << b << std::endl;

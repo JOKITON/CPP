@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/06 13:56:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 00:25:10 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,24 @@ class Fixed {
     static const int fract = 8;
 
   public:
-    Fixed( void );
-    ~Fixed( void );
-    Fixed( Fixed& p );
-    Fixed( const Fixed& p );
-    Fixed& operator=(const Fixed& p);
-    int getRawBits( void ) const;
-    void setRawBits( int const raw);
-    // EX01
-    Fixed (const int p);
-    Fixed ( const float p);
-    int  toInt ( void ) const;
-    float  toFloat ( void ) const;
-    friend std::ostream& operator<<(std::ostream& out, const Fixed& t);
+	// ex00 Functions
+	// --------------
+	Fixed( void );
+	~Fixed( void );
+	Fixed( Fixed& p );
+	Fixed( const Fixed& p );
+	Fixed& operator=( Fixed& p);
+	int getRawBits( void ) const;
+	void setRawBits( int const raw);
+
+	// ex01 Functions
+	// --------------
+	Fixed& operator=( const Fixed& p);
+	Fixed (const int p);
+	Fixed ( const float p);
+	int  toInt ( void ) const;
+	float  toFloat ( void ) const;
+	friend std::ostream& operator<<(std::ostream& out, const Fixed& t);
 
 };
 

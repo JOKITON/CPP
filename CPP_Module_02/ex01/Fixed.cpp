@@ -6,16 +6,17 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/20 15:29:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 00:23:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-// EX00-F
-Fixed::Fixed( void ) {
+// ex00 Functions
+// --------------
+
+Fixed::Fixed( void ) : fixed (0) {
 	std::cout << "[Fixed] Constructor called" << std::endl;
-	this->fixed = 0;
 	return ;
 }
 
@@ -27,17 +28,18 @@ Fixed::~Fixed( void ) {
 Fixed::Fixed( Fixed& p) {
 	std::cout << "[Fixed] Copy Constructor called" << std::endl;
 	this->fixed = p.fixed;
+	//*this = p; // deep copy, not appropiate in this case
 }
 
-Fixed& Fixed::operator=(const Fixed& p) {
-    if (this != &p) { // Check for self-assignment
-        this->fixed = p.fixed;
-    }
-    std::cout << "[Fixed] Copy Assigment Operator Called" << std::endl;
-    return *this;
+Fixed& Fixed::operator=( Fixed& p ) {
+	std::cout << "[Fixed] Copy Assigment Operator Called" << std::endl;
+	if (this != &p) // Check for self-assignment
+		this->fixed = p.getRawBits();
+	return (p);
 }
 
 int	Fixed::getRawBits() const {
+	std::cout << "[Fixed] getRawBits called" << std::endl;
 	return (this->fixed);
 }
 
@@ -45,11 +47,20 @@ void	Fixed::setRawBits( int const raw ) {
 	this->fixed = raw;
 }
 
-// EX01-F
+// ex01 Functions
+// --------------
+
+Fixed& Fixed::operator=( const Fixed& p ) {
+	std::cout << "[Fixed] Copy Assigment Operator Called" << std::endl;
+	if (this != &p) // Check for self-assignment
+		this->fixed = p.getRawBits();
+	return ((Fixed&)p);
+}
 
 Fixed::Fixed ( const Fixed& p) {
 	std::cout << "[Fixed] Const Copy Constuctor called." << std::endl;
-	*this = p; // Calls Copy Assigment Operator
+	this->fixed = p.fixed;
+	//*this = p; // Calls Copy Assigment Operator, not appropiate in this case
 }
 
 Fixed::Fixed ( const int p) {
