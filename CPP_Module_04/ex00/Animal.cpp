@@ -6,44 +6,44 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:00:47 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/11 19:43:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:43:47 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void) : type("Animal") { // Default Constructor
+Animal::Animal(void) : type("Animal") {
 	std::cout << "[Animal] " << type << " has been constructed!" << std::endl;
 	return ;
 }
 
-Animal::Animal(std::string animal) { // String-Integrated Constructor
+Animal::Animal(std::string animal) {
 	this->type = animal;
 	std::cout << "[Animal] " << animal << " has been constructed!" << std::endl;
 	return ;
 }
 
-Animal::~Animal(void) { // Destructor
+Animal::~Animal(void) {
 	std::cout << "[Animal]" << type << " has been destroyed!" << std::endl;
 	return ;
 }
 
-Animal::Animal(const Animal& p) { // Non-used Copy-Constructor
+Animal::Animal(const Animal& p) {
 	std::cout << "[Animal] Copy Constructor Called!" << std::endl;
 	*this = p;
 }
 
-Animal& Animal::operator=( const Animal* p ) { // Assigment operator
+Animal& Animal::operator=( const Animal* p ) {
 	std::cout << "[Animal] Assignment operator called!" << std::endl;
 	this->type = p->type;
 	return (*this);
 }
 
-std::string	Animal::getType(void) const { // Returns the type of the Animal
+std::string	Animal::getType(void) const {
 	return this->type;
 }
 
-void	Animal::makeSound(void) const { // Depending on the Animal, a sound is displayed
+void	Animal::makeSound(void) const {
 	if (this->type == "Cat")
 		std::cout << "[Cat] Meooooow!" << std::endl;
 	else if (type == "Dog")
