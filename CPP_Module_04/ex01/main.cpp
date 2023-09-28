@@ -14,34 +14,16 @@
 #include "Cat.hpp"
 
 void	subjectTests( void ) {
-	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-
+	delete j;//should not create a leak
 	delete i;
-	delete j;
-	delete(meta);
+
+	return ;
 }
 
 void	execTests( void ) {
-	const Animal* g = new Animal("Cat");
-	const Animal* h = new Animal("Dog");
-	std::cout << g->getType() << " " << std::endl;
-	std::cout << h->getType() << " " << std::endl;
-	std::cout << g << " " << std::endl;
-	std::cout << h << " " << std::endl;
-	std::cout << &g << " " << std::endl;
-	std::cout << &h << " " << std::endl;
-	g->makeSound();
-	h->makeSound();
-
-	delete(g);
-	delete(h);
+	return ;
 }
 
 int	main(void) {
