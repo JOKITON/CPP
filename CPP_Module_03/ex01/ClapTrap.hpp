@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 16:39:36 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 12:28:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:04:00 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,17 @@ private:
 	int			AttackDmg;
 		
 public:
+	// ex00 Functions
+	// --------------
 	ClapTrap(std::string	&name);
 	virtual ~ClapTrap();
 
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+
+	// ex01 Functions
+	// --------------
 	std::string	getName(void) const;
 	int			getAttackDmg(void) const;
 	int			getEnergyPoints(void) const;

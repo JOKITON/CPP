@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 10:58:20 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 18:41:31 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:39:46 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ class ScavTrap : virtual public ClapTrap {
 	private:
 	
 	public:
-		ScavTrap(std::string name);
-		~ScavTrap();
+		// ex01 Functions
+		// --------------
+		ScavTrap(std::string& name);
+		virtual ~ScavTrap();
 		void	attack(const std::string& target);
 		void	guardGate(void);
 };

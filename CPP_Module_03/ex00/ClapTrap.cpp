@@ -6,22 +6,21 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:37:14 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/08 18:07:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:03:36 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string	&name) {
-	this->name = name;
-	this->HitPoints = 10;
-	this->EnergyPoints = 10;
-	this->AttackDmg = 0;
-	std::cout << "Default Constructor initialized" << std::endl;
+// ex00 Functions
+// --------------
+
+ClapTrap::ClapTrap(std::string	&name) : name(name), HitPoints(10), EnergyPoints(10), AttackDmg(0) {
+	std::cout << "[ClapTrap] Default constructor" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << "Default Destructor Called" << std::endl;
+	std::cout << "[ClapTrap] Default destructor" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target) {

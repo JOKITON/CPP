@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 12:02:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 12:22:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:11:52 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ class FragTrap : public ClapTrap {
 	private:
 
 	public:
+		// ex02 Functions
+		// --------------
 		FragTrap(std::string& name);
-		~FragTrap();
+		virtual ~FragTrap();
 		void	highFivesGuys();
 };
 

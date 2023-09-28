@@ -6,22 +6,20 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:37:14 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 12:29:17 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:05:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string	&name) {
-	this->name = name;
-	this->HitPoints = 100;
-	this->EnergyPoints = 50;
-	this->AttackDmg = 20;
-	std::cout << "ClapTrap Constructor initialized" << std::endl;
+// ex00 Functions
+// --------------
+ClapTrap::ClapTrap(std::string	&name) : name(name), HitPoints(100), EnergyPoints(50), AttackDmg(20) {
+	std::cout << "[ClapTrap] Default constructor" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << "ClapTrap Destructor Called" << std::endl;
+	std::cout << "[ClapTrap] Default destructor" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target) {
@@ -41,6 +39,8 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 	this->HitPoints -= amount;
 }
 
+// ex01 Functions
+// --------------
 std::string ClapTrap::getName() const {
     return name;
 }

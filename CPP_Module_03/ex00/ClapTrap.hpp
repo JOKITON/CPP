@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 16:39:36 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/08 18:00:36 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:03:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ private:
 	int			AttackDmg;
 		
 public:
+	// ex00 Functions
+	// --------------
 	ClapTrap(std::string	&name);
-	~ClapTrap();
+	virtual ~ClapTrap();
 
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);

@@ -6,24 +6,26 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 10:58:18 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 11:55:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:09:38 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-
+// ex01 Functions
+// --------------
 ScavTrap::ScavTrap(std::string& name) : ClapTrap(name){
-	std::cout << "ScavTrap Constructor Initialized" << std::endl;
+	std::cout << "[ScavTrap] Constructor Initialized" << std::endl;
 	return ;
 }
 
 ScavTrap::~ScavTrap(void) {
-	std::cout << "ScavTrap Destructor Initialized" << std::endl;
+	std::cout << "[ScavTrap] Destructor Initialized" << std::endl;
 	return ;
 }
 
 void	ScavTrap::attack(const std::string& target) {
+	this->decreaseEnergy(1);
 	std::cout << this->getName() << " attacks " << target << ", causing " << this->getAttackDmg() << " points of damage!" << std::endl;
 }
 

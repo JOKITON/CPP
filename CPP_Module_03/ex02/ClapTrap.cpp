@@ -6,22 +6,20 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:37:14 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 12:25:45 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:33:29 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string	&name) {
-	this->name = name;
-	this->HitPoints = 100;
-	this->EnergyPoints = 100;
-	this->AttackDmg = 30;
-	std::cout << "ClapTrap Constructor initialized" << std::endl;
+// ex00 Functions
+// --------------
+ClapTrap::ClapTrap(std::string	&name) : name(name), HitPoints(100), EnergyPoints(50), AttackDmg(20) {
+	std::cout << "[ClapTrap] Default constructor" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << "ClapTrap Destructor Called" << std::endl;
+	std::cout << "[ClapTrap] Default destructor" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target) {
@@ -41,6 +39,8 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 	this->HitPoints -= amount;
 }
 
+// ex01 Functions
+// --------------
 std::string ClapTrap::getName() const {
     return name;
 }
@@ -55,4 +55,8 @@ int	ClapTrap::getEnergyPoints() const {
 
 int	ClapTrap::getHealth() const {
 	return HitPoints;
+}
+
+void	ClapTrap::decreaseEnergy(int amount) {
+	this->EnergyPoints -= amount;
 }

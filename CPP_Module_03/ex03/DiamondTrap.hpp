@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 12:38:58 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/10 18:39:27 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:42:05 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 		std::string name;
 
 	public:
+		// ex03 Functions
+		// --------------
 		DiamondTrap(std::string& name);
 		~DiamondTrap();
 		using ScavTrap::attack;
