@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:47:59 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/28 12:47:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/29 12:12:04 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 
 class Brain {
 	private:
-		std::string[100] ideas;
+		std::string ideas[100];
 	public:
-	Brain( void );
-	virtual ~Brain( void );
+		Brain( void );
+		virtual ~Brain( void );
+		void	setIdea(std::string arg);
 
 };
 

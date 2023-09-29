@@ -1,6 +1,6 @@
 NAME = a.out
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

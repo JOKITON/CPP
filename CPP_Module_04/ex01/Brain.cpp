@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:47:56 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/28 12:47:56 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:33:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,8 @@ Brain::Brain( void) {
 Brain::~Brain( void) {
 	std::cout << "[Brain] Destructor called" << std::endl;
 	return ;
+}
+
+void	Brain::setIdea(std::string arg) {
+	*(this->ideas) = arg;
 }
