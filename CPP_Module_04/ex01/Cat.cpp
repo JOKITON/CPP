@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:05:21 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:52:23 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,8 @@ Cat&	Cat::operator=(Cat const & p) {
 void	Cat::makeSound(void) const {
 	std::cout << "[Cat] Meowwwww" << std::endl;
 	return ;
+}
+
+Brain*	Cat::getBrain( void ) {
+	return (this->catBrain);
 }

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:33:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:59:55 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	subjectTests( void ) {
 }
 
 void	execTests( void ) {
+	const	Animal* test = new Dog();
+
+	test->makeSound();
+	delete test;
 	// brain tests
 }
 
@@ -40,7 +44,7 @@ int	main(void) {
 	subjectTests();
 
 	// my Own tests
-	//execTests();
+	execTests();
 
 	return 0;
 }

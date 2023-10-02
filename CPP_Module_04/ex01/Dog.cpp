@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:26:02 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 15:53:47 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:52:43 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,8 @@ void	Dog::makeSound(void) const { //
 Dog&	Dog::operator=(const Dog& p) {
 	this->type = p.type;
 	return *this;
+}
+
+Brain*	Dog::getBrain( void ) {
+	return (this->dogBrain);
 }
