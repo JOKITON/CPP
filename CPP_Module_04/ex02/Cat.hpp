@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 16:25:50 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/02 19:44:51 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/09/11 16:24:46 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/10/02 18:52:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal {
+class Cat : public Animal {
 	private:
-		Brain* dogBrain;
+		Brain*	catBrain;
 	public:
-		Dog(void);
-		Dog( const Dog& p);
-	
-		~Dog(void);
-	
-		void	makeSound(void) const;
-	
-		Dog&	operator=(const Dog& p);
+		Cat(void);
+		Cat(const Cat & p);
 
-		Brain*	getBrain( void ) const;
+		~Cat(void);
+		
+		Cat& operator=(Cat const & p);
+		
+		void	makeSound(void) const;
+
+		Brain*	getBrain( void );
 };
 
 #endif

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 16:25:50 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/02 19:44:51 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/09/28 12:47:59 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/10/02 18:58:34 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include "Animal.hpp"
-#include "Brain.hpp"
 
-class Dog : public Animal {
+class Brain {
 	private:
-		Brain* dogBrain;
+		std::string *ideas;
 	public:
-		Dog(void);
-		Dog( const Dog& p);
-	
-		~Dog(void);
-	
-		void	makeSound(void) const;
-	
-		Dog&	operator=(const Dog& p);
+		Brain( void );
+		virtual ~Brain( void );
 
-		Brain*	getBrain( void ) const;
+		Brain(Brain& p);
+		Brain&	operator=(const Brain& p);
+		std::string*	getIdeas(void);
+
 };
 
 #endif
