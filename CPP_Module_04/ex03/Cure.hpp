@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 00:11:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/05 00:20:54 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/10/04 23:53:16 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/10/04 23:56:54 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef CURE_HPP
+#define CURE_HPP
 
-#include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Character : public ICharacter {
+class Cure {
 	private:
-		AMateria	*slots;
+		std::string type;
 	public:
-		Character( void );
-		virtual ~Character ( void );
-}
+		Cure();
+		~Cure();
 
+		void	use(ICharacter& p);
+};
 
 #endif

@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 00:11:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/05 00:20:54 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/10/04 23:47:58 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/10/04 23:53:11 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef ICE_HPP
+#define ICE_HPP
 
-#include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Character : public ICharacter {
+class Ice {
 	private:
-		AMateria	*slots;
+		std::string type;
 	public:
-		Character( void );
-		virtual ~Character ( void );
-}
+		Ice();
+		~Ice();
+
+	void	use(ICharacter& p);
+};
+
 
 
 #endif

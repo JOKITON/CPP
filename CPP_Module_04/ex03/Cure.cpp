@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 00:11:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/05 00:20:54 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/10/04 23:52:12 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/10/04 23:56:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#include "Cure.hpp"
 
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
-
-class Character : public ICharacter {
-	private:
-		AMateria	*slots;
-	public:
-		Character( void );
-		virtual ~Character ( void );
+Cure::Cure( void ) {
+	std::cout << "[Cure] has been constructed." << std::endl;
 }
 
+Cure::~Cure( void ) {
+	std::cout << "[Cure] has been destroyed." << std::endl;
+}
 
-#endif
+void	Cure::use( ICharacter& p) {
+	std::cout << "* heals " << p.getName() << "'s wounds *" << std::endl;
+}

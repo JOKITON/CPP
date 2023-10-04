@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 00:11:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/05 00:20:54 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/10/04 23:48:53 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/10/04 23:55:15 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#include "Ice.hpp"
 
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
-
-class Character : public ICharacter {
-	private:
-		AMateria	*slots;
-	public:
-		Character( void );
-		virtual ~Character ( void );
+Ice::Ice( void ) {
+	std::cout << "[Ice] has been constructed." << std::endl;
 }
 
+Ice::~Ice( void ) {
+	std::cout << "[Ice] has been destroyed." << std::endl;
+}
 
-#endif
+void	Ice::use(ICharacter& p) {
+	std::cout << "[Ice] * shoots an ice bolt at " << p.getName() << " *" << std::endl;
+}
