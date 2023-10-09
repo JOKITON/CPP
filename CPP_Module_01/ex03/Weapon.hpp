@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 12:48:34 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/28 01:54:00 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:51:55 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define WEAPON_HPP
 
 #include <iostream>
-#include <string>
 
 /**
  * @brief The Weapon class represents a type of weapon with a specific type.

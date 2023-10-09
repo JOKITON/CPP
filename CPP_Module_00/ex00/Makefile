@@ -4,7 +4,7 @@ CC = c++
 
 RM = rm
 
-CFLAGS = -fsanitize=address -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = megaphone.cpp
 
@@ -27,3 +27,4 @@ fclean: clean
 re : fclean all
 
 .PHONY : clean fclean re
+

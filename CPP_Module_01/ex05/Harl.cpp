@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:38:23 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/28 01:56:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/09 17:00:50 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,4 @@ void	Harl::complain(std::string level) {
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 	return;
-}
-
-
-void	HarlLife(void) {
-	std::string	input;
-	Harl		Harl;
-	while (1) {
-		Harl.complain("DEBUG");
-		usleep(1500000);
-		Harl.complain("INFO");
-		usleep(1500000);
-		Harl.complain("WARNING");
-		usleep(1500000);
-		Harl.complain("ERROR");
-		usleep(1500000);
-		std::cout << "\n\t----------------------------\n";
-	}
 }

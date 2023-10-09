@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:27:28 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/28 01:56:16 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:55:03 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	rpStringInFile(const std::string& filename, const std::string& s1, const st
 	if (!input.is_open() || !filename.compare(".") || !filename.compare("..")) { // Error handling
 		clearTerminal();
 		if (!filename.compare(".") || !filename.compare(".."))
-			std::cerr << "Directories not accepted\n" << std::endl;
+			std::cerr << "error: non-valid directories" << std::endl;
 		else
-			std::cerr << "File not found OR Not adequate file permissions" << std::endl;
+			std::cerr << "error: file not found OR not-adequate file permissions" << std::endl;
 		return ; }
 		
 	std::stringstream	StrBuf;

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 12:57:56 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/22 17:15:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:49:57 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ HumanB::~HumanB(void) {
 }
 
 void	HumanB::attack(void) {
-	std::cout << "[HumanB] " << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+	if (this->weapon == NULL)
+		std::cout << "[HumanB] " << this->name << " has no weapon to attack with!" << std::endl;
+	else
+		std::cout << "[HumanB] " << this->name << " attacks with their " << this->weapon->getType() << std::endl;
 	return ;
 }
 

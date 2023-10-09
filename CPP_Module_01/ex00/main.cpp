@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:09:47 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/20 13:43:39 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:41:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main(void) {
 
 	std::cout << "\n**[randomChump] :" << std::endl;
 	newZombie->randomChump("Anna");
+	std::cout << std::endl;
 	zombie->randomChump("Frank");
 	std::cout << std::endl;
 	

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 19:57:09 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/20 13:44:13 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:41:03 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@
  * @param name The name of the random zombie.
  */
 void	Zombie::randomChump(std::string name) {
-	Zombie	temp;
+	Zombie	temp(name);
 
-	temp.name = name;
 	std::cout << temp.name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 19:52:01 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/22 17:10:28 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:40:10 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,16 @@
  * 
  */
 Zombie::Zombie(void) {
-	std::cout << "[Zombie] Constructor has been called!" << std::endl; }
+	std::cout << "[Zombie] Constructor has been called for (none)!" << std::endl; }
+
+Zombie::Zombie( std::string param ) {
+	this->name = param;
+
+	if (this->name == "")
+		std::cout << "[Zombie] Constructor has been called for (none)!" << std::endl;
+	else
+		std::cout << "[Zombie] Constructor has been called for " << this->name << "!" << std::endl;
+}
 
 /**
  * @brief Destroy the Zombie:: Zombie object

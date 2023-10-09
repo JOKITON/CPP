@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:26:01 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/22 17:17:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/09 17:00:10 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(void) {
 	std::cout << std::endl;
 	
 	if (!s1.compare(s2)) {
-		std::cerr << "Please, enter two different words you want to replace :)" << std::endl;
+		std::cerr << "error: enter two DIFFERENT words you want to replace." << std::endl;
 		return (1); }
 	rpStringInFile(filename, s1, s2);
 	return (0);

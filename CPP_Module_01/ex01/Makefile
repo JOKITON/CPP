@@ -4,7 +4,7 @@ CFLAGS = -fsanitize=address -Wall -Wextra -Werror
 
 STD = -std=c++98
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp zombieHorde.cpp
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
 HDRS = Zombie.hpp
 
