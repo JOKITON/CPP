@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 12:49:47 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/28 02:42:15 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/12 01:31:46 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 // ex03 Functions
 // --------------
 DiamondTrap::DiamondTrap(std::string& name) : ClapTrap(name), ScavTrap(name), FragTrap(name) {
-	this->ClapTrap::setName(name + "_clap_name");
+	
+    this->ClapTrap::setName(name + "_clap_name");
     this->name = name;
+
     setHitPoints(100);
     setEnergyPoints(50);
     setAttackDmg(30);
