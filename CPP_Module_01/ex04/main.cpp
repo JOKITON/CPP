@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 11:26:01 by jokin             #+#    #+#             */
-/*   Updated: 2023/10/09 17:00:10 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:31:45 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,3 @@ int	main(void) {
 	rpStringInFile(filename, s1, s2);
 	return (0);
 }
-

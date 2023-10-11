@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 12:59:06 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/15 12:05:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:38:34 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ void	Weapon::setType(std::string rep) {
 	this->type = rep;
 	return ;
 }
-

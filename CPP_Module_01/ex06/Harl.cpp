@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:38:23 by jokin             #+#    #+#             */
-/*   Updated: 2023/09/20 13:09:31 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:31:15 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	Harl::checkStr(std::string arg) {
 }
 
 void	Harl::complain(std::string level) {
-	switch (checkStr(level)) {
+	switch (checkStr(level)) { // cmp string to get the number
 		case 0:
 			this->debug();
 			this->info();

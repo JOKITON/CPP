@@ -6,12 +6,11 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:58:07 by jokin             #+#    #+#             */
-/*   Updated: 2023/10/09 17:01:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:31:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-
 
 int	main(int ac, char **ar) {
 	switch (ac) {
