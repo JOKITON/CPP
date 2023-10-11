@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/28 01:04:29 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/11 23:22:11 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ Fixed::Fixed ( const int p) {
 
 Fixed::Fixed ( const float p) {
 	std::cout << "[Fixed] Float Constuctor called." << std::endl;
-	this->fixed = roundf(p * (1 << this->fract));
+	this->fixed = (p * (1 << this->fract));
 }
 
 float	Fixed::toFloat ( void ) const {
@@ -128,26 +128,22 @@ bool Fixed::operator!=(const Fixed& p) const {
 }
 
 Fixed Fixed::operator+(const Fixed& p) const {
-    Fixed result;
-    result.fixed = this->fixed + p.fixed;
+    Fixed result(this->toFloat() + p.toFloat());
     return result;
 }
 
 Fixed Fixed::operator-(const Fixed& p) const {
-    Fixed result;
-    result.fixed = this->fixed - p.fixed;
+    Fixed result(this->toFloat() - p.toFloat());
     return result;
 }
 
 Fixed Fixed::operator*(const Fixed& p) const {
-    Fixed result;
-    result.fixed = (this->fixed * p.fixed) >> 8;
+    Fixed result(this->toFloat() * p.toFloat());
     return result;
 }
 
 Fixed Fixed::operator/(const Fixed& p) const {
-    Fixed result;
-    result.fixed = (this->fixed / p.fixed) << 8;
+    Fixed result(this->toFloat() / p.toFloat());
     return result;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:09:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/28 01:46:36 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/11 23:27:25 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ Point::Point( Point& p) {
 	return ;
 }
 
-Point::Point(const float p1, const float p2)
-    : x( Fixed(p1)), y( Fixed(p2)) {
+Point::Point(const float p1, const float p2) : x( Fixed(p1)), y( Fixed(p2)) {
     std::cout << "[Point] Parameter Constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/28 00:25:10 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/11 23:23:26 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define FIXED_HPP
 
 #include <iostream>
-#include <math.h>
 
 class Fixed {
   private:

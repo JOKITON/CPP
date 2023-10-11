@@ -4,7 +4,7 @@ SRCS = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS =-fsanitize=address -Wall -Wextra -Werror
 
 RM = rm
 
@@ -27,3 +27,5 @@ fclean : clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all fclean clean re

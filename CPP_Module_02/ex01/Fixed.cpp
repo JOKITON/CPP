@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/28 00:23:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/11 23:23:37 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ Fixed::Fixed ( const int p) {
 
 Fixed::Fixed ( const float p) {
 	std::cout << "[Fixed] Float Constuctor called." << std::endl;
-	this->fixed = roundf(p * (1 << this->fract));
+	this->fixed = (p * (1 << this->fract));
 }
 
 float	Fixed::toFloat ( void ) const {

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/28 01:13:06 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/11 23:23:13 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	execTests(void) {
 	// ! Comparison operators
 	std::cout << "\033[35m" << "\nComparison operators : " << "\033[0m" << std::endl;
 	if (c > d)
-	std::cout << "[if (C > D)]\n	C is GREATER than D" << std::endl;
+	std::cout << "[if (C > D)] || " << "[" << c << "] > [" << d << "]\n" << "	C is GREATER than D" << std::endl;
 	if (d < f)
-	std::cout << "[if (D < F)]\n	D is SMALLER than F" << std::endl;
+	std::cout << "[if (D < F)] || " << "[" << d << "] < [" << f << "]\n" << "	D is SMALLER than F" << std::endl;
 	if (e != f)
 	std::cout << "[if (E != F)]\n	E is NOT EQUAL to F" << std::endl;
 	if (c == g)
@@ -56,25 +56,27 @@ void	execTests(void) {
 }
 
 int main( void ) {
-  std::cout << "Default Constructor for A : " << std::endl;
-  Fixed a;
+	std::cout << "Default Constructor for [A] : " << std::endl;
+	Fixed a;
 
-std::cout << "\nDouble Constructor for B : " << std::endl;
-Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-std::cout << std::endl;
-std::cout << a << std::endl;
-std::cout << ++a << std::endl;
-std::cout << a << std::endl;
-std::cout << a << std::endl;
-std::cout << a++ << std::endl;
-std::cout << a << std::endl;
-std::cout << std::endl;
+	std::cout << "\nDouble Constructor for [B] : " << std::endl;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << std::endl;
 
-std::cout << b << std::endl;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << std::endl;
 
-std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << b << std::endl;
 
-// My own tests (Not in subject)
-execTests();
-return 0;
+	std::cout << Fixed::max( a, b ) << std::endl;
+
+	// My own tests (Not in subject)
+	// execTests();
+	
+	return 0;
 }

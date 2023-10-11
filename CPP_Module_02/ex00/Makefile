@@ -28,4 +28,4 @@ fclean : clean
 
 re: fclean all
 
-.PHONY: fclean clean re
+.PHONY: all fclean clean re
