@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/03 20:35:31 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/12 22:55:56 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,20 @@
 #include "WrongCat.hpp"
 
 void	subjectTests( void ) {
-	const Animal* meta = new Animal();
+	/* const Animal* meta = new Animal(); // it won't work
+	meta->makeSound();
+	delete(meta); */
+
+
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
-	meta->makeSound();
 
 	delete i;
 	delete j;
-	delete(meta);
 }
 
 void	execTests( void ) {
@@ -64,7 +66,7 @@ int	main(void) {
 	subjectTests();
 
 	// my Own tests
-	execTests();
+	// execTests();
 
 	return 0;
 }
