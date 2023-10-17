@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 23:47:58 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/04 23:53:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:06:50 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 #define ICE_HPP
 
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-class Ice {
+class Ice : public AMateria {
 	private:
 		std::string type;
 	public:
 		Ice();
 		~Ice();
-
-	void	use(ICharacter& p);
+	
+		Ice* clone() const;
+		void	use(ICharacter& p);
+		std::string const & getType( void ) const;
 };
 
 

@@ -6,14 +6,15 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 21:26:59 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/04 23:47:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:23:31 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
-#include "AMateria.hpp"
+#include <iostream>
+class	AMateria;
 
 class ICharacter
 {
