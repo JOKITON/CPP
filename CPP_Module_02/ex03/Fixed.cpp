@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/11 23:25:44 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:54:37 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 // --------------
 
 Fixed::Fixed( void ) : fixed (0) {
-	//std::cout << "[Fixed] Constructor called" << std::endl;
+	// std::cout << "[Fixed] Constructor called" << std::endl;
 	return ;
 }
 
 Fixed::~Fixed( void ) {
-	//std::cout << "[Fixed] Destructor called" << std::endl;
+	// std::cout << "[Fixed] Destructor called" << std::endl;
 	return ;
 }
 
@@ -39,7 +39,7 @@ Fixed& Fixed::operator=( Fixed& p ) {
 }
 
 int	Fixed::getRawBits() const {
-	//std::cout << "[Fixed] getRawBits called" << std::endl;
+	std::cout << "[Fixed] getRawBits called" << std::endl;
 	return (this->fixed);
 }
 
@@ -64,12 +64,12 @@ Fixed::Fixed ( const Fixed& p) {
 }
 
 Fixed::Fixed ( const int p) {
-	//std::cout << "[Fixed] Int Constuctor called." << std::endl;
+	// std::cout << "[Fixed] Int Constuctor called." << std::endl;
 	this->fixed = p * (1 << this->fract);
 }
 
 Fixed::Fixed ( const float p) {
-	//std::cout << "[Fixed] Float Constuctor called." << std::endl;
+	// std::cout << "[Fixed] Float Constuctor called." << std::endl;
 	this->fixed = (p * (1 << this->fract));
 }
 
@@ -170,4 +170,24 @@ Fixed Fixed::operator--( int ) {
 	Fixed t(*this);
 	this->fixed--;
 	return (t);
+}
+
+Fixed& Fixed::min (Fixed& a, Fixed& b) {
+		std::cout << "[Fixed] Member Min Function" << std::endl;
+		return (a < b) ? a : b;
+}
+
+const Fixed& Fixed::min (const Fixed& a, const Fixed& b) {
+	std::cout << "[Fixed] Member Const Min Function" << std::endl;
+	return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max (Fixed& a, Fixed& b) {
+	std::cout << "[Fixed] Member Max Function" << std::endl;
+	return (a > b) ? a : b;
+}
+
+const Fixed& Fixed::max (const Fixed& a, const Fixed& b) {
+	std::cout << "[Fixed] Member Const Max Function" << std::endl;
+	return (a > b) ? a : b;
 }

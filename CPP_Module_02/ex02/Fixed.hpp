@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/11 23:23:17 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:53:31 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,10 @@ class Fixed {
 	Fixed operator++( int );
 	Fixed& operator--( void );
 	Fixed operator--( int );
-	static Fixed& min (Fixed& a, Fixed& b) {
-		std::cout << "[Fixed] Member Min Function" << std::endl;
-		return (a < b) ? a : b;
-	}
-	static const Fixed& min (const Fixed& a, const Fixed& b) {
-		std::cout << "[Fixed] Member Const Min Function" << std::endl;
-		return (a < b) ? a : b;
-	}
-	static Fixed& max (Fixed& a, Fixed& b) {
-		std::cout << "[Fixed] Member Max Function" << std::endl;
-		return (a > b) ? a : b;
-	}
-	static const Fixed& max (const Fixed& a, const Fixed& b) {
-		std::cout << "[Fixed] Member Const Max Function" << std::endl;
-		return (a > b) ? a : b;
-	}
+	static Fixed& min (Fixed& a, Fixed& b);
+	static const Fixed& min (const Fixed& a, const Fixed& b);
+	static Fixed& max (Fixed& a, Fixed& b);
+	static const Fixed& max (const Fixed& a, const Fixed& b);
 };
 
 #endif

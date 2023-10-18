@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/11 23:22:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:53:13 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,4 +170,24 @@ Fixed Fixed::operator--( int ) {
 	Fixed t(*this);
 	this->fixed--;
 	return (t);
+}
+
+Fixed& Fixed::min (Fixed& a, Fixed& b) {
+		std::cout << "[Fixed] Member Min Function" << std::endl;
+		return (a < b) ? a : b;
+}
+
+const Fixed& Fixed::min (const Fixed& a, const Fixed& b) {
+	std::cout << "[Fixed] Member Const Min Function" << std::endl;
+	return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max (Fixed& a, Fixed& b) {
+	std::cout << "[Fixed] Member Max Function" << std::endl;
+	return (a > b) ? a : b;
+}
+
+const Fixed& Fixed::max (const Fixed& a, const Fixed& b) {
+	std::cout << "[Fixed] Member Const Max Function" << std::endl;
+	return (a > b) ? a : b;
 }
