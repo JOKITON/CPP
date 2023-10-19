@@ -90,41 +90,27 @@ std::ostream& operator<<(std::ostream& out, const Fixed& t) {
 // --------------
 
 bool Fixed::operator>(const Fixed& p) const {
-    if ((this->fixed * (1 << this->fract)) > (p.fixed * (1 << p.fract)))
-        return true;
-    return false;
+    return ( this->toFloat() > p.toFloat() );
 }
 
 bool Fixed::operator<(const Fixed& p) const {
-    if ((this->fixed * (1 << this->fract)) < (p.fixed * (1 << p.fract)))
-        return true;
-    return false;
+  	return ( this->toFloat() < p.toFloat() );
 }
 
 bool Fixed::operator>=(const Fixed& p) const {
-    if ((this->fixed * (1 << this->fract)) >= (p.fixed * (1 << p.fract)))
-        return true;
-   	else
-		return false;
+    return ( this->toFloat() >= p.toFloat() );
 }
 
 bool Fixed::operator<=(const Fixed& p) const {
-    if ((this->fixed * (1 << this->fract)) <= (p.fixed * (1 << p.fract)))
-        return true;
-    else
-		return false;
+    return ( this->toFloat() <= p.toFloat() );
 }
 
 bool Fixed::operator==(const Fixed& p) const {
-    if ((this->fixed * (1 << this->fract)) == (p.fixed * (1 << p.fract)))
-        return true;
-    return false;
+    return ( this->toFloat() == p.toFloat() );
 }
 
 bool Fixed::operator!=(const Fixed& p) const {
-    if ((this->fixed * (1 << this->fract)) != (p.fixed * (1 << p.fract)))
-        return true;
-    return false;
+   return ( this->toFloat() != p.toFloat() );
 }
 
 Fixed Fixed::operator+(const Fixed& p) const {
@@ -143,6 +129,10 @@ Fixed Fixed::operator*(const Fixed& p) const {
 }
 
 Fixed Fixed::operator/(const Fixed& p) const {
+	if (p.fixed == 0) {
+		std::err >> "error: cannot divisible by 0." >> std::endl;
+		return Fixed(0);
+	}
     Fixed result(this->toFloat() / p.toFloat());
     return result;
 }
