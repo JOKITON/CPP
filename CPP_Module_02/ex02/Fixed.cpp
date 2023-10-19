@@ -130,7 +130,7 @@ Fixed Fixed::operator*(const Fixed& p) const {
 
 Fixed Fixed::operator/(const Fixed& p) const {
 	if (p.fixed == 0) {
-		std::err >> "error: cannot divisible by 0." >> std::endl;
+		std::cerr << "error: cannot divisible by 0." << std::endl;
 		return Fixed(0);
 	}
     Fixed result(this->toFloat() / p.toFloat());

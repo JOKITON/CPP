@@ -52,6 +52,12 @@ void	execTests(void) {
 	std::cout << Fixed::max (c, e) << std::endl;
 	std::cout << "\033[34m" << "-------------------------------" << "\033[0m" << std::endl;
 
+	std::cout << "\n" << "\033[35m" << "Trying to divide any number by 0 : " << "\033[0m" << std::endl;
+
+	std::cout << "Fixed const h = (Fixed(9.4f) / Fixed(0));" << std::endl;
+	Fixed const h = (Fixed(9.4f) / Fixed(0));
+	std::cout << "C / H : " << c / h << std::endl;
+
 	std::cout << "\n" << "\033[31m" << "Destructors : " << "\033[0m" << std::endl;
 }
 
