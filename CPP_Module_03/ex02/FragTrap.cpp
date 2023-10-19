@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 12:02:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/12 01:36:53 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:09:36 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ FragTrap::~FragTrap(void) {
 void	FragTrap::highFivesGuys(void) {
 	std::string	msg;
 
-	std::cout << "[FragTrap] " << "Hey!, nice haircut, can you give me a high five!?" << std::endl;
-	std::getline(std::cin, msg);
-	std::cout << std::endl;
+	if (this->getHealth() > 0) {
+		std::cout << "[FragTrap] " << "Hey!, nice haircut, can you give me a high five!?" << std::endl;
+		std::getline(std::cin, msg);
+		std::cout << std::endl; }
+	else
+		std::cout << "[FrapTrap] " << "(highFivesGuys* did not work) is dead..." << std::endl;
 }
