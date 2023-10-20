@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:47:56 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/03 20:47:29 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/20 18:31:52 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ Brain::Brain( Brain& p ) {
 
 Brain& Brain::operator=(const Brain & p) {
 	*this = p;
+	std::cout << "[Brain] Copy Overload Operator called" << std::endl;
 	return *this;
 }
 

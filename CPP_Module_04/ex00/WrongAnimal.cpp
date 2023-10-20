@@ -6,13 +6,13 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:19:06 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:19:44 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/20 16:53:06 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(void) : type("wrong_default") {
+WrongAnimal::WrongAnimal(void) : type("WrongAnimal") {
 	std::cout << "[WrongAnimal] " << type << " has been constructed!" << std::endl;
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/03 20:42:28 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/20 18:13:11 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Cat::~Cat(void) {
 }
 
 Cat&	Cat::operator=(Cat const & p) {
-	this->type = p.type;
+	*this = p;
 	return *this;
 }
 

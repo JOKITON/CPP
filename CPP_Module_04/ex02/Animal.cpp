@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:00:47 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/03 20:29:10 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/20 18:13:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Animal& Animal::operator=( const Animal& p ) {
 	std::cout << "[Animal] Assignment operator called!" << std::endl;
 	if (this == &p)
 		return *this;
-	this->type = p.type;
+	*this = p;
 	return (*this);
 }
 

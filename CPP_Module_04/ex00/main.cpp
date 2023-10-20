@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:31:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/20 16:53:52 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	subjectTests( void ) {
 }
 
 void	execTests( void ) {
+	std::cout << "\033[34m" << "-------------------------------" << "\033[0m" << std::endl;
+	std::cout << "\033[34m" << "------------Animal-------------" << "\033[0m" << std::endl;
 	const Animal* animal = new Animal();
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
@@ -42,8 +44,15 @@ void	execTests( void ) {
 	cat->makeSound(); //will output the cat sound! (not the Animal)
 	dog->makeSound(); //will output the dog sound! (not the Animal)
 	animal->makeSound(); //will output the animal sound
+	std::cout << std::endl;
+
+	delete animal;
+	delete dog;
+	delete cat;
 
 	std::cout << std::endl;
+	std::cout << "\033[34m" << "----------WrongAnimal----------" << "\033[0m" << std::endl;
+	std::cout << "\033[34m" << "-------------------------------" << "\033[0m" << std::endl;
 	const WrongAnimal* wrong_animal = new WrongAnimal();
 	const WrongAnimal* wrong_cat = new WrongCat();
 
@@ -52,19 +61,16 @@ void	execTests( void ) {
 	wrong_animal->makeSound();
 
 	std::cout << std::endl;
-	delete animal;
-	delete dog;
-	delete cat;
 	delete wrong_cat;
 	delete wrong_animal;
 }
 
 int	main(void) {
 	// Subject tests
-	//subjectTests();
+	subjectTests();
 
 	// my Own tests
-	execTests();
+	// execTests();
 
 	return 0;
 }
