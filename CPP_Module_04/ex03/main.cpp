@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 21:28:50 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 19:02:17 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/21 11:33:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,18 @@ void	subjectTests( void ) {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+/* 	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Cure()); */
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);

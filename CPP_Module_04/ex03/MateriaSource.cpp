@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:39:35 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 18:56:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/21 11:25:29 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	MateriaSource::learnMateria( AMateria* mat) {
 	while (slots[i] != NULL) {
 		i++;
 		if (i > 3) { // error-case
+			delete mat; // free memory in heap just in case
 			std::cout << "[MateriaSource] error: Too many Materias..." << std::endl;
 			return ; }
 	}
@@ -41,15 +42,17 @@ void	MateriaSource::learnMateria( AMateria* mat) {
 }
 
 AMateria*	MateriaSource::createMateria( std::string const & type) {
-	if (!type.compare("cure")) {
-		AMateria*	ret = new Cure();
-		return (ret);
+	int i = 0;
+
+	while (slots[i] != NULL) {
+		if (slots[i]->getType() == type) {
+			std::cout << "[MateriaSource] has created " << type << std::endl;
+			return (slots[i]->clone());
+		}
+		if (i > 3)
+			break ;
+		i++;
 	}
-	else if (!type.compare("ice")) {
-		AMateria*	ret = new Ice();
-		return (ret);
-	}
-	else {
-		return (NULL);
-	}
+	std::cout << "[MateriaSource] has failed creating " << type << std::endl;
+	return (0);
 }

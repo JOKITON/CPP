@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 16:39:36 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/12 00:07:18 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/22 23:22:45 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ClapTrap
 {
 private:
-	std::string	  name;
+	std::string	  _name;
 	int			HitPoints;
 	int			EnergyPoints;
 	int			AttackDmg;

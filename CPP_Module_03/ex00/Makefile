@@ -4,7 +4,7 @@ SRCS = main.cpp ClapTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -fsanitize=address -Wall -Wextra -Werror
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 RM = rm
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 12:02:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/19 18:09:36 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/22 22:54:56 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	FragTrap::highFivesGuys(void) {
 
 	if (this->getHealth() > 0) {
 		std::cout << "[FragTrap] " << "Hey!, nice haircut, can you give me a high five!?" << std::endl;
+		std::cout << "		input : ";
 		std::getline(std::cin, msg);
 		std::cout << std::endl; }
 	else

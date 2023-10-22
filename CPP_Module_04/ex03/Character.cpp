@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 00:11:21 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/17 18:39:47 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/21 11:31:46 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ std::string	const & Character::getName(void) const {
 void	Character::equip(AMateria* m) {
 	int	i = 0;
 
+	if (!m)
+		return ;
 	while (slots[i] != NULL) {
 		i++;
 		if (i > 3) { // error-case
