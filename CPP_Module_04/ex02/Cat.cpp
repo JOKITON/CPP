@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 18:13:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:10:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	Cat::makeSound(void) const {
 	return ;
 }
 
-Brain*	Cat::getBrain( void ) {
-	return (this->catBrain);
+Brain&	Cat::getBrain( void ) const {
+	return (*this->catBrain);
 }

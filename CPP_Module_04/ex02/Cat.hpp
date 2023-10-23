@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:24:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/02 18:52:21 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:10:02 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Cat : public Animal {
 		
 		void	makeSound(void) const;
 
-		Brain*	getBrain( void );
+		Brain&	getBrain( void ) const;
 };
 
 #endif

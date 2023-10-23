@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 21:28:50 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/21 11:33:17 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:55:06 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	subjectTests( void ) {
 	delete bob;
 	delete me;
 	delete src;
+	delete tmp;
 }
 
 void	execTests( void ) {

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:26:02 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 17:19:13 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:03:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ Dog&	Dog::operator=(const Dog& p) {
 	return *this;
 }
 
-Brain*	Dog::getBrain( void ) const {
-	return (this->dogBrain);
+Brain&	Dog::getBrain( void ) const {
+	return (*this->dogBrain);
 }

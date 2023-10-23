@@ -4,7 +4,7 @@ SRCS = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp Brain.cp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -fsanitize=address -Wall -Wextra -Werror
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 RM = rm
 

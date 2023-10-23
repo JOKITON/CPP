@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:25:50 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/02 19:44:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:03:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Dog : public Animal {
 	
 		Dog&	operator=(const Dog& p);
 
-		Brain*	getBrain( void ) const;
+		Brain&	getBrain( void ) const;
 };
 
 #endif

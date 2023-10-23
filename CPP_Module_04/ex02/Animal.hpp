@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:02:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 18:23:34 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:28:55 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ class Animal {
 		
 		std::string	getType(void) const;
 
-		virtual Brain&	getBrain( void ) const;
+		// virtual Brain&	getBrain( void ) const = 0; // (should not use except when using Brain on Animal class)
+		/* Furthermore, if you make it pure, you will lose any chance of initializing Animal as an object... */
 };
 
 #endif

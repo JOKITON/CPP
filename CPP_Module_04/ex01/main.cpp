@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 18:08:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:26:34 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@
 #include "WrongCat.hpp"
 
 void	subjectTests( void ) {
-	const Animal* meta = new Animal();
+	const Animal* h = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+	std::cout << h->getType() << " " << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
+	h->makeSound();
 	i->makeSound();
 	j->makeSound();
-	meta->makeSound();
 
 	delete i;
 	delete j;
-	delete(meta);
+	delete h;
 }
 
 void	execTests( void ) {
@@ -98,6 +99,31 @@ void	execTests( void ) {
 	delete catSave;
 	delete dogSave;
 
+	std::cout << "\033[34m" << "---------[Brain-Tests(Start)]--------" << "\033[0m" << std::endl;
+	const	Dog	j;
+
+	std::cout << "\033[34m" << "---------[Copy Constructor]--------" << "\033[0m" << std::endl;
+	Brain	test1(j.getBrain());
+	std::string*	retIdeas1;
+	
+	retIdeas1 = test1.getIdeas();
+	std::cout << "Ideas1 : " << *test1.getIdeas() << std::endl;
+	std::cout << "Ideas1 : " << *retIdeas1 << std::endl;
+	// (void)retIdeas;
+	// (void)test;
+
+	std::cout << "\033[34m" << "---------[Copy Constructor(false)]--------" << "\033[0m" << std::endl;
+	Brain	*test2 = &(j.getBrain());
+	std::string*	retIdeas2;
+	
+	retIdeas2 = test2->getIdeas();
+	std::cout << "Ideas2 : " << *test2->getIdeas() << std::endl;
+	std::cout << "Ideas2 : " << *retIdeas2 << std::endl;
+	// (void)retIdeas;
+	// (void)test;
+
+
+	std::cout << "\033[34m" << "---------[Brain-Tests(End)]--------" << "\033[0m" << std::endl;
 }
 
 int	main(void) {

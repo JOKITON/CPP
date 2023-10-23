@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:00:47 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/03 20:29:10 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:27:38 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,12 @@ void	Animal::makeSound(void) const {
 std::string	Animal::getType(void) const {
 	return this->type;
 }
+
+/* Brain&	Animal::getBrain( void ) const { // check description on header file
+	std::cout << "[Animal] Since Animal cannot have any pure functions (without code), I had to declare this function..." << std::endl;
+	std::cout << "[Animal] Please, free the returning pointer to the Brain object!" << std::endl;
+
+	Brain	*ret = new Brain();
+
+	return (*ret);
+} */

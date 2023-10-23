@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 18:35:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:29:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,10 @@ void	execTests( void ) {
 	delete dogSave;
 
 	std::cout << "\033[34m" << "---------[Brain-Tests(Start)]--------" << "\033[0m" << std::endl;
-	const	Animal*	j = new Dog();
+	const	Dog	j;
 
 	std::cout << "\033[34m" << "---------[Copy Constructor]--------" << "\033[0m" << std::endl;
-	Brain	test1(j->getBrain());
+	Brain	test1(j.getBrain());
 	std::string*	retIdeas1;
 	
 	retIdeas1 = test1.getIdeas();
@@ -115,7 +115,7 @@ void	execTests( void ) {
 	// (void)test;
 
 	std::cout << "\033[34m" << "---------[Copy Constructor(false)]--------" << "\033[0m" << std::endl;
-	Brain	*test2 = &(j->getBrain());
+	Brain	*test2 = &(j.getBrain());
 	std::string*	retIdeas2;
 	
 	retIdeas2 = test2->getIdeas();
@@ -126,7 +126,6 @@ void	execTests( void ) {
 
 
 	std::cout << "\033[34m" << "---------[Brain-Tests(End)]--------" << "\033[0m" << std::endl;
-	delete j;
 }
 
 int	main(void) {

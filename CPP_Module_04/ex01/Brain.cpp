@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:47:56 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/03 20:47:29 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:52:56 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 Brain::Brain( void) {
 	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++) {
-		this->ideas[i] = "South one.";
+		std::ostringstream os;
+
+		os << i;
+		this->ideas[i] = "[ Sheep n." + os.str() + "]";
 	}
 	std::cout << "[Brain] Constructor called" << std::endl;
 	return ;

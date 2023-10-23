@@ -6,14 +6,16 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:47:59 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/02 18:58:34 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:46:20 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <iostream>
+#include <string>
+#include <sstream>
 
 class Brain {
 	private:

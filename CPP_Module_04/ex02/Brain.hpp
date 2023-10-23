@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:47:59 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 18:19:00 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:53:43 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define BRAIN_HPP
 
 #include <iostream>
+#include <sstream>
 
 class Brain {
 	private:
