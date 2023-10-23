@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 16:53:52 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/23 18:34:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	execTests( void ) {
 	const Animal* cat = new Cat();
 
 	std::cout << std::endl;
+	std::cout << "Animal->getType [" << animal->getType() << "] " << std::endl;
 	std::cout << "Dog->getType [" << dog->getType() << "] " << std::endl;
 	std::cout << "Cat->getType [" << cat->getType() << "] " << std::endl;
 	cat->makeSound(); //will output the cat sound! (not the Animal)
@@ -57,6 +58,10 @@ void	execTests( void ) {
 	const WrongAnimal* wrong_cat = new WrongCat();
 
 	std::cout << std::endl;
+	std::cout << "WrongAnimal->getType [" << wrong_animal->getType() << "] " << std::endl;
+	std::cout << "WrongCat->getType [" << wrong_cat->getType() << "] " << std::endl;
+
+	std::cout << std::endl;
 	wrong_cat->makeSound();
 	wrong_animal->makeSound();
 
@@ -70,7 +75,7 @@ int	main(void) {
 	subjectTests();
 
 	// my Own tests
-	// execTests();
+	execTests();
 
 	return 0;
 }
