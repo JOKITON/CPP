@@ -22,6 +22,13 @@ AMateria::AMateria	(std::string const & type) : _type(type) {
 	return ;
 }
 
+AMateria::AMateria( AMateria& p ) {
+        this->_type = p.getType();
+}
+AMateria& AMateria::AMateria( AMateria& p ) {
+        this->_type = p.getType();
+}
+
 AMateria::~AMateria( void ) {
 	std::cout << "[AMateria] destructor called." << std::endl;
 }
