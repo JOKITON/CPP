@@ -20,8 +20,10 @@ class Ice : public AMateria {
 	private:
 		std::string type;
 	public:
-		Ice();
-		~Ice();
+		Ice( void );
+		~Ice( void );
+                Ice( Ice& p );
+                Ice& operator=( Cure& p );
 	
 		Ice* clone() const;
 		void	use(ICharacter& p);
