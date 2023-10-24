@@ -16,6 +16,10 @@ Cure::Cure( void ) : type("cure") {
 	std::cout << "[Cure] has been constructed." << std::endl;
 }
 
+Cure::Cure( Cure& p) {
+this->type = p.getName();
+}
+
 Cure::~Cure( void ) {
 	std::cout << "[Cure] has been destroyed." << std::endl;
 }
