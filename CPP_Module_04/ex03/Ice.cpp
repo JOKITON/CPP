@@ -20,6 +20,14 @@ Ice::~Ice( void ) {
 	std::cout << "[Ice] has been destroyed." << std::endl;
 }
 
+Ice::Ice( Ice& p ) {
+    this->type = p.getName();
+}
+
+Ice& Ice::operator( Ice& p ) {
+    this->type = p.getName();
+}
+
 Ice*	Ice::clone( void ) const {
 	Ice	*ret = new Ice();
 	
