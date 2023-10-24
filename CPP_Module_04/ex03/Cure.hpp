@@ -20,8 +20,10 @@ class Cure : public AMateria {
 	private:
 		std::string type;
 	public:
-		Cure();
-		~Cure();
+		Cure( void );
+  Cure( Cure& p );
+		~Cure( void );
+  Cure& operator=( Cure& p );
 
 		void	use(ICharacter& p);
 		Cure*	clone( void ) const;
