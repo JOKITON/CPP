@@ -17,11 +17,15 @@ Cure::Cure( void ) : type("cure") {
 }
 
 Cure::Cure( Cure& p) {
-this->type = p.getName();
+    this->type = p.getName();
 }
 
 Cure::~Cure( void ) {
 	std::cout << "[Cure] has been destroyed." << std::endl;
+}
+
+Cure& Cure::operator=( Cure& p ) {
+   this->type = p.getName();
 }
 
 void	Cure::use( ICharacter& p) {
