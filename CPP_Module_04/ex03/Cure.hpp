@@ -21,9 +21,9 @@ class Cure : public AMateria {
 		std::string type;
 	public:
 		Cure( void );
-  Cure( Cure& p );
+                Cure( Cure& p );
 		~Cure( void );
-  Cure& operator=( Cure& p );
+                Cure& operator=( Cure& p );
 
 		void	use(ICharacter& p);
 		Cure*	clone( void ) const;
