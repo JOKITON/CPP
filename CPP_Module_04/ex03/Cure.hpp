@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 23:53:16 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/17 18:08:04 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:45:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Cure : public AMateria {
 		std::string type;
 	public:
 		Cure( void );
-                Cure( Cure& p );
+        Cure( const Cure& p );
+        Cure& operator=( const Cure& p );
 		~Cure( void );
-                Cure& operator=( Cure& p );
 
 		void	use(ICharacter& p);
 		Cure*	clone( void ) const;

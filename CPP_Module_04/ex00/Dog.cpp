@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:26:02 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 15:53:47 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:41:41 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Dog::~Dog() {
 	return ;
 }
 
-Dog::Dog( const Dog & p) : Animal() {
+Dog::Dog( const Dog & p) : Animal(p) {
 	this->type = p.getType();
 	std::cout << "[Dog] has been constructed (Copy) " << std::endl;
 	return ;
@@ -36,6 +36,7 @@ void	Dog::makeSound(void) const { //
 
 
 Dog&	Dog::operator=(const Dog& p) {
-	this->type = p.type;
+	if (this != &p)
+		*this = p;
 	return *this;
 }

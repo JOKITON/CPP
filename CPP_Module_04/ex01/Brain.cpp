@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:47:56 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/23 19:52:56 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:51:15 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,18 @@ Brain::Brain( Brain& p ) {
 	std::cout << "[Brain] Copy Constructor called" << std::endl;
 }
 
-Brain& Brain::operator=(const Brain & p) {
-	*this = p;
+Brain& Brain::operator=(const Brain &p) {
+	if (this != &p) {
+		std::string *ref = p.getIdeas();
+		delete []this->ideas;
+		this->ideas = new std::string[100];
+		for (int i = 0; i < 100; i++) {
+			this->ideas[i] = ref[i]; }
+	}
+	std::cout << "[Brain] Assigment Operator Overload called" << std::endl;
 	return *this;
 }
 
-std::string*	Brain::getIdeas(void) {
+std::string*	Brain::getIdeas(void) const {
 	return (this->ideas);
 }

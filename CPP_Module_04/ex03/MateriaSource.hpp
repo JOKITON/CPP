@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:38:02 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 18:55:24 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:34:29 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ class MateriaSource : public IMateriaSource
 		AMateria	*slots[4];
 	public:
 		MateriaSource( void );
+		MateriaSource( const MateriaSource& p );
+		MateriaSource& operator=( const MateriaSource& p );
 		~MateriaSource( void );
+
 		void learnMateria(AMateria*);
 		AMateria* createMateria(std::string const & type);
 };

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:19:06 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:19:44 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:08:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ WrongAnimal::WrongAnimal(void) : type("wrong_default") {
 	return ;
 }
 
+WrongAnimal::WrongAnimal( const std::string& type ) {
+	this->type = type;
+}
+
 WrongAnimal::WrongAnimal(const WrongAnimal& p) {
-	std::cout << "[WrongAnimal] Copy Constructor Called!" << std::endl;
-	*this = p;
+	std::cout << "[WrongAnimal] Copy Constructor called from " << p.getType() << std::endl;
+	this->type = p.getType();
 }
 
 WrongAnimal::~WrongAnimal(void) {
@@ -28,10 +32,9 @@ WrongAnimal::~WrongAnimal(void) {
 }
 
 WrongAnimal& WrongAnimal::operator=( const WrongAnimal& p ) {
-	std::cout << "[WrongAnimal] Assignment operator called!" << std::endl;
-	if (this == &p)
-		return *this;
-	this->type = p.type;
+	std::cout << "[WrongAnimal] Assignment operator called from " << this->type << " to " << p.getType() << std::endl;
+	if (this != &p)
+		this->type = p.getType();
 	return (*this);
 }
 

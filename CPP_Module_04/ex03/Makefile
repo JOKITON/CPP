@@ -4,7 +4,7 @@ SRCS = Character.cpp Ice.cpp Cure.cpp AMateria.cpp main.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -fsanitize=address -Wall -Wextra -Werror
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 RM = rm
 

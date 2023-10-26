@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/23 18:34:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:51:59 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,30 @@ void	execTests( void ) {
 	std::cout << "\033[34m" << "-------------------------------" << "\033[0m" << std::endl;
 	std::cout << "\033[34m" << "------------Animal-------------" << "\033[0m" << std::endl;
 	const Animal* animal = new Animal();
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
+	
+	const Dog dogAverage;
+	const Cat catAverage;
+	
+	const Dog dogCopy(dogAverage);
+	const Cat catCopy(catAverage);
+
+	std::cout << std::endl;
+	std::cout << "dogAverage->getType [" << dogAverage.getType() << "] " << std::endl;
+	std::cout << "catAverage->getType [" << catAverage.getType() << "] " << std::endl;
+	catAverage.makeSound(); //will output the cat sound! (not the Animal)
+	dogAverage.makeSound(); //will output the dog sound! (not the Animal)
+	std::cout << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "Animal->getType [" << animal->getType() << "] " << std::endl;
-	std::cout << "Dog->getType [" << dog->getType() << "] " << std::endl;
-	std::cout << "Cat->getType [" << cat->getType() << "] " << std::endl;
-	cat->makeSound(); //will output the cat sound! (not the Animal)
-	dog->makeSound(); //will output the dog sound! (not the Animal)
+	std::cout << "DogCopy->getType [" << dogCopy.getType() << "] " << std::endl;
+	std::cout << "CatCopy->getType [" << catCopy.getType() << "] " << std::endl;
+	catCopy.makeSound(); //will output the cat sound! (not the Animal)
+	dogCopy.makeSound(); //will output the dog sound! (not the Animal)
 	animal->makeSound(); //will output the animal sound
 	std::cout << std::endl;
 
 	delete animal;
-	delete dog;
-	delete cat;
 
 	std::cout << std::endl;
 	std::cout << "\033[34m" << "----------WrongAnimal----------" << "\033[0m" << std::endl;

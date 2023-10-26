@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:00:47 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/23 19:27:38 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:55:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ Animal::Animal(void) : type("default") {
 	return ;
 }
 
-Animal::Animal(const Animal& p) {
+Animal::Animal(const Animal& p) : type(p.getType()) {
 	std::cout << "[Animal] Copy Constructor Called!" << std::endl;
-	*this = p; // deep copy, not necessary
 }
 
 Animal::~Animal(void) {
@@ -29,10 +28,9 @@ Animal::~Animal(void) {
 
 Animal& Animal::operator=( const Animal& p ) {
 	std::cout << "[Animal] Assignment operator called!" << std::endl;
-	if (this == &p)
-		return *this;
-	this->type = p.type;
-	return (*this);
+	if (this != &p)
+		this->type = p.getType();
+	return *this;
 }
 
 void	Animal::makeSound(void) const {

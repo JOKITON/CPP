@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:23:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:42:11 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,19 @@ WrongCat::WrongCat(void) : WrongAnimal() {
 	return ;
 }
 
-WrongCat::WrongCat( const WrongCat &p) : WrongAnimal() {
+WrongCat::WrongCat( const WrongCat &p) : WrongAnimal(p) {
 	*this = p;
 	std::cout << "[WrongCat] " << "has constructed (copy) " << std::endl;
 }
 
 WrongCat::~WrongCat(void) {
-	std::cout << "[WrongCat] " << "has been destroyed!" << std::endl;
+	std::cout << "[WrongCat] " << this->getType() << " has been destroyed!" << std::endl;
 	return ;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& p) {
-	if (this == &p)
-		return *this;
-	this->type = p.type;
+	if (this != &p)
+		*this = p;
 	return *this;
 }
 

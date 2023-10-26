@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/23 19:03:42 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:43:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Cat::Cat(void) {
 	return ;
 }
 
-Cat::Cat( const Cat & p) : Animal() {
+Cat::Cat( const Cat & p) : Animal(p), catBrain(new Brain(p.getBrain())) {
 	this->type = p.getType();
 	std::cout << "[Cat] has been constructed (Copy) " << std::endl;
 	return ;
@@ -32,7 +32,12 @@ Cat::~Cat(void) {
 }
 
 Cat&	Cat::operator=(Cat const & p) {
-	*this = p;
+	if (this != &p) {
+        // Copy data members from p to *this
+		this->type = p.getType();
+		delete this->catBrain;
+		this->catBrain = new Brain(p.getBrain());
+    }
 	return *this;
 }
 

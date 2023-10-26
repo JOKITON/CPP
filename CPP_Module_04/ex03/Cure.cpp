@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 23:52:12 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/17 18:07:58 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:06:35 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,21 @@ Cure::Cure( void ) : type("cure") {
 	std::cout << "[Cure] has been constructed." << std::endl;
 }
 
-Cure::Cure( Cure& p) {
-    this->type = p.getName();
+Cure::Cure( const Cure& p ) : AMateria() {
+	std::cout << "[Cure] Copy constructor called from " << p.getType() << std::endl;
+	this->type = p.getType();
+}
+
+Cure& Cure::operator=( const Cure &p ) {
+	std::cout << "[Cure] Assigment operator called from " << this->type << " from " << p.getType() << std::endl;
+	
+	this->type = p.getType();
+
+   return (*this);
 }
 
 Cure::~Cure( void ) {
 	std::cout << "[Cure] has been destroyed." << std::endl;
-}
-
-Cure& Cure::operator=( Cure& p ) {
-   this->type = p.getName();
 }
 
 void	Cure::use( ICharacter& p) {

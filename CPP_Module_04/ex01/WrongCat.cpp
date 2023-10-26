@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:23:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:28:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ WrongCat::WrongCat(void) : WrongAnimal() {
 }
 
 WrongCat::WrongCat( const WrongCat &p) : WrongAnimal() {
-	*this = p;
+	this->type = p.getType();
 	std::cout << "[WrongCat] " << "has constructed (copy) " << std::endl;
 }
 
@@ -29,9 +29,8 @@ WrongCat::~WrongCat(void) {
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& p) {
-	if (this == &p)
-		return *this;
-	this->type = p.type;
+	if (this != &p)
+		this->type = p.getType();
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:00:47 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:08:53 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:41:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Animal::Animal(void) : type("default") {
 
 Animal::Animal(const Animal& p) {
 	std::cout << "[Animal] Copy Constructor Called!" << std::endl;
-	*this = p; // deep copy, not necessary
+	this->type = p.type;
 }
 
 Animal::~Animal(void) {
@@ -29,9 +29,8 @@ Animal::~Animal(void) {
 
 Animal& Animal::operator=( const Animal& p ) {
 	std::cout << "[Animal] Assignment operator called!" << std::endl;
-	if (this == &p)
-		return *this;
-	this->type = p.type;
+	if (this != &p)
+		*this = p;
 	return (*this);
 }
 

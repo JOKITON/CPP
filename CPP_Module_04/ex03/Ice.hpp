@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 23:47:58 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/20 18:55:01 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:46:09 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class Ice : public AMateria {
 	public:
 		Ice( void );
 		~Ice( void );
-                Ice( Ice& p );
-                Ice& operator=( Cure& p );
+        Ice( const Ice& p );
+        Ice& operator=( const Ice& p );
 	
 		Ice* clone() const;
 		void	use(ICharacter& p);

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:47:59 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/23 19:53:43 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:26:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Brain {
 
 		Brain(Brain& p);
 		Brain&	operator=(const Brain& p);
-		std::string*	getIdeas(void);
+		std::string*	getIdeas(void) const;
 
 };
 

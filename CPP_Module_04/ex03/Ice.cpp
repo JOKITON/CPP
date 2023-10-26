@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 23:48:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/17 18:07:25 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:08:28 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,21 @@ Ice::Ice( void ) : type("ice") {
 	std::cout << "[Ice] has been constructed." << std::endl;
 }
 
+Ice::Ice( const Ice& p ) : AMateria() {
+	std::cout << "[Ice] Copy constructor called from " << p.getType() << std::endl;
+	this->type = p.getType();
+}
+
+Ice& Ice::operator=( const Ice& p ) {
+    std::cout << "[Ice] Assigment operator called from " << this->type << " from " << p.getType() << std::endl;
+	
+	this->type = p.getType();
+
+	return (*this);
+}
+
 Ice::~Ice( void ) {
 	std::cout << "[Ice] has been destroyed." << std::endl;
-}
-
-Ice::Ice( Ice& p ) {
-    this->type = p.getName();
-}
-
-Ice& Ice::operator( Ice& p ) {
-    this->type = p.getName();
 }
 
 Ice*	Ice::clone( void ) const {

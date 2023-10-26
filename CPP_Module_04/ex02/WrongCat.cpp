@@ -6,21 +6,20 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:23:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:07:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void) : WrongAnimal() {
-	this->type = "WrongCat";
+WrongCat::WrongCat(void) : WrongAnimal("WrongCat") {
 	std::cout << "[WrongCat] " << this->getType() << " has been constructed!" << std::endl;
 	return ;
 }
 
 WrongCat::WrongCat( const WrongCat &p) : WrongAnimal() {
-	*this = p;
-	std::cout << "[WrongCat] " << "has constructed (copy) " << std::endl;
+	this->type = p.getType();
+	std::cout << "[WrongCat] Copy Constructed called from " << this->type << std::endl;
 }
 
 WrongCat::~WrongCat(void) {
@@ -29,9 +28,9 @@ WrongCat::~WrongCat(void) {
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& p) {
-	if (this == &p)
-		return *this;
-	this->type = p.type;
+	std::cout << "[WrongCat] Assigment Operator called from " << this->type << " to " << p.getType() << std::endl;
+	if (this != &p)
+		this->type = p.getType();
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:39:35 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/21 11:25:29 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:42:22 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,33 @@ MateriaSource::MateriaSource( void ) {
 		this->slots[i] = NULL;
 	}
 	std::cout << "[MateriaSource] has been created." << std::endl;
+}
+
+MateriaSource::MateriaSource( const MateriaSource& p ) {
+	for (int c = 0; c < 4; c++) {
+		if (p.slots[c] != NULL)
+			this->slots[c] = p.slots[c]->clone();
+		else
+			this->slots[c] = NULL;
+	}
+
+	std::cout << "[MateriaSource] Copy Assigment called." << std::endl;
+}
+
+MateriaSource& MateriaSource::operator=( const MateriaSource& p ) {
+	for (int d = 0; d < 4; d++) {
+		delete this->slots[d];
+	}
+
+	for (int c = 0; c < 4; c++) {
+		if (p.slots[c] != NULL)
+			this->slots[c] = p.slots[c]->clone();
+		else
+			this->slots[c] = NULL;
+	}
+
+	std::cout << "[MateriaSource] Assigment Operator Overload called." << std::endl;
+	return (*this);
 }
 
 MateriaSource::~MateriaSource( void ) {
@@ -30,6 +57,8 @@ MateriaSource::~MateriaSource( void ) {
 void	MateriaSource::learnMateria( AMateria* mat) {
 	int	i = 0;
 
+	if (!mat)
+		return ;
 	while (slots[i] != NULL) {
 		i++;
 		if (i > 3) { // error-case
@@ -37,7 +66,7 @@ void	MateriaSource::learnMateria( AMateria* mat) {
 			std::cout << "[MateriaSource] error: Too many Materias..." << std::endl;
 			return ; }
 	}
-	slots[i] = mat;
+	slots[i] = (mat);
 	std::cout << "[MateriaSource] has learned " << mat->getType() << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 21:20:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/21 11:17:18 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:37:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class AMateria
 	public:
 		AMateria( );
 		AMateria(std::string const & type);
-                AMateria& operator=( AMateria& p );
-                AMateria( AMateria& p );
+        AMateria& operator=( AMateria& p );
+        AMateria( AMateria& p );
 		virtual ~AMateria( );
 		virtual std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;

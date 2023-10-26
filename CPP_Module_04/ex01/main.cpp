@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/23 19:26:34 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:11:47 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,18 +109,15 @@ void	execTests( void ) {
 	retIdeas1 = test1.getIdeas();
 	std::cout << "Ideas1 : " << *test1.getIdeas() << std::endl;
 	std::cout << "Ideas1 : " << *retIdeas1 << std::endl;
-	// (void)retIdeas;
-	// (void)test;
 
-	std::cout << "\033[34m" << "---------[Copy Constructor(false)]--------" << "\033[0m" << std::endl;
-	Brain	*test2 = &(j.getBrain());
-	std::string*	retIdeas2;
-	
-	retIdeas2 = test2->getIdeas();
-	std::cout << "Ideas2 : " << *test2->getIdeas() << std::endl;
-	std::cout << "Ideas2 : " << *retIdeas2 << std::endl;
-	// (void)retIdeas;
-	// (void)test;
+	std::cout << "\033[34m" << "---------[Overload Assigment Operator]--------" << "\033[0m" << std::endl;
+	Brain	test2;
+	Brain	test3;
+
+	test3 = test2;
+
+	std::cout << "Ideas2 : " << *test2.getIdeas() << std::endl;
+	std::cout << "Ideas3 : " << *test3.getIdeas() << std::endl;
 
 
 	std::cout << "\033[34m" << "---------[Brain-Tests(End)]--------" << "\033[0m" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 21:26:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/17 18:08:37 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:14:01 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ AMateria::AMateria	(std::string const & type) : _type(type) {
 AMateria::AMateria( AMateria& p ) {
         this->_type = p.getType();
 }
-AMateria& AMateria::AMateria( AMateria& p ) {
-        this->_type = p.getType();
+
+AMateria& AMateria::operator=( AMateria& p ) {
+	if (this != &p)
+		this->_type = p.getType();
+	std::cout << "[AMateria] Assigment Operator Overload called." << std::endl;
+	return (*this);
 }
 
 AMateria::~AMateria( void ) {

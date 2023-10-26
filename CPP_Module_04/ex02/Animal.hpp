@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:02:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/23 19:28:55 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:02:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Animal {
 		Animal(void);
 	public:
 		Animal(const Animal& p);
+
+		Animal( const std::string& type );
 
 		virtual ~Animal(void);
 		

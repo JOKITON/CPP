@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:26:02 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/23 19:03:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:50:41 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Dog::~Dog() {
 	return ;
 }
 
-Dog::Dog( const Dog & p) : Animal() {
+Dog::Dog( const Dog & p) : Animal(p), dogBrain(new Brain(p.getBrain())) {
 	this->type = p.getType();
 	std::cout << "[Dog] has been constructed (Copy) " << std::endl;
 	return ;
@@ -38,7 +38,12 @@ void	Dog::makeSound(void) const { //
 
 
 Dog&	Dog::operator=(const Dog& p) {
-	*this = p;
+	if (this != &p) {
+		// Copy data members from p to *this
+		this->type = p.getType();
+		delete this->dogBrain;
+		this->dogBrain = new Brain(p.getBrain());
+	}
 	return *this;
 }
 

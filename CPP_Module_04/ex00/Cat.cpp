@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/29 16:05:21 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 10:41:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,20 @@ Cat::Cat(void) {
 	return ;
 }
 
-Cat::Cat( const Cat & p) : Animal() {
+Cat::Cat( const Cat & p) : Animal(p) {
 	*this = p;
-	std::cout << "[Cat] has been constructed (Copy) " << std::endl;
+	std::cout << "[Cat] " << this->getType() << " has been constructed (Copy) " << std::endl;
 	return ;
 }
 
 Cat::~Cat(void) {
-	std::cout << "[Cat] " << "has been destroyed!" << std::endl;
+	std::cout << "[Cat] " << this->getType() << " has been destroyed!" << std::endl;
 	return ;
 }
 
 Cat&	Cat::operator=(Cat const & p) {
-	this->type = p.type;
+	if (this != &p)
+		*this = p;
 	return *this;
 }
 
