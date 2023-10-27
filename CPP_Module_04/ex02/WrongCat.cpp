@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/26 18:07:21 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:26:45 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ WrongCat::WrongCat(void) : WrongAnimal("WrongCat") {
 	return ;
 }
 
-WrongCat::WrongCat( const WrongCat &p) : WrongAnimal() {
+WrongCat::WrongCat( const WrongCat &p) : WrongAnimal(p) {
 	this->type = p.getType();
 	std::cout << "[WrongCat] Copy Constructed called from " << this->type << std::endl;
 }

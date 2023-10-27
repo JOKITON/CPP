@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/26 12:11:47 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:24:35 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,35 @@ void	subjectTests( void ) {
 }
 
 void	execTests( void ) {
+
+	const Dog dogAverage;
+	const Cat catAverage;
+	
+	std::cout << "\033[35m" << "------------[CopyConstructor]-----------" << "\033[0m" << std::endl;
+	const Dog dogCopy(dogAverage);
+	const Cat catCopy(catAverage);
+	
+	std::cout << "\033[35m" << "------------[AssigmentOperatorAnimal]-----------" << "\033[0m" << std::endl;
+	Animal	assignAnimal;
+	const Animal	assign2Animal;
+
+	assignAnimal = assign2Animal;
+	assignAnimal.makeSound();
+
+	std::cout << "\033[35m" << "------------[AssigmentOperatorDog]-----------" << "\033[0m" << std::endl;
+	Dog	assignDog;
+	const Dog	assign2Dog;
+
+	assignDog = assign2Dog;
+	assignDog.makeSound();
+
+	std::cout << "\033[35m" << "------------[AssigmentOperatorCat]-----------" << "\033[0m" << std::endl;
+	Cat	assignCat;
+	Cat	assign2Cat;
+
+	assignCat = assign2Cat;
+	assignCat.makeSound();
+
 	std::cout << std::endl;
 	
 	const	Animal	*test[6];
@@ -121,6 +150,26 @@ void	execTests( void ) {
 
 
 	std::cout << "\033[34m" << "---------[Brain-Tests(End)]--------" << "\033[0m" << std::endl;
+
+	std::cout << std::endl;
+	std::cout << "\033[34m" << "----------WrongAnimal----------" << "\033[0m" << std::endl;
+	std::cout << "\033[34m" << "-------------------------------" << "\033[0m" << std::endl;
+	const WrongAnimal* wrong_animal = new WrongAnimal();
+	const WrongAnimal* wrong_cat = new WrongCat();
+
+	std::cout << std::endl;
+	std::cout << "WrongAnimal->getType [" << wrong_animal->getType() << "] " << std::endl;
+	std::cout << "WrongCat->getType [" << wrong_cat->getType() << "] " << std::endl;
+
+	std::cout << std::endl;
+	wrong_cat->makeSound();
+	wrong_animal->makeSound();
+
+	std::cout << std::endl;
+	delete wrong_cat;
+	delete wrong_animal;
+
+	std::cout << "\033[35m" << "----------Destructors----------" << "\033[0m" << std::endl;
 }
 
 int	main(void) {

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:19:08 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/26 18:05:35 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:26:50 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class WrongAnimal {
 
 		WrongAnimal(const WrongAnimal& p);
 
-		~WrongAnimal();
+		virtual ~WrongAnimal();
 		
 		WrongAnimal& operator=( const WrongAnimal& p );
 		

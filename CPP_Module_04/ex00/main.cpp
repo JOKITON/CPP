@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:07:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/25 17:51:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 21:39:34 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "WrongCat.hpp"
 
 void	subjectTests( void ) {
+	std::cout << "\033[35m" << "---------[SubjectTests]--------" << "\033[0m" << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -33,16 +34,40 @@ void	subjectTests( void ) {
 
 void	execTests( void ) {
 	std::cout << "\033[34m" << "-------------------------------" << "\033[0m" << std::endl;
-	std::cout << "\033[34m" << "------------Animal-------------" << "\033[0m" << std::endl;
+	std::cout << "\033[35m" << "------------[Animal]-----------" << "\033[0m" << std::endl;
 	const Animal* animal = new Animal();
 	
 	const Dog dogAverage;
 	const Cat catAverage;
 	
+	std::cout << "\033[35m" << "------------[CopyConstructor]-----------" << "\033[0m" << std::endl;
 	const Dog dogCopy(dogAverage);
 	const Cat catCopy(catAverage);
+	
+	std::cout << "\033[35m" << "------------[AssigmentOperatorAnimal]-----------" << "\033[0m" << std::endl;
+	Animal	assignAnimal;
+	const Animal	assign2Animal;
+
+	assignAnimal = assign2Animal;
+	assignAnimal.makeSound();
+
+	std::cout << "\033[35m" << "------------[AssigmentOperatorDog]-----------" << "\033[0m" << std::endl;
+	Dog	assignDog;
+	const Dog	assign2Dog;
+
+	assignDog = assign2Dog;
+	assignDog.makeSound();
+
+	std::cout << "\033[35m" << "------------[AssigmentOperatorCat]-----------" << "\033[0m" << std::endl;
+	Cat	assignCat;
+	Cat	assign2Cat;
+
+	assignCat = assign2Cat;
+	assignCat.makeSound();
+
 
 	std::cout << std::endl;
+	std::cout << "\033[35m" << "------------[getType()]-----------" << "\033[0m" << std::endl;
 	std::cout << "dogAverage->getType [" << dogAverage.getType() << "] " << std::endl;
 	std::cout << "catAverage->getType [" << catAverage.getType() << "] " << std::endl;
 	catAverage.makeSound(); //will output the cat sound! (not the Animal)

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:50:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/26 10:42:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/26 21:45:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,23 @@
 WrongCat::WrongCat(void) : WrongAnimal() {
 	this->type = "WrongCat";
 	std::cout << "[WrongCat] " << this->getType() << " has been constructed!" << std::endl;
-	return ;
 }
 
 WrongCat::WrongCat( const WrongCat &p) : WrongAnimal(p) {
-	*this = p;
-	std::cout << "[WrongCat] " << "has constructed (copy) " << std::endl;
+	std::cout << "[WrongCat] Copy constructor called from " << p.getType() << std::endl;
+	this->type = p.getType();
 }
 
 WrongCat::~WrongCat(void) {
 	std::cout << "[WrongCat] " << this->getType() << " has been destroyed!" << std::endl;
-	return ;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& p) {
 	if (this != &p)
-		*this = p;
+		this->type = p.getType();
 	return *this;
 }
 
 void	WrongCat::makeSound(void) const {
 	std::cout << "[WrongCat] Meowwwww" << std::endl;
-	return ;
 }

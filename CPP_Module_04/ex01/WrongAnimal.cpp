@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:19:06 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/26 15:27:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:13:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ WrongAnimal::WrongAnimal(void) : type("wrong_default") {
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& p) {
-	std::cout << "[WrongAnimal] Copy Constructor Called!" << std::endl;
+	std::cout << "[WrongAnimal] Copy Constructor called from " << p.getType() << std::endl;
 	this->type = p.getType();
 }
 
@@ -28,9 +28,9 @@ WrongAnimal::~WrongAnimal(void) {
 }
 
 WrongAnimal& WrongAnimal::operator=( const WrongAnimal& p ) {
+	std::cout << "[WrongAnimal] Assignment operator called for " << this->type << " from " << p.getType() << std::endl;
 	if (this != &p)
 		this->type = p.getType();
-	std::cout << "[WrongAnimal] Assignment operator called!" << std::endl;
 	return (*this);
 }
 
