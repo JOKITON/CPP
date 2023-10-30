@@ -22,10 +22,12 @@ class Animal {
 	protected:
 		std::string type;
 		Animal(void);
-	public:
+
 		Animal(const Animal& p);
 
 		Animal( const std::string& type );
+
+        public:
 
 		virtual ~Animal(void);
 		
