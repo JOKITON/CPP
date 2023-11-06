@@ -8,7 +8,9 @@ private:
 public:
     Form(void);
     ~Form(void);
+
     Form(const Form& p);
+    Form( const std::string name, bool signed, const int gradeSign, const int gradeExec);
     Form& operator=(const Form& p);
 
     const std::string& getName(void) const;
@@ -29,6 +31,10 @@ Form::Form(const Form& p) {
     std::cout << "[Form] Copy constructor from '" << p.getName() << "' has been called." << std::endl;
     // No need to assign to constant members
     this->_signed = p.getStatus();
+}
+
+Form::Form( const std::string name, bool signed, const int gradeSign, const int gradeExec) : _name(name), _signed(signed), _gradeSign(gradeSign), _gradeExec(gradeExec) {
+    std::cout << "[Form] Constructor with { " << _name << ", " << _signed << ", " << _gradeSign << ", " << _gradeExex << " } has been called." << std::endl
 }
 
 Form& Form::operator=(const Form& p) {
