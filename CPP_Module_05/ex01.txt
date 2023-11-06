@@ -1,0 +1,29 @@
+class Form {
+    private:
+         const std::string _name;
+         bool _signed;
+         const int _gradeSign;
+         const int _gradeExec;
+    public:
+         Form( void );
+         ~Form( void );
+         Form( Form& p );
+         Form& operator=( Form& p );
+
+};
+
+Form::Form( void ) : _name( "default" ), _signed( FALSE ),  _gradeSign( 25 ), _gradeExec( 10 ) {
+    std::cout << "[Form] Default 'constructor' has been called." << std::endl;
+}
+
+Form::~Form( void ) {
+    std::cout << "[Form] Default 'destructor' has been called." << std::endl;
+}
+
+Form::Form( Form& p ) {
+    std::cout << "[Form] Copy constructor from '" << p.getName() << "' has been called." << std::endl;
+    this->_name = p.getName();
+    this->_signed = p.getStatus();
+    this->_gradeSign = p.getGradeSign();
+    this->_gradeExec = p.getGradeExec();
+}
