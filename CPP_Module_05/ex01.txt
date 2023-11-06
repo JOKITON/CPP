@@ -12,8 +12,8 @@ class Form {
 
          std::string & const getName( void ) const;
          bool getStatus( void );
-         int getGradeSign( void );
-         int getGradeExec( void );
+         const int getGradeSign( void ) const;
+         const int getGradeExec( void ) const;
 
 };
 
@@ -53,10 +53,10 @@ bool Form::getStatus( void ) {
     return this->_signed;
 }
 
-int Form::getGradeSign( void ) {
+const int Form::getGradeSign( void ) const {
     return this->_gradeSign;
 }
 
-int Form::getGradeExec( void ) {
+const int Form::getGradeExec( void ) const {
     return this->_gradeExec;
 }
