@@ -48,7 +48,7 @@ Bureaucrat& Bureaucrat::operator=( Bureaucrat& p) {
         this->_grade = p.getGrade();
         this->_name = p.getName();
     }
-return ;
+    return ;
 }
 
 std::ostream& operator<<( std::ostream& out, Bureaucrat& p) {
