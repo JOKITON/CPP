@@ -10,6 +10,11 @@ class Form {
          Form( Form& p );
          Form& operator=( Form& p );
 
+         std::string & const getName( void ) const;
+         bool getStatus( void );
+         int getGradeSign( void );
+         int getGradeExec( void );
+
 };
 
 Form::Form( void ) : _name( "default" ), _signed( FALSE ),  _gradeSign( 25 ), _gradeExec( 10 ) {
@@ -26,4 +31,32 @@ Form::Form( Form& p ) {
     this->_signed = p.getStatus();
     this->_gradeSign = p.getGradeSign();
     this->_gradeExec = p.getGradeExec();
+}
+
+
+Form& operator=( Form& p ) {
+    std::cout << "[Form] Assignment Operator called from '" << p.getName() << "' to '" << this->_name << "'has been called." << std::endl;
+    if( this != &p ) {
+        this->_name = p.getName();
+        this->_signed = p.getStatus();
+        this->_gradeSign = p.getGradeSign();
+        this->_gradeExec = p.getGradeExec(); 
+    }
+    return (*this);
+}
+
+std::string & const Form::getName( void ) const {
+    return this->_name;
+}
+
+bool Form::getStatus( void ) {
+    return this->_signed;
+}
+
+int Form::getGradeSign( void ) {
+    return this->_gradeSign;
+}
+
+int Form::getGradeExec( void ) {
+    return this->_gradeExec;
 }
