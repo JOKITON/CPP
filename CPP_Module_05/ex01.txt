@@ -105,9 +105,9 @@ const int Form::getGradeExec( void ) const {
 }
 
 void Form::GradeTooHighException( int errorGrade ) {
-    std::cout << "[Form] error: the given grade {" << error grade << "} was too high for '" << this->_name << "'!" << std::endl; 
+    std::cout << "[Form] error: the given grade {" << errorGrade << "} was too high for '" << this->_name << "'!" << std::endl; 
 }
 
 void Form::GradeTooLowException( int errorGrade ) {
-    std::cout << "[Form] error: the given grade {" << error grade << "} was too low for '" << this->_name << "'!" << std::endl; 
+    std::cout << "[Form] error: the given grade {" << errorGrade << "} was too low for '" << this->_name << "'!" << std::endl; 
 }
