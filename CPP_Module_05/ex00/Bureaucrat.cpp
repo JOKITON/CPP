@@ -44,11 +44,11 @@ Bureaucrat::~Bureaucrat( void ) {
 
 Bureaucrat& Bureaucrat::operator=( Bureaucrat& p) {
     std::cout << "[Bureaucrat] Assignment Operator for '" << this->_name << "' has been called." << std::endl;
-	if (*this != &p) {
-    this->_grade = p.getGrade();
-    this->_name = p.getName();
-}
-	return ;
+if (*this != &p) {
+        this->_grade = p.getGrade();
+        this->_name = p.getName();
+    }
+return ;
 }
 
 std::ostream& operator<<( std::ostream& out, Bureaucrat& p) {
