@@ -5,8 +5,8 @@ private:
     const int _gradeSign;
     const int _gradeExec
 
-    void GradeTooLowException( void );
-    void GradeTooHighException( void );
+    void GradeTooLowException( int errorGrade );
+    void GradeTooHighException( int errorGrade );
 
 public:
     Form(void);
@@ -57,9 +57,9 @@ Form::Form( const std::string name, bool signed, const int gradeSign, const int 
     catch (int tempGradeSign) {
         switch (tempGradeSign) {
             case 0:
-                GradeTooHighException();
+                GradeTooHighException(_gradeSign);
             case 151:
-                GradeTooLowException();
+                GradeTooLowException(_gradeSign);
         }
     }
 
@@ -72,9 +72,9 @@ Form::Form( const std::string name, bool signed, const int gradeSign, const int 
     catch (int tempGradeSign) {
         switch (tempGradeSign) {
             case 0:
-                GradeTooHighException();
+                GradeTooHighException(_gradeExec);
             case 151:
-                GradeTooLowException();
+                GradeTooLowException(_gradeExec);
         }
     }
 }
