@@ -44,7 +44,7 @@ Bureaucrat::~Bureaucrat( void ) {
 
 Bureaucrat& Bureaucrat::operator=( Bureaucrat& p) {
     std::cout << "[Bureaucrat] Assignment Operator for '" << this->_name << "' has been called." << std::endl;
-if (*this != &p) {
+    if (*this != &p) {
         this->_grade = p.getGrade();
         this->_name = p.getName();
     }
