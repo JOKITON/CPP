@@ -37,7 +37,7 @@ Form::Form(const Form& p) {
 }
 
 Form::Form( const std::string name, bool signed, const int gradeSign, const int gradeExec) : _name(name), _signed(signed), _gradeSign(gradeSign), _gradeExec(gradeExec) {
-    std::cout << "[Form] Constructor with { " << _name << ", " << _signed << ", " << _gradeSign << ", " << _gradeExex << " } has been called." << std::endl;
+    std::cout << "[Form] Constructor with { " << _name << ", " << _signed << ", " << _gradeSign << ", " << _gradeExec << " } has been called." << std::endl;
 
     int temp1 = _gradeSign;
     int temp2 = _gradeExec;
