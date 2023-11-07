@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:03:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/06 18:15:08 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:37:53 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,20 @@ Bureaucrat::Bureaucrat( const Bureaucrat& p ) : _name(p._name), _grade(p._grade)
 Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name) {
 	int temp = grade;
 	
+	// Checks if the grade can be out of bounds & is adjusted accordingly
 	temp = (grade < 1) ? 0 : grade;
 	temp = (grade > 150) ? 151 : temp;
-	try {
-		switch( temp ) {
-			case 0:
-				throw temp;
-			case 151:
-				throw temp;
-			default :
-				this->_grade = grade;
-				std::cout << "[Bureaucrat] Contructor with (" << _name << ", " << _grade << "] has been called." << std::endl;
-		}
+	switch( temp ) {
+		case 0:
+			GradeTooHighException( grade );
+			break ;
+		case 151:
+			GradeTooLowException( grade );
+			break ;
+		default :
+			this->_grade = grade;
+			std::cout << "[Bureaucrat] Contructor with (" << _name << ", " << _grade << "] has been called." << std::endl;
 	}
-	catch ( int wrongGrade ) {
-		switch ( wrongGrade ) {
-			case 0:
-				GradeTooHighException( grade );
-				break ;
-			case 151:
-				GradeTooLowException( grade );
-				break ;
-		}
-		std::cout << " %> */* All Bureaucrat grades that are off-limits will be set to '50'. */*" << std::endl;
-		this->_grade = 50;
-	}
-	
 }
 
 Bureaucrat::~Bureaucrat( void ) {
@@ -62,6 +50,7 @@ Bureaucrat& Bureaucrat::operator=( Bureaucrat& p) {
 		this->_grade = p.getGrade();
 		this->_name = (p.getName());
 
+		// Checks if there is a deep copy :
 		/* std::cout << "Memory Adress of _name : " << &_name << std::endl;
 		std::cout << "Memory Adress of p.getName() : " << &p.getName() << std::endl; */
 	}
@@ -80,54 +69,56 @@ std::string const & Bureaucrat::getName( void ) const {
 	return this->_name;
 }
 
-int	Bureaucrat::getGrade( void ) {
+int	Bureaucrat::getGrade( void ) const{
 	return _grade;
 }
 
 void	Bureaucrat::incrementGrade( int val ) {
 	int	temp;
 	
-	val *= (val < 0) ? -1 : 1; // negative checker
-	temp = ((_grade - val) < 1) ? -1 : _grade; // out of bounds checker
-	try {
-		switch(temp) {
-			case -1:
-				throw (_grade - val);
-			default:
-				this->_grade -= val;
-				std::cout << "[Bureaucrat] 'incrementGrade()' for '" << this->_name << "' has been called.  Current grade : [" << this->_grade << "]." << std::endl;
-		}
-	}
-	catch( int res ) {
-		GradeTooHighException( res );
-		return ;
+	// Checks if the given value is negative & changes it to positive
+	val *= (val < 0) ? -1 : 1;
+	// Checks if the grade can be out of bounds & is adjusted to '-1'
+	temp = ((_grade - val) < 1) ? -1 : _grade;
+	switch(temp) {
+		case -1:
+			GradeTooHighException(_grade - val);
+			break ;
+		default:
+			this->_grade -= val;
+			std::cout << "[Bureaucrat] 'incrementGrade()' for '" << this->_name << "' has been called.  Current grade : [" << this->_grade << "]." << std::endl;
 	}
 }
 
 void	Bureaucrat::decrementGrade( int val ) {
 	int	temp;
 	
-	val *= (val < 0) ? -1 : 1; // negative checker
-	temp = ((_grade + val) > 150) ? -1 : _grade; // out of bounds checker
-	try {
-		switch(temp) {
-			case -1:
-				throw (_grade + val);
-			default:
-				this->_grade += val;
-				std::cout << "[Bureaucrat] 'decrementGrade()' for '" << this->_name << "' has been called.   Current grade : [" << this->_grade << "]." << std::endl;
-		}
-	}
-	catch( int res ) {
-		GradeTooLowException( res );
-		return ;
+	// Checks if the given value is negative & changes it to positive
+	val *= (val < 0) ? -1 : 1;
+	// Checks if the grade can be out of bounds & is adjusted to '-1'
+	temp = ((_grade + val) > 150) ? -1 : _grade;
+	switch(temp) {
+		case -1:
+			GradeTooLowException(_grade + val);
+			break ;
+		default:
+			this->_grade += val;
+			std::cout << "[Bureaucrat] 'decrementGrade()' for '" << this->_name << "' has been called.   Current grade : [" << this->_grade << "]." << std::endl;
 	}
 }
 
-void	Bureaucrat::GradeTooHighException( int num ) {
-	std::cout << "[Bureaucrat] error: [" << num << "] is too high for '" << this->_name << "'! 'GradeTooHighException' " << std::endl;
+void Bureaucrat::GradeTooHighException( int errorGrade ) {
+	std::ostringstream oss;
+	oss << "[Bureaucrat] error: the given grade {" << errorGrade << "} was too high for '" << this->_name << "'!\n";
+
+	std::string msg = oss.str();
+	throw std::runtime_error(msg);
 }
 
-void	Bureaucrat::GradeTooLowException( int num ) {
-	std::cout << "[Bureaucrat] error: [" << num << "] is too low for '" << this->_name << "'! 'GradeTooLowException' " << std::endl;
+void Bureaucrat::GradeTooLowException( int errorGrade ) {
+	std::ostringstream oss;
+	oss << "[Bureaucrat] error: the given grade {" << errorGrade << "} was too low for '" << this->_name << "'!\n";
+
+	std::string msg = oss.str();
+	throw std::runtime_error(msg);
 }

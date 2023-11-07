@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 23:03:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/05 23:33:28 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/11/07 10:39:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 #define BCYAN "\e[46m"
 
 #include <iostream>
+#include <sstream>
 
 class Bureaucrat {
 	private:
 		std::string 	_name;
 		int			_grade;
 		
-		void	GradeTooHighException( int num );
-		void	GradeTooLowException( int num );
+		void	GradeTooHighException( int errorGrade );
+		void	GradeTooLowException( int errorGrade );
 	public:
 		Bureaucrat( void );
 		Bureaucrat( const std::string name, int grade);
@@ -36,7 +37,7 @@ class Bureaucrat {
 		friend std::ostream& operator<<( std::ostream& out, Bureaucrat& p);
 		
 		std::string const & getName( void ) const;
-		int getGrade( void );
+		int getGrade( void ) const;
 
 		void	incrementGrade( int val );
 		void	decrementGrade( int val );
