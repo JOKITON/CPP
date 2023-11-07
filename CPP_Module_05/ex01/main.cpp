@@ -6,15 +6,15 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/06 19:29:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/07 13:01:04 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 void	execBureaucrats( void ) {
 
-	std::cout << BCYAN << WHITE << "-----------------------[StartTests]-----------------------" << END << std::endl;
+	std::cout << BCYAN << WHITE << "-----------------------[Tests 'Bureaucrat']-----------------------" << END << std::endl;
 
 	std::cout << std::endl;
 	std::cout << BCYAN << WHITE << "-----------------------[DefaultConstructor]-----------------------" << END << std::endl;
@@ -99,11 +99,42 @@ void	execBureaucrats( void ) {
 	std::cout << BCYAN << WHITE << "-----------------------[Destructors]-----------------------" << END << std::endl;
 }
 
+void	execForms( void ) {
+	std::cout << BCYAN << WHITE << "-----------------------[Test 'Forms']-----------------------" << END << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BCYAN << WHITE << "-----------------------[DefaultConstructor]-----------------------" << END << std::endl;
+
+	Form	jobSalary;
+	Form	jobExtraHours;
+
+	std::cout << std::endl;
+	std::cout << BCYAN << WHITE << "-----------------------[DataConstructor]-----------------------" << END << std::endl;
+
+	Form	scholarshipMargin("scholarshipMargin", FALSE, 5, 10);
+	Form	averageSalary( "averageSalary", FALSE, 3, 8);
+	/* Form	customerService( "customerService", FALSE, -30, -1); // error-cases
+	Form	healthyLunch( "healthyLuch", FALSE, 150, 1); */
+
+	std::cout << std::endl;
+	std::cout << BCYAN << WHITE << "-----------------------[CopyConstructor]-----------------------" << END << std::endl;
+
+	Form	sM2(scholarshipMargin);
+
+	std::string sM2status = (sM2.getStatus() == TRUE) ? "TRUE" : "FALSE";
+	std::cout << "Data of Form 'scholarshipMargin2' : [" << sM2.getName() << " | " << sM2status << " | " << sM2.getGradeSign() << " | " << sM2.getGradeExec() << "]" << std::endl;
+	std::cout << std::endl;
+	std::cout << BCYAN << WHITE << "-----------------------[Destructors]-----------------------" << END << std::endl;
+}
+
 int main( void ) {
 
+	/* My own tests */
 	try {
-		/* My own tests */
-		execBureaucrats();
+		/* Bureaucrat */
+		// execBureaucrats();
+		/* Form */
+		execForms();
 	}
 	catch (std::exception& e) {
 		std::cerr << e.what();

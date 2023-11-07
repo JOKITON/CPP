@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:21:59 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/07 10:39:48 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/07 12:59:40 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,26 @@ Form::~Form(void) {
     std::cout << "[Form] Default 'destructor' has been called." << std::endl;
 }
 
-Form::Form(const Form& p) : _signed(p.getStatus()), _gradeSign(p.getGradeSign()), _gradeExec(p.getGradeExec()) {
+Form::Form(const Form& p) : _name(p.getName()), _signed(p.getStatus()), _gradeSign(p.getGradeSign()), _gradeExec(p.getGradeExec()) {
     std::cout << "[Form] Copy constructor from '" << p.getName() << "' has been called." << std::endl;
     // No need to assign to constant members
 }
 
 Form::Form( const std::string name, bool signed_, const int gradeSign, const int gradeExec) : _name(name), _signed(signed_), _gradeSign(gradeSign), _gradeExec(gradeExec) {
-    std::cout << "[Form] Constructor with { " << _name << ", " << _signed << ", " << _gradeSign << ", " << _gradeExec << " } has been called." << std::endl;
+    /* A better way to check TRUE/FALSE on _signed */
+    std::string status = (_signed == TRUE) ? "TRUE" : "FALSE";
+    /* Print information about what Form whas created and what data has been given to it. */
+    std::cout << "[Form] Constructor with { '" << _name << "', '" << status << "', " << _gradeSign << ", " << _gradeExec << " } has been called." << std::endl;
 
     int temp1 = gradeSign;
     int temp2 = gradeExec;
 
     // Checks if the grade can be out of bounds & is adjusted accordingly.
     temp1 = (temp1 < 1) ? 0 : temp1;
-    temp1 = (temp1 > 150) ? 151 : gradeSign;
+    temp1 = (temp1 > 150) ? 151 : temp1;
 
     temp2 = (temp2 < 1) ? 0 : temp2;
-    temp2 = (temp2 > 150) ? 151 : gradeExec;
+    temp2 = (temp2 > 150) ? 151 : temp2;
 
     switch (temp1) {
         case 0:
@@ -63,6 +66,12 @@ Form& Form::operator=(const Form& p) {
         this->_signed = p.getStatus();
     }
     return (*this);
+}
+
+std::ostream& operator<<( std::ostream& out, Form& p ) {
+    out << "[Form] " << p.getName() << " , Form's grades : {" << p.getGradeSign() << ", " << p.getGradeExec() << "}.\n";
+
+	return out;
 }
 
 const std::string& Form::getName( void ) const {
@@ -95,4 +104,34 @@ void Form::GradeTooLowException( int errorGrade ) {
 
 	std::string msg = oss.str();
 	throw std::runtime_error(msg);
+}
+
+void    Form::beSigned( const Bureaucrat& p ) {
+    int checkGrade;
+    
+    checkGrade = (_gradeSign < p.getGrade()) ? 1 : 0;
+    switch (checkGrade)
+    {
+        case 1:
+            GradeTooLowException( p.getGrade() );
+            break;
+        case 0:
+            _signed = TRUE;
+            std::cout << "[Form] '" << this->_name << "' has been signed by '"  << p.getName() << "', using a grade of {" << p.getGrade() << "}!." << std::endl;
+    }
+}
+
+void    Form::signForm( const Bureaucrat& p ) {
+    int checkGrade;
+
+    checkGrade = (_gradeExec < p.getGrade()) ? 1 : 0;
+    switch (checkGrade)
+    {
+        case 1:
+            std::cout << "[Form] " << p.getName() << " couldn’t sign '" << this->_name << "' because its grade '" << p.getGrade() << "' is too low!" << std::endl;
+            break;
+        case 0:
+            std::cout << "[Form] " << p.getName() << "signed '" << this->_name << "'."<< std::endl;
+            break ;
+    }
 }
