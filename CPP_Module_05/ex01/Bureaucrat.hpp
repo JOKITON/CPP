@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/07 10:40:04 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/08 18:48:54 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BUREAUCRAT_HPP
 
 #define END "\033[0m"
-#define WHITE "\e[4;30m"
+#define BLACK "\e[4;30m"
 #define BCYAN "\e[46m"
 
 #include <iostream>

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/08 18:48:54 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/08 18:52:47 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 
 #define END "\033[0m"
 #define BLACK "\e[4;30m"
+#define RED "\e[1;31m"
+
 #define BCYAN "\e[46m"
+#define BBLACK "\e[47m"
 
 #include <iostream>
 #include <sstream>
+class Form; // to avoid looping #include
 
 class Bureaucrat {
 	private:
@@ -41,6 +45,8 @@ class Bureaucrat {
 
 		void	incrementGrade( int val );
 		void	decrementGrade( int val );
+
+		void	executeForm( Form const & form );
 
 };
 

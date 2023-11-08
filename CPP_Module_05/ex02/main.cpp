@@ -6,11 +6,15 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/08 18:48:54 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:40:16 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void	execBureaucrats( void ) {
 
@@ -172,14 +176,82 @@ void	execForms( void ) {
 	std::cout << BCYAN << BLACK << "-----------------------[Destructors]-----------------------" << END << std::endl;
 }
 
+void	execConcreteClasses( void ) {
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[ Tests 'ShrubberyCreationForm' ]-----------------------" << END << std::endl;
+	std::cout << std::endl;
+
+	Form	testForm1("testForm1", 0, 145, 137);
+	Form	testForm2("testForm2", 0, 72, 45);
+	Form	testForm3("testForm3", 0, 25, 5);
+
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Default Constructor]-----------------------" << END << std::endl;
+
+	ShrubberyCreationForm	testCreationForm1;
+
+	RobotomyRequestForm		testRequestForm1;
+
+	PresidentialPardonForm	testPardonForm1;
+
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Copy Constructor]-----------------------" << END << std::endl;
+
+
+	ShrubberyCreationForm	testCreationForm2(testForm1);
+
+	RobotomyRequestForm		testRequestForm2(testForm2);
+
+	PresidentialPardonForm	testPardonForm2(testForm3);
+
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[execute( Bureaucrat const & p )]-----------------------" << END << std::endl;
+
+	Bureaucrat	lvl3("test3", 137);
+	Bureaucrat	lvl2("test2", 45);
+	Bureaucrat	lvl1("test1", 5);
+	std::cout << std::endl;
+
+	testCreationForm2.execute( lvl3 );
+	testRequestForm2.execute( lvl2 );
+	testPardonForm2.execute( lvl1 );
+	std::cout << std::endl;
+
+	testCreationForm2.beSigned( lvl3 );
+	testRequestForm2.beSigned( lvl2 );
+	testPardonForm2.beSigned( lvl1 );
+	std::cout << std::endl;
+
+	testCreationForm2.execute( lvl3 );
+	testRequestForm2.execute( lvl2 );
+	testPardonForm2.execute( lvl1 );
+	std::cout << std::endl;
+
+/* 	lvl3.decrementGrade( 1 ); // error-cases
+	testCreationForm2.execute( lvl3 ); */
+
+/* 	lvl2.decrementGrade( 1 );
+	testRequestForm2.execute( lvl2 ); */
+
+/* 	lvl1.decrementGrade( 1 );
+	testPardonForm2.execute( lvl1 ); */
+
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Destructors]-----------------------" << END << std::endl;
+}
+
 int main( void ) {
 
 	/* My own tests */
 	try {
 		/* Bureaucrat */
 		// execBureaucrats();
+
 		/* Form */
-		execForms();
+		// execForms();
+
+		/* ShrubberyCreationForm */
+		execConcreteClasses();
 	}
 	catch (std::exception& e) {
 		std::cerr << e.what();

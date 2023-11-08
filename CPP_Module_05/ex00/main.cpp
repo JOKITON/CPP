@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/07 10:40:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/08 18:48:54 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 void	execBureaucrats( void ) {
 
-	std::cout << BCYAN << WHITE << "-----------------------[StartTests]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[StartTests]-----------------------" << END << std::endl;
 
 	std::cout << std::endl;
-	std::cout << BCYAN << WHITE << "-----------------------[DefaultConstructor]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[DefaultConstructor]-----------------------" << END << std::endl;
 
 	Bureaucrat	test1;
 
 	std::cout << std::endl;
-	std::cout << BCYAN << WHITE << "-----------------------[DataConstructor]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[DataConstructor]-----------------------" << END << std::endl;
 	Bureaucrat Top("Top", 2);
 	Bureaucrat Bottom("Bottom", 149);
 /* 	Bureaucrat test2("test2", 1321); // error-case
 	Bureaucrat test3("test3", -432); */
 
 	std::cout << std::endl;
-	std::cout << BCYAN << WHITE << "-----------------------[CopyConstructor]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[CopyConstructor]-----------------------" << END << std::endl;
 
 	Bureaucrat test4( test1 );
 
 	std::cout << std::endl;
-	std::cout << BCYAN << WHITE << "-----------------------[getName]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[getName]-----------------------" << END << std::endl;
 	
 	std::cout << "Data of Bureaucrat 'Top' : [" << Top.getName() << " | " << Top.getGrade() << "]" << std::endl;
 	std::cout << "Data of Bureaucrat 'Bottom' : [" << Bottom.getName() << " | " << Bottom.getGrade() << "]" << std::endl;
@@ -43,7 +43,7 @@ void	execBureaucrats( void ) {
 
 
 	std::cout << std::endl;
-	std::cout << BCYAN << WHITE << "-----------------------[IncrementGrade]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[IncrementGrade]-----------------------" << END << std::endl;
 
 	std::cout << std::endl;
 	Top.incrementGrade(1);
@@ -60,7 +60,7 @@ void	execBureaucrats( void ) {
 	test4.incrementGrade(-1000); */
 
 	std::cout << std::endl;
-	std::cout << BCYAN << WHITE << "-----------------------[DecrementGrade]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[DecrementGrade]-----------------------" << END << std::endl;
 
 	std::cout << std::endl;
 	Top.decrementGrade(1);
@@ -79,7 +79,7 @@ void	execBureaucrats( void ) {
 
 
 	std::cout << std::endl;
-	std::cout << BCYAN << WHITE << "-----------------------[OverloadOperator]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[OverloadOperator]-----------------------" << END << std::endl;
 
 	std::cout << Top;
 	std::cout << Bottom;
@@ -87,7 +87,7 @@ void	execBureaucrats( void ) {
 	std::cout << test4;
 
 	std::cout << std::endl;
-	std::cout << BCYAN << WHITE << "-----------------------[AssignmentOperator]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[AssignmentOperator]-----------------------" << END << std::endl;
 
 	Top = Bottom;
 	test1 = test4;
@@ -96,7 +96,7 @@ void	execBureaucrats( void ) {
 	std::cout << "Data of Bureaucrat 'test1' : [" << test1.getName() << " | " << test1.getGrade() << "]" <<std::endl;
 
 	std::cout << std::endl;
-	std::cout << BCYAN << WHITE << "-----------------------[Destructors]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[Destructors]-----------------------" << END << std::endl;
 }
 
 int main( void ) {

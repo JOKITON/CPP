@@ -6,11 +6,12 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:03:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/08 17:22:58 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/08 18:37:11 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat( void ) : _name("default"), _grade(50) {
 	std::cout << "[Bureaucrat] Default 'constructor' has been called." << std::endl;
@@ -86,7 +87,7 @@ void	Bureaucrat::incrementGrade( int val ) {
 			break ;
 		default:
 			this->_grade -= val;
-			std::cout << "[Bureaucrat] 'incrementGrade(" << val << ")' for '" << this->_name << "' has been called.  Current grade : [" << this->_grade << "]." << std::endl;
+			std::cout << "[Bureaucrat] 'incrementGrade()' for '" << this->_name << "' has been called.  Current grade : [" << this->_grade << "]." << std::endl;
 	}
 }
 
@@ -103,7 +104,7 @@ void	Bureaucrat::decrementGrade( int val ) {
 			break ;
 		default:
 			this->_grade += val;
-			std::cout << "[Bureaucrat] 'decrementGrade(" << val << ")' for '" << this->_name << "' has been called.   Current grade : [" << this->_grade << "]." << std::endl;
+			std::cout << "[Bureaucrat] 'decrementGrade()' for '" << this->_name << "' has been called.   Current grade : [" << this->_grade << "]." << std::endl;
 	}
 }
 
@@ -121,4 +122,21 @@ void Bureaucrat::GradeTooLowException( int errorGrade ) {
 
 	std::string msg = oss.str();
 	throw std::runtime_error(msg);
+}
+
+/* ex02 */
+
+void	Bureaucrat::executeForm( Form const & form ) {
+	int temp1;
+
+	temp1 = (this->_grade <= form.getGradeExec()) ? 1 : 0;
+	switch ( temp1 )
+	{
+	case 1:
+		std::cout << "[Bureaucrat] '" << _name << "' executed '" << form.getName() << "'!" << std::endl;
+		break;
+	case 0:
+		std::cerr << "[Bureaucrat] error: '" << _name << "' did not execute '" << form.getName() << "'!" << std::endl;
+		break ;
+	}
 }
