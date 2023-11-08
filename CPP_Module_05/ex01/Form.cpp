@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:21:59 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/07 12:59:40 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:33:15 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ Form& Form::operator=(const Form& p) {
 }
 
 std::ostream& operator<<( std::ostream& out, Form& p ) {
-    out << "[Form] " << p.getName() << " , Form's grades : {" << p.getGradeSign() << ", " << p.getGradeExec() << "}.\n";
+    std::string pStatus = (p.getStatus() == TRUE) ? "TRUE" : "FALSE";
+    out << "[Form] '" << p.getName() << "'s Form grades : {" << p.getGradeSign() << ", " << p.getGradeExec() << "}.";
+    out << " && status : {" << pStatus << "}." << std::endl;
 
 	return out;
 }
@@ -117,7 +119,7 @@ void    Form::beSigned( const Bureaucrat& p ) {
             break;
         case 0:
             _signed = TRUE;
-            std::cout << "[Form] '" << this->_name << "' has been signed by '"  << p.getName() << "', using a grade of {" << p.getGrade() << "}!." << std::endl;
+            std::cout << "[Form] '" << this->_name << "' {" << this->_gradeSign << "} has been signed by '"  << p.getName() << "', using a grade of {" << p.getGrade() << "}!." << std::endl;
     }
 }
 
@@ -128,10 +130,10 @@ void    Form::signForm( const Bureaucrat& p ) {
     switch (checkGrade)
     {
         case 1:
-            std::cout << "[Form] " << p.getName() << " couldn’t sign '" << this->_name << "' because its grade '" << p.getGrade() << "' is too low!" << std::endl;
+            std::cout << "[Form] '" << p.getName() << "' {" << p.getGrade() << "} couldn’t sign '" << this->_name << "' {" << this->_gradeExec << "} because its grade is too low!" << std::endl;
             break;
         case 0:
-            std::cout << "[Form] " << p.getName() << "signed '" << this->_name << "'."<< std::endl;
+            std::cout << "[Form] '" << p.getName() << "' {" << p.getGrade() << "} signed '" << this->_name << "' {" << this->_gradeExec << "}."<< std::endl;
             break ;
     }
 }

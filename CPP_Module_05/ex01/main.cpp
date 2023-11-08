@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/07 13:01:04 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:30:56 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	execForms( void ) {
 	std::cout << BCYAN << WHITE << "-----------------------[DataConstructor]-----------------------" << END << std::endl;
 
 	Form	scholarshipMargin("scholarshipMargin", FALSE, 5, 10);
-	Form	averageSalary( "averageSalary", FALSE, 3, 8);
+	Form	averageSalary( "averageSalary", FALSE, 8, 3);
 	/* Form	customerService( "customerService", FALSE, -30, -1); // error-cases
 	Form	healthyLunch( "healthyLuch", FALSE, 150, 1); */
 
@@ -123,6 +123,51 @@ void	execForms( void ) {
 
 	std::string sM2status = (sM2.getStatus() == TRUE) ? "TRUE" : "FALSE";
 	std::cout << "Data of Form 'scholarshipMargin2' : [" << sM2.getName() << " | " << sM2status << " | " << sM2.getGradeSign() << " | " << sM2.getGradeExec() << "]" << std::endl;
+	
+	
+	std::cout << std::endl;
+	std::cout << BCYAN << WHITE << "-----------------------[getters()]-----------------------" << END << std::endl;
+	std::string jobExtraHoursStatus = (jobExtraHours.getStatus() == TRUE) ? "TRUE" : "FALSE";
+	std::cout << "Data of Form 'jobExtraHours' : [" << jobExtraHours.getName() << " | " << jobExtraHoursStatus << " | " << jobExtraHours.getGradeSign() << " | " << jobExtraHours.getGradeExec() << "]" << std::endl;
+	std::string averageSalaryStatus = (averageSalary.getStatus() == TRUE) ? "TRUE" : "FALSE";
+	std::cout << "Data of Form 'averageSalary' : [" << averageSalary.getName() << " | " << averageSalaryStatus << " | " << averageSalary.getGradeSign() << " | " << averageSalary.getGradeExec() << "]" << std::endl;
+	
+
+	std::cout << std::endl;
+	std::cout << BCYAN << WHITE << "-----------------------[OverloadOperator]-----------------------" << END << std::endl;
+
+	std::cout << sM2;
+	std::cout << scholarshipMargin;
+	std::cout << averageSalary;
+
+	std::cout << std::endl;
+	std::cout << BCYAN << WHITE << "-----------------------[beSigned()]-----------------------" << END << std::endl;
+
+	Bureaucrat	chiefExecutive( "chiefExecutive", 4 );
+	std::cout << std::endl;
+	Bureaucrat	streetCleaner( "streetCleaner", 20 );
+
+	sM2.beSigned( chiefExecutive );
+	/* sM2.beSigned( streetCleaner ); */ // error-case
+	averageSalary.beSigned( chiefExecutive );
+	jobExtraHours.beSigned( streetCleaner );
+
+	std::cout << std::endl;
+	sM2status = (sM2.getStatus() == TRUE) ? "TRUE" : "FALSE";
+	std::cout << "Data of Form 'sM2' : [" << sM2.getName() << " | " << sM2status << " | " << sM2.getGradeSign() << " | " << sM2.getGradeExec() << "]" << std::endl;
+	averageSalaryStatus = (averageSalary.getStatus() == TRUE) ? "TRUE" : "FALSE";
+	std::cout << "Data of Form 'averageSalary' : [" << averageSalary.getName() << " | " << averageSalaryStatus << " | " << averageSalary.getGradeSign() << " | " << averageSalary.getGradeExec() << "]" << std::endl;
+	jobExtraHoursStatus = (jobExtraHours.getStatus() == TRUE) ? "TRUE" : "FALSE";
+	std::cout << "Data of Form 'jobExtraHours' : [" << jobExtraHours.getName() << " | " << jobExtraHoursStatus << " | " << jobExtraHours.getGradeSign() << " | " << jobExtraHours.getGradeExec() << "]" << std::endl;
+
+	std::cout << std::endl;
+	std::cout << BCYAN << WHITE << "-----------------------[signForm()]-----------------------" << END << std::endl;
+
+	sM2.signForm( chiefExecutive );
+	//sM2.beSigned( streetCleaner );
+	averageSalary.signForm( chiefExecutive );
+	jobExtraHours.signForm( streetCleaner );
+
 	std::cout << std::endl;
 	std::cout << BCYAN << WHITE << "-----------------------[Destructors]-----------------------" << END << std::endl;
 }
