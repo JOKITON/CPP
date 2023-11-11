@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 18:21:59 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/08 11:33:15 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/11/08 17:29:25 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/11/11 11:45:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,7 @@ Form& Form::operator=(const Form& p) {
 
 std::ostream& operator<<( std::ostream& out, Form& p ) {
     std::string pStatus = (p.getStatus() == TRUE) ? "TRUE" : "FALSE";
-    out << "[Form] '" << p.getName() << "'s Form grades : {" << p.getGradeSign() << ", " << p.getGradeExec() << "}.";
-    out << " && status : {" << pStatus << "}." << std::endl;
+    out << "[Form] [ " << p.getName() << " | " << pStatus << " | " << p.getGradeSign() << " | " << p.getGradeExec() << " ]" << std::endl;
 
 	return out;
 }
@@ -92,17 +91,17 @@ int Form::getGradeExec( void ) const {
     return this->_gradeExec;
 }
 
-void Form::GradeTooHighException( int errorGrade ) {
+void Form::GradeTooHighException( const int errorGrade ) const {
 	std::ostringstream oss;
-	oss << "[Form] error: the given grade {" << errorGrade << "} was too high for '" << this->_name << "'!\n";
+	oss << "[Form] error: the given grade {" << errorGrade << "} was too high for '" << this->_name << "' {" << this->_gradeSign << "} !\n";
 
 	std::string msg = oss.str();
 	throw std::runtime_error(msg);
 }
 
-void Form::GradeTooLowException( int errorGrade ) {
+void Form::GradeTooLowException( const int errorGrade ) const {
 	std::ostringstream oss;
-	oss << "[Form] error: the given grade {" << errorGrade << "} was too low for '" << this->_name << "'!\n";
+	oss << "[Form] error: the given grade {" << errorGrade << "} was too low for '" << this->_name << "' {" << this->_gradeSign << "}!\n";
 
 	std::string msg = oss.str();
 	throw std::runtime_error(msg);
@@ -119,21 +118,6 @@ void    Form::beSigned( const Bureaucrat& p ) {
             break;
         case 0:
             _signed = TRUE;
-            std::cout << "[Form] '" << this->_name << "' {" << this->_gradeSign << "} has been signed by '"  << p.getName() << "', using a grade of {" << p.getGrade() << "}!." << std::endl;
-    }
-}
-
-void    Form::signForm( const Bureaucrat& p ) {
-    int checkGrade;
-
-    checkGrade = (_gradeExec < p.getGrade()) ? 1 : 0;
-    switch (checkGrade)
-    {
-        case 1:
-            std::cout << "[Form] '" << p.getName() << "' {" << p.getGrade() << "} couldn’t sign '" << this->_name << "' {" << this->_gradeExec << "} because its grade is too low!" << std::endl;
-            break;
-        case 0:
-            std::cout << "[Form] '" << p.getName() << "' {" << p.getGrade() << "} signed '" << this->_name << "' {" << this->_gradeExec << "}."<< std::endl;
-            break ;
+            p.signForm( *this );
     }
 }

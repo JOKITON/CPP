@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:03:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/08 18:37:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/11 12:27:50 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,19 +124,35 @@ void Bureaucrat::GradeTooLowException( int errorGrade ) {
 	throw std::runtime_error(msg);
 }
 
+void    Bureaucrat::signForm( const AForm& p ) const {
+    int checkGrade;
+
+    checkGrade = (_grade <= p.getGradeSign()) ? 1 : 0;
+    switch (checkGrade)
+    {
+        case 0:
+            std::cout << "[Bureaucrat] '" << _name << "' {" << _grade << "} couldn’t sign '" << p.getName() << "' {" << p.getGradeSign() << "} because its grade is too low!" << std::endl;
+            break;
+        case 1:
+            std::cout << "[Bureaucrat] '" << _name << "' {" << _grade << "} signed '" << p.getName() << "' {" << p.getGradeSign()<< "}."<< std::endl;
+            break ;
+    }
+}
+
 /* ex02 */
 
-void	Bureaucrat::executeForm( Form const & form ) {
+void	Bureaucrat::executeForm( AForm const & form ) {
 	int temp1;
 
 	temp1 = (this->_grade <= form.getGradeExec()) ? 1 : 0;
 	switch ( temp1 )
 	{
-	case 1:
-		std::cout << "[Bureaucrat] '" << _name << "' executed '" << form.getName() << "'!" << std::endl;
-		break;
-	case 0:
-		std::cerr << "[Bureaucrat] error: '" << _name << "' did not execute '" << form.getName() << "'!" << std::endl;
-		break ;
+		case 1:
+			std::cout << "[Bureaucrat] '" << _name << "' {" << _grade << "} executed '" << form.getName() << "' {" << form.getGradeExec() << "} !" << std::endl;
+			form.execute( *this );
+			break;
+		case 0:
+			std::cerr << "[Bureaucrat] error: '" << _name << "' {" << _grade << "} could NOT execute '" << form.getName() << "' {" << form.getGradeExec() << "} !" << std::endl;
+			break ;
 	}
 }

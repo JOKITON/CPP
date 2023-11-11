@@ -6,11 +6,16 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 11:43:26 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:47:59 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 void	execBureaucrats( void ) {
 
@@ -99,80 +104,144 @@ void	execBureaucrats( void ) {
 	std::cout << BCYAN << BLACK << "-----------------------[Destructors]-----------------------" << END << std::endl;
 }
 
-void	execForms( void ) {
-	std::cout << BCYAN << BLACK << "-----------------------[Test 'Forms']-----------------------" << END << std::endl;
+void	execConcreteClasses( void ) {
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[ Tests 'ShrubberyCreationForm' ]-----------------------" << END << std::endl;
+	std::cout << std::endl;
+
+	std::cout << BCYAN << RED << "---------------[Creating Forms...]---------------" << END << std::endl;
+	ShrubberyCreationForm	testForm1("testForm1");
+	RobotomyRequestForm	testForm2("testForm2");
+	PresidentialPardonForm	testForm3("testForm3");
+
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Default Constructor]-----------------------" << END << std::endl;
+	std::cout << std::endl;
+
+	ShrubberyCreationForm	testCreationForm1;
+
+	RobotomyRequestForm		testRequestForm1;
+
+	PresidentialPardonForm	testPardonForm1;
+
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Copy Constructor]-----------------------" << END << std::endl;
+	std::cout << std::endl;
+
+	ShrubberyCreationForm	testCreationForm2(testForm1);
+
+	RobotomyRequestForm		testRequestForm2(testForm2);
+
+	PresidentialPardonForm	testPardonForm2(testForm3);
+
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Form::execute( Bureaucrat const & p )]-----------------------" << END << std::endl;
+	std::cout << std::endl;
+	std::cout << BCYAN << RED << "---------------[Creating Bureaucrats...]---------------" << END << std::endl;
+
+	Bureaucrat	lvl3("test3", 137);
+	Bureaucrat	lvl2("test2", 45);
+	Bureaucrat	lvl1("test1", 5);
+	std::cout << std::endl;
+
+	std::cout << BCYAN << RED << "---------------[NON-SIGNED Forms]---------------" << END << std::endl;
+	testCreationForm2.execute( lvl3 );
+	testRequestForm2.execute( lvl2 );
+	testPardonForm2.execute( lvl1 );
+	std::cout << std::endl;
+
+	std::cout << BCYAN << RED << "---------------[Sign the Forms]---------------" << END << std::endl;
+	testCreationForm2.beSigned( lvl3 );
+	testRequestForm2.beSigned( lvl2 );
+	testPardonForm2.beSigned( lvl1 );
+	std::cout << std::endl;
+
+	std::cout << BCYAN << RED << "---------------[SIGNED Forms]---------------" << END << std::endl;
+	testCreationForm2.execute( lvl3 );
+	testRequestForm2.execute( lvl2 );
+	testPardonForm2.execute( lvl1 );
+	std::cout << std::endl;
+
+/* 	lvl3.decrementGrade( 1 ); // error-cases
+	testCreationForm2.execute( lvl3 ); */
+
+/* 	lvl2.decrementGrade( 1 );
+	testRequestForm2.execute( lvl2 ); */
+
+/* 	lvl1.decrementGrade( 1 );
+	testPardonForm2.execute( lvl1 ); */
+
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Bureaucrat::execute( Form const & form )]-----------------------" << END << std::endl;
+	std::cout << std::endl;
+
+	// lvl1.decrementGrade(1);
+	lvl1.executeForm( testPardonForm2 );
+	
+	// lvl2.decrementGrade(1);
+	lvl2.executeForm( testRequestForm2 );
+	
+	// lvl3.decrementGrade(1);
+	lvl3.executeForm( testCreationForm2 );
+
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Destructors]-----------------------" << END << std::endl;
+}
+
+void	execInterns( void ) {
+	std::cout << BCYAN << BLACK << "-----------------------[Tests 'Interns']-----------------------" << END << std::endl;
 
 	std::cout << std::endl;
 	std::cout << BCYAN << BLACK << "-----------------------[DefaultConstructor]-----------------------" << END << std::endl;
 
-	Form	jobSalary;
-	Form	jobExtraHours;
+	Intern	test1;
 
 	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[DataConstructor]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[ Form& makeForm(formType, formName) ]-----------------------" << END << std::endl;
 
-	Form	scholarshipMargin("scholarshipMargin", FALSE, 5, 10);
-	Form	averageSalary( "averageSalary", FALSE, 8, 3);
-	/* Form	customerService( "customerService", FALSE, -30, -1); // error-cases
-	Form	healthyLunch( "healthyLuch", FALSE, 150, 1); */
-
-	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[CopyConstructor]-----------------------" << END << std::endl;
-
-	Form	sM2(scholarshipMargin);
-
-	std::string sM2status = (sM2.getStatus() == TRUE) ? "TRUE" : "FALSE";
-	std::cout << "Data of Form 'scholarshipMargin2' : [" << sM2.getName() << " | " << sM2status << " | " << sM2.getGradeSign() << " | " << sM2.getGradeExec() << "]" << std::endl;
-	
-	
-	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[getters()]-----------------------" << END << std::endl;
-	std::string jobExtraHoursStatus = (jobExtraHours.getStatus() == TRUE) ? "TRUE" : "FALSE";
-	std::cout << "Data of Form 'jobExtraHours' : [" << jobExtraHours.getName() << " | " << jobExtraHoursStatus << " | " << jobExtraHours.getGradeSign() << " | " << jobExtraHours.getGradeExec() << "]" << std::endl;
-	std::string averageSalaryStatus = (averageSalary.getStatus() == TRUE) ? "TRUE" : "FALSE";
-	std::cout << "Data of Form 'averageSalary' : [" << averageSalary.getName() << " | " << averageSalaryStatus << " | " << averageSalary.getGradeSign() << " | " << averageSalary.getGradeExec() << "]" << std::endl;
-	
+	AForm *testForm1;
+	AForm *testForm2;
+	AForm *testForm3;
 
 	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[OverloadOperator]-----------------------" << END << std::endl;
-
-	std::cout << sM2;
-	std::cout << scholarshipMargin;
-	std::cout << averageSalary;
-
+	testForm1 = test1.makeForm("shrubbery creation", "testForm1");
 	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[beSigned()]-----------------------" << END << std::endl;
+	testForm2 = test1.makeForm("robotomy request", "testForm2");
 	std::cout << std::endl;
-
-	Bureaucrat	chiefExecutive( "chiefExecutive", 4 );
-	Bureaucrat	streetCleaner( "streetCleaner", 20 );
+	testForm3 = test1.makeForm("presidential pardon", "testForm3");
+	std::cout << std::endl;
+	test1.makeForm("presidential pardo", "testForm3");
+	test1.makeForm("", "testForm3");
 	std::cout << std::endl;
 
-	sM2.beSigned( chiefExecutive );
-	/* sM2.beSigned( streetCleaner ); */ // error-case
-	averageSalary.beSigned( chiefExecutive );
-	jobExtraHours.beSigned( streetCleaner );
+	std::cout << *testForm1;
+	std::cout << *testForm2;
+	std::cout << *testForm3;
 
 	std::cout << std::endl;
-	sM2status = (sM2.getStatus() == TRUE) ? "TRUE" : "FALSE";
-	std::cout << "Data of Form 'sM2' : [" << sM2.getName() << " | " << sM2status << " | " << sM2.getGradeSign() << " | " << sM2.getGradeExec() << "]" << std::endl;
-	averageSalaryStatus = (averageSalary.getStatus() == TRUE) ? "TRUE" : "FALSE";
-	std::cout << "Data of Form 'averageSalary' : [" << averageSalary.getName() << " | " << averageSalaryStatus << " | " << averageSalary.getGradeSign() << " | " << averageSalary.getGradeExec() << "]" << std::endl;
-	jobExtraHoursStatus = (jobExtraHours.getStatus() == TRUE) ? "TRUE" : "FALSE";
-	std::cout << "Data of Form 'jobExtraHours' : [" << jobExtraHours.getName() << " | " << jobExtraHoursStatus << " | " << jobExtraHours.getGradeSign() << " | " << jobExtraHours.getGradeExec() << "]" << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Destructors]-----------------------" << END << std::endl;
 
-	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[Destructors]-----------------------" << END << std::endl;
+	delete testForm1;
+	delete testForm2;
+	delete testForm3;
 }
 
 int main( void ) {
 
 	/* My own tests */
 	try {
-		/* Bureaucrat */
+		/* Bureaucrat (ex00) */
 		// execBureaucrats();
-		/* Form */
-		execForms();
+
+		/* Form (ex01)*/
+		/* Not available, abstact class */
+
+		/* Concrete Classes (ex02) */
+		// execConcreteClasses();
+
+		/* Intern (ex03) */
+		execInterns();
+
 	}
 	catch (std::exception& e) {
 		std::cerr << e.what();

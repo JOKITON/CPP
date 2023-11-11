@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:32:18 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:06:09 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:28:56 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PresidentialPardonForm::PresidentialPardonForm( void ) : AForm( "_default", FALS
 }
 
 PresidentialPardonForm::~PresidentialPardonForm( void ) {
-	std::cout << "[PresidentialPardonForm] '" << this->getName() << "' has been destroyed." << std::endl;
+	std::cout << "[PresidentialPardonForm] '" << getName() << "' has been destroyed." << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( std::string const & target ) : AForm(target, FALSE, 25, 5) {

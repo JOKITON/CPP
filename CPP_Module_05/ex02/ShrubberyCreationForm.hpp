@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:54:34 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/08 18:58:45 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:05:07 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,18 @@
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form {
+class ShrubberyCreationForm : public AForm {
 	private:
 
 	public:
+		/* Constructors */
 		ShrubberyCreationForm( void );
-		ShrubberyCreationForm( Form & p );
-		void	execute( Bureaucrat const & executor );
+		~ShrubberyCreationForm( void );
+		ShrubberyCreationForm( std::string const & target );
+		ShrubberyCreationForm( ShrubberyCreationForm & p );
+		void	buildAsciiTree( void ) const;
+		/* Inherited */
+		void	execute( Bureaucrat const & executor ) const;
 
 };
 

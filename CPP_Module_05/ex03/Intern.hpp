@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 17:51:15 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:05:01 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/11/11 13:48:32 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/11/11 17:23:04 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-class RobotomyRequestForm : public AForm {
+class Intern {
 	private:
-		
+
 	public:
-		/* Constructors */
-		RobotomyRequestForm( void );
-		~RobotomyRequestForm( void );
-		RobotomyRequestForm( RobotomyRequestForm & p );
-		RobotomyRequestForm( std::string const & target );
-		/* Inherited */
-		void	execute( Bureaucrat const & executor ) const;
+		Intern( void );
+		~Intern( void );
+
+		AForm* makeForm( const std::string & formName, const std::string& formTarget ) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:49:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:06:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:26:15 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ RobotomyRequestForm::RobotomyRequestForm( void ) : AForm( "_default", FALSE, 72,
 }
 
 RobotomyRequestForm::~RobotomyRequestForm( void ) {
-	std::cout << "[RobotomyRequestForm] '" << this->getName() << "' has been destroyed." << std::endl;
+	std::cout << "[RobotomyRequestForm] '" << getName() << "' has been destroyed." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( std::string const & target ) : AForm(target, FALSE, 72, 45) {

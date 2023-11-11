@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 17:51:15 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:05:01 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/11/08 17:54:34 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/11/11 17:24:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
 
-class RobotomyRequestForm : public AForm {
+class ShrubberyCreationForm : public AForm {
 	private:
-		
+
 	public:
 		/* Constructors */
-		RobotomyRequestForm( void );
-		~RobotomyRequestForm( void );
-		RobotomyRequestForm( RobotomyRequestForm & p );
-		RobotomyRequestForm( std::string const & target );
+		ShrubberyCreationForm( void );
+		~ShrubberyCreationForm( void );
+		ShrubberyCreationForm( std::string const & target );
+		ShrubberyCreationForm( ShrubberyCreationForm & p );
+		void	buildAsciiTree( void ) const;
 		/* Inherited */
 		void	execute( Bureaucrat const & executor ) const;
+
 };
 
 #endif

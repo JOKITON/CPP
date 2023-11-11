@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:07:36 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:24:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #define TRUE 1
 #define FALSE 0
@@ -19,7 +19,7 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-class Form {
+class AForm {
 	private:
 		const std::string _name;
 		bool _signed;
@@ -31,12 +31,12 @@ class Form {
 		void GradeTooLowException( const int errorGrade ) const;
 		void GradeTooHighException( const int errorGrade ) const;
 		/* Canonical Form */
-		Form( void );
-		virtual ~Form( void );
-		Form(const Form& p);
-		Form& operator=( const Form& p );
+		AForm( void );
+		virtual ~AForm( void );
+		AForm(const AForm& p);
+		AForm& operator=( const AForm& p );
 		/* Argument Constructor */
-		Form( const std::string name, bool signed_, const int gradeSign, const int gradeExec );
+		AForm( const std::string name, bool signed_, const int gradeSign, const int gradeExec );
 		/* Getters */
 		const	std::string& getName( void ) const;
 		bool	getStatus( void ) const;
@@ -44,7 +44,9 @@ class Form {
 		int		getGradeExec( void ) const;
 		/* Special functions */
 		void	beSigned( const Bureaucrat& p );
-		friend std::ostream& operator<<( std::ostream& out, Form& p );
+		friend std::ostream& operator<<( std::ostream& out, AForm& p );
+		/* Pure Virtual function to make AForm abstract */
+		virtual void execute( Bureaucrat const & executor ) const = 0;
 };
 
 #endif

@@ -6,12 +6,12 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:03:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/10 18:37:04 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:32:44 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat( void ) : _name("default"), _grade(50) {
 	std::cout << "[Bureaucrat] Default 'constructor' has been called." << std::endl;
@@ -124,7 +124,7 @@ void Bureaucrat::GradeTooLowException( int errorGrade ) {
 	throw std::runtime_error(msg);
 }
 
-void    Bureaucrat::signForm( const Form& p ) const {
+void    Bureaucrat::signForm( const AForm& p ) const {
     int checkGrade;
 
     checkGrade = (_grade <= p.getGradeSign()) ? 1 : 0;
@@ -137,4 +137,22 @@ void    Bureaucrat::signForm( const Form& p ) const {
             std::cout << "[Bureaucrat] '" << _name << "' {" << _grade << "} signed '" << p.getName() << "' {" << p.getGradeSign()<< "}."<< std::endl;
             break ;
     }
+}
+
+/* ex02 */
+
+void	Bureaucrat::executeForm( AForm const & form ) {
+	int temp1;
+
+	temp1 = (this->_grade <= form.getGradeExec()) ? 1 : 0;
+	switch ( temp1 )
+	{
+		case 1:
+			std::cout << "[Bureaucrat] '" << _name << "' {" << _grade << "} executed '" << form.getName() << "' {" << form.getGradeExec() << "} !" << std::endl;
+			form.execute( *this );
+			break;
+		case 0:
+			std::cerr << "[Bureaucrat] error: '" << _name << "' {" << _grade << "} could NOT execute '" << form.getName() << "' {" << form.getGradeExec() << "} !" << std::endl;
+			break ;
+	}
 }
