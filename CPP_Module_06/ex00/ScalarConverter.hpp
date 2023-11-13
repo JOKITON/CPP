@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:06:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/12 16:01:20 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:28:59 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ bool 	checkChar( const std::string& input );
 int		intItoa( const char *str );
 bool 	hasFloatFormat( const std::string& str);
 float	floatItoa( const char *str );
+double	doubleItoa(const char *str);
 
 class ScalarConverter {
 	private:
