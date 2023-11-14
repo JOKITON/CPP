@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = convert
 
 SRCS = ScalarConverter.cpp checkFormat.cpp main.cpp
 

@@ -6,21 +6,60 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:34:08 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/13 16:29:08 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:54:08 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
+bool hasDoubleFormat( const std::string& str) {
+	const char	*c_str = str.c_str();
+	char c = *c_str;
+	int check = 0;
+    
+    
+    while ( c ) {
+		while ( c && ((c == '-') || (c == '+')) ) {
+			c = *++c_str;
+            check = 1;
+		}
+        if (c == '.')
+            c = *++(c_str);
+		if (c && isdigit(c) == 0) // if is not a digit
+			return false;
+		c = *++(c_str);
+        check = 0;
+	}
+
+    if (check == 1) // avoid rare cases
+        return false;
+	else
+        return true;
+}
+
 bool hasFloatFormat( const std::string& str) {
 	const char	*c_str = str.c_str();
 	char c = *c_str;
-	while ( c ) {
-		if (!isdigit(c) && (c != '.') && (c != 'f'))
+	int check = 0;
+    
+    
+    while ( c ) {
+		while ( c && ((c == '-') || (c == '+')) ) {
+			c = *++c_str;
+            check = 1;
+		}
+        if (c == '.' || c == 'f')
+            c = *++(c_str);
+		if (c && isdigit(c) == 0) // if is not a digit
 			return false;
 		c = *++(c_str);
+        check = 0;
 	}
-	return true;
+
+    if (check == 1) // avoid rare cases
+        return false;
+	else
+        return true;
 }
 
 bool hasOnlyDigits( const std::string& str ) {
@@ -32,26 +71,6 @@ bool hasOnlyDigits( const std::string& str ) {
 		c = *++(c_str);
 	}
 	return true;
-}
-
-bool hasOnlyCharacters( const std::string& str) {
-	const char	*c_str = str.c_str();
-	char c = *c_str;
-	while ( c ) {
-		if (!isprint(c) && isdigit(c))
-			return false;
-		c = *++(c_str);
-	}
-	return true;
-}
-
-bool checkChar( const std::string& input ) {
-	if (input.size() == 1 && isprint(input[0]) && !isdigit(input[0])) {
-		// If the input represents a char literal
-		return true;
-	} else {
-		return false;
-	}
 }
 
 double	doubleItoa(const char *str) {
