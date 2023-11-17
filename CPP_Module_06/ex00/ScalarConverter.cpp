@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:04:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/16 15:57:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:33:54 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ ScalarConverter&	ScalarConverter::operator=( const ScalarConverter& p) {
 void	ScalarConverter::convert( const std::string& input ) {
 	ScalarConverter	test(input);
 	
+	/* Creates the needed character/numbers inside the class and uses casting along */
 	test.saveInput();
+
+	/* Prints the saved data accordingly to the subject */
 	test.printOutput();
 }
 
@@ -99,6 +102,14 @@ void	ScalarConverter::saveInput( void ) {
 	}
 
 }
+
+/* 	Why did we use 'static_cast'?
+		- This option is optimal for low levels: int, float, double, ...
+		- Does not make any check
+
+	There are more types of casting in C++, ones more suitable for inherited classes,
+	Others are more suitable for storing individual pointers to objects...
+*/
 
 void	ScalarConverter::formatChar( void ) {
 	this->_char = static_cast<unsigned char>(this->_input[0]);
