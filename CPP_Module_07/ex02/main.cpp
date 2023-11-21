@@ -1,47 +1,61 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 00:13:21 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/18 00:57:24 by jaizpuru         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#include <iostream>
 #include "Array.hpp"
 
-void	execTests() {
+#define MAX_VAL 750
+int main(int, char**)
+{
+    Array<int>  test1;
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-	Array<int>	test1(900);
-	Array<int>	test2;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-	std::cout << "Size of test1: " << test1.size() << std::endl;
-	std::cout << "Size of test2: " << test2.size() << std::endl;
-	std::cout << std::endl;
-
-	Array<std::string>	test3(7);
-
-	std::string	*ref = test3.getArray();
-
-	for (int h = test3.size() - 1; h >= 0; h--) {
-		ref[h] = "Buenas tardes";
-	}
-
-	Array<std::string>	test4(test3);
-	
-	std::string	*ref2 = test4.getArray();
-
-	for (int h = test4.size() - 1; h >= 0; h--) {
-		std::cout << ref2[h] << std::endl;
-	}
-
-}
-
-int	main( void ) {
-
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    
 	/* my own tests */
-	execTests();
 
+/* 	for (int i = 0; i < MAX_VAL; i++) {
+		std::cout << numbers[i] << std::endl;
+	} */
+	
+	return 0;
 }

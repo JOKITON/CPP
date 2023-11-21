@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:15:40 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/17 23:10:05 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/20 19:59:43 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,22 @@ void	testsSubject( void ) {
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 }
 
+/* void	testsEvaluation( void ) {
+	Awesome a(2), b(4);
+
+	swap(a, b);
+	std::cout << a << " " << b << std::endl;
+	std::cout << max(a, b) << std::endl;
+	std::cout << min(a, b) << std::endl;
+} */
+
 int	main( void ) {
 	
 	/* subject tests */
 	testsSubject();
+
+	/* evaluation tests */
+	// testsEvaluation();
 
 /* 	// my own tests
 	testsInt( );
