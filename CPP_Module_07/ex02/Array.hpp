@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 00:14:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/21 12:43:43 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:24:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define ARRAY_HPP
 
 #include <iostream>
-#include <ostream>
 #include <sstream>
 #include <math.h>
 
