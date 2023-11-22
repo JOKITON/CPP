@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:31:02 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/22 16:02:12 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:18:04 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void	execTests( void ) {
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[myOwnTests]-----------------------" << END << std::endl;
-	
-	srand(time(NULL));
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Constructors]-----------------------" << END << std::endl;
@@ -37,11 +35,9 @@ void	execTests( void ) {
 	std::cout << BBLACK << RED << "-----------------------[addNumber]-----------------------" << END << std::endl;
 	test0.addNumber(0);
 
-	for (int i = 0; i < test2.getSize(); i ++)
-		test2.addNumber(rand());
+	test2.addNumbers();
 
-	for (int i = 0; i < test3.getSize(); i ++)
-		test3.addNumber(rand());
+	test3.addNumbers();
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Shortest & Longest Span]-----------------------" << END << std::endl;
@@ -120,5 +116,5 @@ int	main( void ) {
 	testsSubject( );
 
 	/* my own tests */
-	// execTests( );
+	execTests( );
 }

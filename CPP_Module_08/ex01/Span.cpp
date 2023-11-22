@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:31:39 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/22 15:38:08 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:25:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,20 @@ void	Span::addNumber( int number ) {
 	this->_vector->push_back(number);
 }
 
+void	Span::addNumbers( void ) {
+	srand(time(NULL));
+
+	for (int i = 0; i < getSize(); i++)
+		_vector->push_back(rand());	
+}
+
 unsigned int Span::shortestSpan( void ) {
     if (_vector->size() < 2) {
         Span::SpanFailedToFindNumber();
         return 0;
     }
 
-    unsigned int shortest = UINT_MAX;
+unsigned int shortest = UINT_MAX;
 
 	for (size_t numb1 = 0; numb1 < _vector->size(); ++numb1) {
 		
@@ -72,7 +79,7 @@ unsigned int Span::shortestSpan( void ) {
     return shortest;
 }
 
-	unsigned int Span::longestSpan() {
+unsigned int Span::longestSpan() {
 	if (_vector->size() < 2) {
 		Span::SpanFailedToFindNumber();
 		return 0;
@@ -83,7 +90,7 @@ unsigned int Span::shortestSpan( void ) {
 
 	unsigned int span = *maxElement - *minElement;
 	return span;
-	}
+}
 
 std::vector<int>	Span::getVector( void ) const {
 	return *this->_vector;
