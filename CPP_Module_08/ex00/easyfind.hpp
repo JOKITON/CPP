@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:29:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/21 22:06:47 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:02:54 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,15 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <deque>
 #include <algorithm>
+
+#define END "\033[0m"
+#define BLACK "\e[4;30m"
+#define RED "\e[1;31m"
+
+#define BCYAN "\e[46m"
+#define BBLACK "\e[47m"
 
 template<typename T>
 void	easyfind(T&	vector, int data)  {

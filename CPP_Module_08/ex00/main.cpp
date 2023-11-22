@@ -6,17 +6,21 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:28:31 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/21 22:07:45 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:06:22 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 
 void	execTests( void ) {
-	std::vector<int>	test1;
+	std::vector<int>	test1; // container of integers
+	std::deque<int>		test2;
+	// std::array<double, 4> test2 {2., 3., 4., -10.}; // only C++11 forward
 
 	std::cout << "[std::vector<int>] Executed 'assign'." << std::endl;
 	test1.assign(10, 1);
+	std::cout << "[std::deque<int>] Executed 'assign'." << std::endl;
+	test2.assign(10, 4);
 
 	std::cout << "[std::vector<int>] Executed 'size'." << std::endl;
 	std::cout << "Size of test1: " << test1.size() << std::endl;
@@ -45,9 +49,13 @@ void	execTests( void ) {
 	for (int i = 0; i < 10; i ++) {
 		std::cout << "test[" << i << "] == " << (firstNumber)[i] << std::endl;
 	}
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[easyfind()]-----------------------" << END << std::endl;
 	try {
 	easyfind( test1, 100 ); // important function
-	easyfind( test1, -1 ); }
+	easyfind( test2, 4 );
+	easyfind( test1, -1 );
+	}
 	catch ( std::exception & e ) {
 		std::cout << e.what() << std::endl;
 	}
@@ -57,7 +65,8 @@ void	execTests( void ) {
 	std::cout << "[std::vector<int>] Executed 'size'." << std::endl;
 	std::cout << "Size of test1: " << test1.size() << std::endl;
 
-
+	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Destructors]-----------------------" << END << std::endl;
 }
 
 int	main( void ) {
