@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:28:31 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/22 16:06:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/23 21:42:10 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	execTests( void ) {
 }
 
 int	main( void ) {
+
 	/* my own tests */
 	execTests();
 

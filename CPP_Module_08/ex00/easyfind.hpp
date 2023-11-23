@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:29:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/22 16:02:54 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/23 21:42:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,5 @@ void	easyfind(T&	vector, int data)  {
 		// return 1;
 	}
 }
-
-
 
 #endif
