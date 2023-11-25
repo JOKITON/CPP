@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:47:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/24 10:49:45 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/25 16:14:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main( int ac, char **ar ) {
 
 	if (ac > 1) {// program takes 1 file as argument
-		checkInput(ar[1]); // check if file complies with "date | value"
+		BitcoinExchange	test1(ar[1]);
 		/*
 			A valid date will have this format: Year-Month-Day (2004-06-13).
 			A valid value must be either a float or a positive integer : 0-1000.
