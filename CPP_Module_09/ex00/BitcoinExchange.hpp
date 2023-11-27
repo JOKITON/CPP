@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:09 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/26 19:02:21 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:36:25 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <deque>
 #include <fstream>
 #include <sstream>
 #include <stdlib.h>
@@ -40,12 +41,12 @@ class BitcoinExchange {
 		int	_monthToFind;
 		int	_yearToFind;
 
-		std::string	_database;
-		int	*_day; // stores 2 values
-		int	_month;
-		int	_year;
-		double	*_val; // stores 2 values
-		double	_btc;
+		std::string		_database;
+		std::deque<int>	_day;
+		int				_month;
+		int				_year;
+		std::deque<double>	_val;
+		double			_btc;
 		
 		void	iterateDates( void );
 		int		getDates( int pos, int flag );

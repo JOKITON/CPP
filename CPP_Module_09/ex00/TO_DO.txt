@@ -1,1 +1,0 @@
-Remove 'text.txt' & 'data.csv' before evaluation!

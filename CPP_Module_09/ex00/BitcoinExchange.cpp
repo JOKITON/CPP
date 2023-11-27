@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:49:05 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/26 19:07:38 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:35:58 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	BitcoinExchange::getDatesDatabase( int pos ) {
 	_database.copy(tmp, check1 - pos, pos);
 	tmp[check1 - pos] = '\0'; // Null-terminate the string
 	_val[0] = _val[1];
-	_val[1] = atof(tmp);
+	_val[1] = (atof(tmp));
 
 	delete[] tmp; // Don't forget to free the allocated memory
 
@@ -212,8 +212,6 @@ BitcoinExchange::BitcoinExchange( std::string file ) {
 	std::ifstream	databaseInput("data.csv");
 	std::stringstream	buf1;
 	std::stringstream	buf2;
-	this->_day = new int[2];
-	this->_val = new double[2];
 
 	if (fileInput.is_open() && databaseInput.is_open()) {
 		buf1 << fileInput.rdbuf();
@@ -231,6 +229,5 @@ BitcoinExchange::BitcoinExchange( std::string file ) {
 }
 
 BitcoinExchange::~BitcoinExchange( void ) {
-	delete[]	this->_val;
-	delete[]	this->_day;
+	std::cout << "[BitcoinExchange] Default 'destructor' has been called." << std::endl;
 }
