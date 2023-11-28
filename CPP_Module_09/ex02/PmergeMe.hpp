@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 11:39:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/28 17:44:01 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/11/28 22:20:53 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/11/28 22:40:58 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 
-int	main( int ac, char **ar ) {
-	if ( ac > 1) {
-		std::string	inpt = ar[1];
-		RPN	test1(inpt);
-	}
-	else {
-		std::cerr << "error: not enough arguments" << std::endl;
-		return FALSE; }
-	return TRUE;
-}
+#include <iostream>
+#include <list>
+
+class PmergeMe
+{
+private:
+	std::list<int>	_args;
+public:
+	PmergeMe(/* args */);
+	~PmergeMe();
+};
+
+#endif
