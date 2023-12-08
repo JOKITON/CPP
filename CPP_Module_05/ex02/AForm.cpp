@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 12:26:49 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 20:51:25 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ AForm::AForm( const std::string name, bool signed_, const int gradeSign, const i
 
     switch (temp1) {
         case 0:
-            GradeTooHighException( gradeSign );
+            throw (AForm::GradeTooHighException());
 			break ;
         case 151:
-            GradeTooLowException( gradeSign );
+            throw (AForm::GradeTooLowException());
 			break ;
     }
 
     switch (temp2) {
         case 0:
-            GradeTooHighException( gradeExec );
+            throw (AForm::GradeTooHighException());
 			break ;
         case 151:
-            GradeTooLowException( gradeExec );
+            throw (AForm::GradeTooLowException());
 			break ;
 	}
 }
@@ -92,22 +92,6 @@ int AForm::getGradeExec( void ) const {
     return this->_gradeExec;
 }
 
-void AForm::GradeTooHighException( const int errorGrade ) const {
-	std::ostringstream oss;
-	oss << "[Form] error: the given grade {" << errorGrade << "} was too high for '" << this->_name << "'!\n";
-
-	std::string msg = oss.str();
-	throw std::runtime_error(msg);
-}
-
-void AForm::GradeTooLowException( const int errorGrade ) const {
-	std::ostringstream oss;
-	oss << "[Form] error: the given grade {" << errorGrade << "} was too low for '" << this->_name << "'!\n";
-
-	std::string msg = oss.str();
-	throw std::runtime_error(msg);
-}
-
 void    AForm::beSigned( const Bureaucrat& p ) {
     int checkGrade;
     
@@ -115,7 +99,7 @@ void    AForm::beSigned( const Bureaucrat& p ) {
     switch (checkGrade)
     {
         case 1:
-            GradeTooLowException( p.getGrade() );
+            throw (AForm::GradeTooLowException());
             break;
         case 0:
             _signed = TRUE;

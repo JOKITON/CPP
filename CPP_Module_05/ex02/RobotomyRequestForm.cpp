@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:49:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:06:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 21:06:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
 	}
 	switch ( check1 ) {
 		case -1:
-			std::cerr << "[RobotomyRequestForm] error: '" << this->getName() << "'s robotomy failed..." << std::endl;
+			throw (AForm::NonSignedFormException());
 			break ;
 		case 0:
-			GradeTooLowException( executor.getGrade() );
+			throw (AForm::GradeTooLowException());
 			break ;
 		case 1:
 			std::cout << "[RobotomyRequestForm] '" << this->getName() << "' has been robotomized succesfully 50% of the time..." << std::endl;

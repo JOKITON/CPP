@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:32:18 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:06:09 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 21:06:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void PresidentialPardonForm::execute( Bureaucrat const & executor ) const {
 	}
 	switch ( check1 ) {
 		case -1:
-			std::cerr << "[PresidentialPardonForm] error: '" << this->getName() << "' could not be pardoned..." << std::endl; // explicit error-message
+			throw (AForm::NonSignedFormException());
 			break ;
 		case 0:
-			this->GradeTooLowException( executor.getGrade() ); // throw exception
+			throw (AForm::GradeTooLowException()); // throw exception
 			break ;
 		case 1:
 			std::cout << "[PresidentialPardonForm] '" << this->getName() << "' has been pardoned by Zaphod Beeblebrox..." << std::endl;

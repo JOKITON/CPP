@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:50:51 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:02:44 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:25:52 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ AForm*	Intern::makeForm( const std::string & formName, const std::string& formTa
 
 	switch (it) {
 		case 0:
+			std::cout << "Intern creates RobotomyRequestForm" << std::endl;
 			ret = new RobotomyRequestForm(formTarget);
 			break ;
 		case 1:
+			std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
 			ret = new ShrubberyCreationForm(formTarget);
 			break ;
 		case 2:
+			std::cout << "Intern creates PresidentialPardonForm" << std::endl;
 			ret = new PresidentialPardonForm(formTarget);
 			break ;
 		case -1:

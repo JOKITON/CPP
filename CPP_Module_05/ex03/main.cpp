@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 17:47:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:35:23 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,9 +145,9 @@ void	execConcreteClasses( void ) {
 	std::cout << std::endl;
 
 	std::cout << BCYAN << RED << "---------------[NON-SIGNED Forms]---------------" << END << std::endl;
-	testCreationForm2.execute( lvl3 );
-	testRequestForm2.execute( lvl2 );
-	testPardonForm2.execute( lvl1 );
+	// testCreationForm2.execute( lvl3 );
+	// testRequestForm2.execute( lvl2 );
+	// testPardonForm2.execute( lvl1 );
 	std::cout << std::endl;
 
 	std::cout << BCYAN << RED << "---------------[Sign the Forms]---------------" << END << std::endl;
@@ -197,7 +197,7 @@ void	execInterns( void ) {
 	Intern	test1;
 
 	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[ Form& makeForm(formType, formName) ]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[ Form& Intern::makeForm(formType, formName) ]-----------------------" << END << std::endl;
 
 	AForm *testForm1;
 	AForm *testForm2;
@@ -210,9 +210,11 @@ void	execInterns( void ) {
 	std::cout << std::endl;
 	testForm3 = test1.makeForm("presidential pardon", "testForm3");
 	std::cout << std::endl;
-	test1.makeForm("presidential pardo", "testForm3");
+	test1.makeForm("presidential pardo", "testForm3"); // error-case
 	test1.makeForm("", "testForm3");
+	
 	std::cout << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[ Overload Operator ]-----------------------" << END << std::endl;
 
 	std::cout << *testForm1;
 	std::cout << *testForm2;
@@ -230,6 +232,7 @@ int main( void ) {
 
 	/* My own tests */
 	try {
+
 		/* Bureaucrat (ex00) */
 		// execBureaucrats();
 

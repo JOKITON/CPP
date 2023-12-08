@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 13:31:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:10:26 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,9 +144,9 @@ void	execConcreteClasses( void ) {
 	std::cout << std::endl;
 
 	std::cout << BCYAN << RED << "---------------[NON-SIGNED Forms]---------------" << END << std::endl;
-	testCreationForm2.execute( lvl3 );
-	testRequestForm2.execute( lvl2 );
-	testPardonForm2.execute( lvl1 );
+	// testCreationForm2.execute( lvl3 );
+	// testRequestForm2.execute( lvl2 );
+	// testPardonForm2.execute( lvl1 );
 	std::cout << std::endl;
 
 	std::cout << BCYAN << RED << "---------------[Sign the Forms]---------------" << END << std::endl;
@@ -171,8 +171,13 @@ void	execConcreteClasses( void ) {
 	testPardonForm2.execute( lvl1 ); */
 
 	std::cout << std::endl;
-	std::cout << BBLACK << RED << "-----------------------[Bureaucrat::execute( Form const & form )]-----------------------" << END << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Bureaucrat::executeForm( Form const & form )]-----------------------" << END << std::endl;
 	std::cout << std::endl;
+
+/* 	ShrubberyCreationForm	testCreationForm3; // error-case (non-signed)
+	lvl1.executeForm( testCreationForm3 ); */
+
+	// lvl1.decrementGrade( 1 ); // error-case (gradeTooLow)
 
 	// lvl1.decrementGrade(1);
 	lvl1.executeForm( testPardonForm2 );

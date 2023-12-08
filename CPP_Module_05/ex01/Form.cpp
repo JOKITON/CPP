@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 11:45:21 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:01:22 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Form::Form( const std::string name, bool signed_, const int gradeSign, const int
     /* A better way to check TRUE/FALSE on _signed */
     std::string status = (_signed == TRUE) ? "TRUE" : "FALSE";
     /* Print information about what Form whas created and what data has been given to it. */
-    std::cout << "[Form] Constructor with { '" << _name << "', '" << status << "', " << _gradeSign << ", " << _gradeExec << " } has been called." << std::endl;
 
     int temp1 = gradeSign;
     int temp2 = gradeExec;
@@ -43,21 +42,22 @@ Form::Form( const std::string name, bool signed_, const int gradeSign, const int
 
     switch (temp1) {
         case 0:
-            GradeTooHighException( gradeSign );
+            throw (Form::GradeTooHighException());
 			break ;
         case 151:
-            GradeTooLowException( gradeSign );
+            throw (Form::GradeTooLowException());
 			break ;
     }
 
     switch (temp2) {
         case 0:
-            GradeTooHighException( gradeExec );
+            throw (Form::GradeTooHighException());
 			break ;
         case 151:
-            GradeTooLowException( gradeExec );
+            throw (Form::GradeTooLowException());
 			break ;
 	}
+    std::cout << "[Form] Constructor with { '" << _name << "', '" << status << "', " << _gradeSign << ", " << _gradeExec << " } has been called." << std::endl;
 }
 
 Form& Form::operator=(const Form& p) {
@@ -91,22 +91,6 @@ int Form::getGradeExec( void ) const {
     return this->_gradeExec;
 }
 
-void Form::GradeTooHighException( const int errorGrade ) const {
-	std::ostringstream oss;
-	oss << "[Form] error: the given grade {" << errorGrade << "} was too high for '" << this->_name << "' {" << this->_gradeSign << "} !\n";
-
-	std::string msg = oss.str();
-	throw std::runtime_error(msg);
-}
-
-void Form::GradeTooLowException( const int errorGrade ) const {
-	std::ostringstream oss;
-	oss << "[Form] error: the given grade {" << errorGrade << "} was too low for '" << this->_name << "' {" << this->_gradeSign << "}!\n";
-
-	std::string msg = oss.str();
-	throw std::runtime_error(msg);
-}
-
 void    Form::beSigned( const Bureaucrat& p ) {
     int checkGrade;
     
@@ -114,7 +98,7 @@ void    Form::beSigned( const Bureaucrat& p ) {
     switch (checkGrade)
     {
         case 1:
-            GradeTooLowException( p.getGrade() );
+            throw (Form::GradeTooLowException());
             break;
         case 0:
             _signed = TRUE;

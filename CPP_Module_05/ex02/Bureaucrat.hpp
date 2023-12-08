@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 13:29:25 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 21:07:08 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,15 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <ostream>
 
 class AForm; // to avoid looping #include
 
 class Bureaucrat {
 	private:
-		std::string 	_name;
+		const std::string 	_name;
 		int			_grade;
 		
-		/* Exceptions when grade is too low/high */
-		void	GradeTooHighException( int errorGrade );
-		void	GradeTooLowException( int errorGrade );
 	public:
 		/* Constructors */
 		Bureaucrat( void );
@@ -52,6 +50,25 @@ class Bureaucrat {
 		/* Form object related ex01, ex02 */
 		void    signForm( const AForm& p ) const ;
 		void	executeForm( AForm const & form );
+		/* Exceptions */
+		class	GradeTooLowException : public std::exception {
+			public:
+				virtual const char *what( void ) const throw() {
+					return ("\nerror: exception: Bureaucrat: the given GRADE was too LOW!\n");
+				}
+		};
+		class	GradeTooHighException : public std::exception {
+			public:
+				const char *what( void ) const throw() {
+					return ("\nerror: exception: Bureaucrat: the given GRADE was too HIGH\n");
+				}
+		};
+		class	NonSignedFormException : public std::exception {
+			public:
+				const char *what( void ) const throw() {
+					return ("\nerror: exception: Bureaucrat: the given FORM was NOT SIGNED\n");
+				}
+		};
 
 };
 

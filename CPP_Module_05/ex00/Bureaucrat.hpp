@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/08 18:48:54 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:04:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,39 @@
 
 class Bureaucrat {
 	private:
-		std::string 	_name;
+		const std::string 	_name;
 		int			_grade;
-		
-		void	GradeTooHighException( int errorGrade );
-		void	GradeTooLowException( int errorGrade );
-	public:
-		Bureaucrat( void );
-		Bureaucrat( const std::string name, int grade);
-		Bureaucrat( const Bureaucrat& p );
-		virtual ~Bureaucrat( void );
 
-		Bureaucrat& operator=( Bureaucrat& p);
+	public:
+		/* Canonical Form */
+		Bureaucrat( void );
+		virtual ~Bureaucrat( void );
+		Bureaucrat( const Bureaucrat& p );
+		Bureaucrat& operator=( const Bureaucrat& p);
+		
+		Bureaucrat( const std::string name, int grade);
 		friend std::ostream& operator<<( std::ostream& out, Bureaucrat& p);
 		
+		/* Getters */
 		std::string const & getName( void ) const;
 		int getGrade( void ) const;
-
+	
 		void	incrementGrade( int val );
 		void	decrementGrade( int val );
 
+		/* Exceptions */
+		class	GradeTooLowException : public std::exception {
+			public:
+				virtual const char *what( void ) const throw() {
+					return ("\nerror: exception: Bureaucrat: the given grade was too low!\n");
+				}
+		};
+		class	GradeTooHighException : public std::exception {
+			public:
+				virtual const char *what( void ) const throw() {
+					return ("\nerror: exception: Bureaucrat: the given grade was too high!\n");
+				}
+		};
 };
-
-
-
 
 #endif

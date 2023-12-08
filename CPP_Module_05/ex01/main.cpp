@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 11:43:26 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:02:47 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,8 @@ void	execForms( void ) {
 
 	Form	scholarshipMargin("scholarshipMargin", FALSE, 5, 10);
 	Form	averageSalary( "averageSalary", FALSE, 8, 3);
-	/* Form	customerService( "customerService", FALSE, -30, -1); // error-cases
-	Form	healthyLunch( "healthyLuch", FALSE, 150, 1); */
+	// Form	customerService( "customerService", FALSE, 0, -1); // error-cases, too high
+	// Form	healthyLunch( "healthyLuch", FALSE, 151, 1); // too low
 
 	std::cout << std::endl;
 	std::cout << BCYAN << BLACK << "-----------------------[CopyConstructor]-----------------------" << END << std::endl;
@@ -149,7 +149,7 @@ void	execForms( void ) {
 	std::cout << std::endl;
 
 	sM2.beSigned( chiefExecutive );
-	/* sM2.beSigned( streetCleaner ); */ // error-case
+	// sM2.beSigned( streetCleaner ); // error-case
 	averageSalary.beSigned( chiefExecutive );
 	jobExtraHours.beSigned( streetCleaner );
 

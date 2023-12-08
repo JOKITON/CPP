@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:03:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 12:27:50 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 22:06:41 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name) {
 	temp = (grade > 150) ? 151 : temp;
 	switch( temp ) {
 		case 0:
-			GradeTooHighException( grade );
+			throw (Bureaucrat::GradeTooHighException());
 			break ;
 		case 151:
-			GradeTooLowException( grade );
+			throw (Bureaucrat::GradeTooLowException());
 			break ;
 		default :
 			this->_grade = grade;
@@ -47,13 +47,9 @@ Bureaucrat::~Bureaucrat( void ) {
 
 Bureaucrat& Bureaucrat::operator=( Bureaucrat& p) {
 	std::cout << "[Bureaucrat] Assigment Operator for '" << this->_name << "' using '"<< p.getName() << "' has been called." << std::endl;
+	std::cout << "(warning: name cannot be coppied due to 'const' prefix)" << std::endl;
 	if (this != &p) {
 		this->_grade = p.getGrade();
-		this->_name = (p.getName());
-
-		// Checks if there is a deep copy :
-		/* std::cout << "Memory Adress of _name : " << &_name << std::endl;
-		std::cout << "Memory Adress of p.getName() : " << &p.getName() << std::endl; */
 	}
 
 	return *this;
@@ -83,7 +79,7 @@ void	Bureaucrat::incrementGrade( int val ) {
 	temp = ((_grade - val) < 1) ? -1 : _grade;
 	switch(temp) {
 		case -1:
-			GradeTooHighException(_grade - val);
+			throw (Bureaucrat::GradeTooHighException());
 			break ;
 		default:
 			this->_grade -= val;
@@ -100,28 +96,12 @@ void	Bureaucrat::decrementGrade( int val ) {
 	temp = ((_grade + val) > 150) ? -1 : _grade;
 	switch(temp) {
 		case -1:
-			GradeTooLowException(_grade + val);
+			throw (Bureaucrat::GradeTooLowException());
 			break ;
 		default:
 			this->_grade += val;
 			std::cout << "[Bureaucrat] 'decrementGrade()' for '" << this->_name << "' has been called.   Current grade : [" << this->_grade << "]." << std::endl;
 	}
-}
-
-void Bureaucrat::GradeTooHighException( int errorGrade ) {
-	std::ostringstream oss;
-	oss << "[Bureaucrat] error: the given grade {" << errorGrade << "} was too high for '" << this->_name << "'!\n";
-
-	std::string msg = oss.str();
-	throw std::runtime_error(msg);
-}
-
-void Bureaucrat::GradeTooLowException( int errorGrade ) {
-	std::ostringstream oss;
-	oss << "[Bureaucrat] error: the given grade {" << errorGrade << "} was too low for '" << this->_name << "'!\n";
-
-	std::string msg = oss.str();
-	throw std::runtime_error(msg);
 }
 
 void    Bureaucrat::signForm( const AForm& p ) const {
@@ -145,14 +125,22 @@ void	Bureaucrat::executeForm( AForm const & form ) {
 	int temp1;
 
 	temp1 = (this->_grade <= form.getGradeExec()) ? 1 : 0;
+	switch ( temp1 ) {
+		case 1:
+			temp1 = (form.getStatus()) ? 1 : -1;
+	}
 	switch ( temp1 )
 	{
+		case -1:
+			throw (Bureaucrat::NonSignedFormException());
+			break ;
 		case 1:
 			std::cout << "[Bureaucrat] '" << _name << "' {" << _grade << "} executed '" << form.getName() << "' {" << form.getGradeExec() << "} !" << std::endl;
+			// std::cout << _name << " executed " << form.getName() << std::endl; // if evaluator wants to have this msg
 			form.execute( *this );
 			break;
 		case 0:
-			std::cerr << "[Bureaucrat] error: '" << _name << "' {" << _grade << "} could NOT execute '" << form.getName() << "' {" << form.getGradeExec() << "} !" << std::endl;
+			throw (Bureaucrat::GradeTooLowException());
 			break ;
 	}
 }

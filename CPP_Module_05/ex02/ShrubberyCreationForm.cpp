@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:54:08 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:05:28 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/08 21:06:41 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 	}
 	switch ( check1 ) {
 		case -1:
-			std::cerr << "[ShrubberyCreationForm] error: '" << this->getName() << "' could not generate the AsciiTree..." << std::endl;
+			throw (AForm::NonSignedFormException());
 			break ;
 		case 0:
-			this->GradeTooLowException( executor.getGrade() );
+			throw (AForm::GradeTooLowException());
 			break ;
 		case 1:
 			buildAsciiTree();
