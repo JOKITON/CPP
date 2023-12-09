@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 22:02:47 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:34:22 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ void	execForms( void ) {
 	std::cout << averageSalary;
 
 	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[beSigned()]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[beSigned() & signForm()]-----------------------" << END << std::endl;
 	std::cout << std::endl;
 
 	Bureaucrat	chiefExecutive( "chiefExecutive", 4 );
@@ -152,6 +152,11 @@ void	execForms( void ) {
 	// sM2.beSigned( streetCleaner ); // error-case
 	averageSalary.beSigned( chiefExecutive );
 	jobExtraHours.beSigned( streetCleaner );
+
+	chiefExecutive.signForm( sM2 );
+	chiefExecutive.signForm( averageSalary );
+	streetCleaner.signForm( jobExtraHours );
+	streetCleaner.signForm( sM2 );
 
 	std::cout << std::endl;
 	sM2status = (sM2.getStatus() == TRUE) ? "TRUE" : "FALSE";

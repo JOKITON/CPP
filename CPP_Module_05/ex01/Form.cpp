@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 22:01:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:30:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,5 @@ void    Form::beSigned( const Bureaucrat& p ) {
             break;
         case 0:
             _signed = TRUE;
-            p.signForm( *this );
     }
 }

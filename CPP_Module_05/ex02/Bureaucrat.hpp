@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 21:07:08 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:35:35 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class Bureaucrat {
 		void	incrementGrade( int val );
 		void	decrementGrade( int val );
 		/* Form object related ex01, ex02 */
-		void    signForm( const AForm& p ) const ;
+		void    signForm( AForm& p ) const ;
 		void	executeForm( AForm const & form );
 		/* Exceptions */
 		class	GradeTooLowException : public std::exception {

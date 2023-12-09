@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:03:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 22:06:41 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:30:06 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	Bureaucrat::decrementGrade( int val ) {
 	}
 }
 
-void    Bureaucrat::signForm( const Form& p ) const {
+void    Bureaucrat::signForm( Form& p ) const {
     int checkGrade;
 
     checkGrade = (_grade <= p.getGradeSign()) ? 1 : 0;
@@ -115,6 +115,7 @@ void    Bureaucrat::signForm( const Form& p ) const {
             std::cout << _name << " couldn’t sign " << p.getName() << " because its grade is too low!" << std::endl;
             break;
         case 1:
+			p.beSigned(*this);
             std::cout << _name << " signed " << p.getName() << std::endl;
             break ;
     }

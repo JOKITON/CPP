@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 20:51:25 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:36:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,5 @@ void    AForm::beSigned( const Bureaucrat& p ) {
             break;
         case 0:
             _signed = TRUE;
-            p.signForm( *this );
-            // std::cout << "[Form] '" << this->_name << "' {" << this->_gradeSign << "} has been signed by '"  << p.getName() << "', using a grade of {" << p.getGrade() << "}!." << std::endl;
     }
 }
