@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 22:10:26 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:43:58 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,8 +174,8 @@ void	execConcreteClasses( void ) {
 	std::cout << BBLACK << RED << "-----------------------[Bureaucrat::executeForm( Form const & form )]-----------------------" << END << std::endl;
 	std::cout << std::endl;
 
-/* 	ShrubberyCreationForm	testCreationForm3; // error-case (non-signed)
-	lvl1.executeForm( testCreationForm3 ); */
+	ShrubberyCreationForm	testCreationForm3; // error-case (non-signed)
+	lvl1.executeForm( testCreationForm3 );
 
 	// lvl1.decrementGrade( 1 ); // error-case (gradeTooLow)
 

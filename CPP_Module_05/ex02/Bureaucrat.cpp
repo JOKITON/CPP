@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:03:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/09 09:35:55 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:43:05 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,15 +133,14 @@ void	Bureaucrat::executeForm( AForm const & form ) {
 	switch ( temp1 )
 	{
 		case -1:
-			throw (Bureaucrat::NonSignedFormException());
+			std::cerr << "error: Bureaucrat: the given Form is not signed!" << std::endl;
 			break ;
 		case 1:
-			std::cout << "[Bureaucrat] '" << _name << "' {" << _grade << "} executed '" << form.getName() << "' {" << form.getGradeExec() << "} !" << std::endl;
-			// std::cout << _name << " executed " << form.getName() << std::endl; // if evaluator wants to have this msg
+			std::cout << _name << " executed " << form.getName() << std::endl; // if evaluator wants to have this msg
 			form.execute( *this );
 			break;
 		case 0:
-			throw (Bureaucrat::GradeTooLowException());
+			std::cerr << "error: Bureaucrat: the Bureaucrat's grade is too low!" << std::endl;
 			break ;
 	}
 }
