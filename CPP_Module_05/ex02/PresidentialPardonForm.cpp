@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:32:18 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 21:06:27 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 12:46:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,16 @@ PresidentialPardonForm::PresidentialPardonForm( std::string const & target ) : A
 	std::cout << "[PresidentialPardonForm] '" << target << "' has been constructed." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm& p ) : AForm(p.getName() , p.getStatus(), 25, 5 ) {
-	std::cout << "[PresidentialPardonForm] '" << this->getName() << "' has been constructed." << std::endl;
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& p ) : AForm(p.getName() , p.getStatus(), 25, 5 ) {
+	std::cout << "[PresidentialPardonForm] '" << this->getName() << "' has been constructed from '" << p.getName() << "'." << std::endl;
+}
+
+PresidentialPardonForm&	PresidentialPardonForm::operator=( const PresidentialPardonForm& p ) {
+	if (this != &p) {
+		*this = p;
+	}
+	std::cout << "[PresidentialPardonForm] '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
+	return *this;
 }
 
 void PresidentialPardonForm::execute( Bureaucrat const & executor ) const {

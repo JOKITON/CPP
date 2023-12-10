@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/09 09:34:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 11:34:25 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,20 @@ void	execForms( void ) {
 	
 
 	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[OverloadOperator]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[ OverloadOperator (=) ]-----------------------" << END << std::endl;
+	
+	jobSalary = jobExtraHours;
+	std::cout << std::endl;
+
+	std::cout << jobSalary;
+
+	jobSalary = sM2;
+	std::cout << std::endl;
+
+	std::cout << jobSalary;
+
+	std::cout << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[ OverloadOperator (<<) ]-----------------------" << END << std::endl;
 
 	std::cout << sM2;
 	std::cout << scholarshipMargin;

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 22:35:23 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 12:49:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,14 @@ void	execConcreteClasses( void ) {
 	PresidentialPardonForm	testPardonForm2(testForm3);
 
 	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[ Assignment Overload Operator (=) ]-----------------------" << END << std::endl;
+	std::cout << std::endl;
+
+	ShrubberyCreationForm	testCreationForm3 = testCreationForm2;
+	RobotomyRequestForm		testRequestForm3 = testRequestForm2;
+	PresidentialPardonForm	testPardonForm3 = testPardonForm2;
+
+	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Form::execute( Bureaucrat const & p )]-----------------------" << END << std::endl;
 	std::cout << std::endl;
 	std::cout << BCYAN << RED << "---------------[Creating Bureaucrats...]---------------" << END << std::endl;
@@ -172,8 +180,13 @@ void	execConcreteClasses( void ) {
 	testPardonForm2.execute( lvl1 ); */
 
 	std::cout << std::endl;
-	std::cout << BBLACK << RED << "-----------------------[Bureaucrat::execute( Form const & form )]-----------------------" << END << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[Bureaucrat::executeForm( Form const & form )]-----------------------" << END << std::endl;
 	std::cout << std::endl;
+
+	ShrubberyCreationForm	testCreationForm4; // error-case (non-signed)
+	lvl1.executeForm( testCreationForm4 );
+
+	// lvl1.decrementGrade( 1 ); // error-case (gradeTooLow)
 
 	// lvl1.decrementGrade(1);
 	lvl1.executeForm( testPardonForm2 );
@@ -195,6 +208,18 @@ void	execInterns( void ) {
 	std::cout << BCYAN << BLACK << "-----------------------[DefaultConstructor]-----------------------" << END << std::endl;
 
 	Intern	test1;
+
+	std::cout << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[CopyConstructor]-----------------------" << END << std::endl;
+
+	Intern	test2(test1);
+
+	std::cout << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[Oveload Assignment Operator (=) ]-----------------------" << END << std::endl;
+
+	Intern test3;
+
+	test3 = test1;
 
 	std::cout << std::endl;
 	std::cout << BCYAN << BLACK << "-----------------------[ Form& Intern::makeForm(formType, formName) ]-----------------------" << END << std::endl;

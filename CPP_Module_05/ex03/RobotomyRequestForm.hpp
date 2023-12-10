@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:51:15 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 18:05:01 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 12:41:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ class RobotomyRequestForm : public AForm {
 		/* Constructors */
 		RobotomyRequestForm( void );
 		~RobotomyRequestForm( void );
-		RobotomyRequestForm( RobotomyRequestForm & p );
+		RobotomyRequestForm( const RobotomyRequestForm & p );
 		RobotomyRequestForm( std::string const & target );
+		RobotomyRequestForm&	operator=( const RobotomyRequestForm& p );
 		/* Inherited */
 		void	execute( Bureaucrat const & executor ) const;
 };

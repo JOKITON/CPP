@@ -6,22 +6,22 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/09 09:36:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 11:36:13 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 AForm::AForm(void) : _name("default"), _signed(false), _gradeSign(25), _gradeExec(10) {
-    std::cout << "[Form] Default 'constructor' has been called." << std::endl;
+    std::cout << "[AForm] Default 'constructor' has been called." << std::endl;
 }
 
 AForm::~AForm(void) {
-    std::cout << "[Form] Default 'destructor' has been called." << std::endl;
+    std::cout << "[AForm] Default 'destructor' has been called." << std::endl;
 }
 
 AForm::AForm(const AForm& p) : _name(p.getName()), _signed(p.getStatus()), _gradeSign(p.getGradeSign()), _gradeExec(p.getGradeExec()) {
-    std::cout << "[Form] Copy constructor from '" << p.getName() << "' has been called." << std::endl;
+    std::cout << "[AForm] Copy constructor from '" << p.getName() << "' has been called." << std::endl;
     // No need to assign to constant members
 }
 
@@ -29,7 +29,7 @@ AForm::AForm( const std::string name, bool signed_, const int gradeSign, const i
     /* A better way to check TRUE/FALSE on _signed */
     std::string status = (_signed == TRUE) ? "TRUE" : "FALSE";
     /* Print information about what Form whas created and what data has been given to it. */
-    std::cout << "[Form] Constructor with { '" << _name << "', '" << status << "', " << _gradeSign << ", " << _gradeExec << " } has been called." << std::endl;
+    std::cout << "[AForm] Constructor with { '" << _name << "', '" << status << "', " << _gradeSign << ", " << _gradeExec << " } has been called." << std::endl;
 
     int temp1 = gradeSign;
     int temp2 = gradeExec;
@@ -61,7 +61,8 @@ AForm::AForm( const std::string name, bool signed_, const int gradeSign, const i
 }
 
 AForm& AForm::operator=(const AForm& p) {
-    std::cout << "[Form] Assignment Operator called from '" << p.getName() << "' to '" << this->_name << "' has been called." << std::endl;
+    std::cout << "[AForm] Assignment Operator called from '" << p.getName() << "' to '" << this->_name << "' has been called." << std::endl;
+    std::cout << "(warning: name, execution & sign grades cannot be coppied due to 'const' prefix)" << std::endl;
     if (this != &p) { // Checks for self-assigment
         this->_signed = p.getStatus();
     }
@@ -70,7 +71,7 @@ AForm& AForm::operator=(const AForm& p) {
 
 std::ostream& operator<<( std::ostream& out, AForm& p ) {
     std::string pStatus = (p.getStatus() == TRUE) ? "TRUE" : "FALSE";
-    out << "[Form] '" << p.getName() << "'s Form grades : {" << p.getGradeSign() << ", " << p.getGradeExec() << "}.";
+    out << "[AForm] '" << p.getName() << "'s Form grades : {" << p.getGradeSign() << ", " << p.getGradeExec() << "}.";
     out << " && status : {" << pStatus << "}." << std::endl;
 
 	return out;

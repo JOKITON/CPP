@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/09 09:43:58 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 11:43:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,14 @@ void	execConcreteClasses( void ) {
 	PresidentialPardonForm	testPardonForm2(testForm3);
 
 	std::cout << std::endl;
+	std::cout << BBLACK << RED << "-----------------------[ Assignment Overload Operator (=) ]-----------------------" << END << std::endl;
+	std::cout << std::endl;
+
+	ShrubberyCreationForm	testCreationForm3 = testCreationForm2;
+	RobotomyRequestForm		testRequestForm3 = testRequestForm2;
+	PresidentialPardonForm	testPardonForm3 = testPardonForm2;
+
+	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Form::execute( Bureaucrat const & p )]-----------------------" << END << std::endl;
 	std::cout << std::endl;
 	std::cout << BCYAN << RED << "---------------[Creating Bureaucrats...]---------------" << END << std::endl;
@@ -174,8 +182,8 @@ void	execConcreteClasses( void ) {
 	std::cout << BBLACK << RED << "-----------------------[Bureaucrat::executeForm( Form const & form )]-----------------------" << END << std::endl;
 	std::cout << std::endl;
 
-	ShrubberyCreationForm	testCreationForm3; // error-case (non-signed)
-	lvl1.executeForm( testCreationForm3 );
+	ShrubberyCreationForm	testCreationForm4; // error-case (non-signed)
+	lvl1.executeForm( testCreationForm4 );
 
 	// lvl1.decrementGrade( 1 ); // error-case (gradeTooLow)
 

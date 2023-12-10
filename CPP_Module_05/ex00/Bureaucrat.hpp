@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 22:04:21 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 11:18:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,19 @@ class Bureaucrat {
 		const std::string 	_name;
 		int			_grade;
 
+		/* Exceptions */
+		class	GradeTooLowException : public std::exception {
+			public:
+				virtual const char *what( void ) const throw() {
+					return ("\nerror: exception: Bureaucrat: the given grade was too low!\n");
+				}
+		};
+		class	GradeTooHighException : public std::exception {
+			public:
+				virtual const char *what( void ) const throw() {
+					return ("\nerror: exception: Bureaucrat: the given grade was too high!\n");
+				}
+		};
 	public:
 		/* Canonical Form */
 		Bureaucrat( void );
@@ -42,19 +55,6 @@ class Bureaucrat {
 		void	incrementGrade( int val );
 		void	decrementGrade( int val );
 
-		/* Exceptions */
-		class	GradeTooLowException : public std::exception {
-			public:
-				virtual const char *what( void ) const throw() {
-					return ("\nerror: exception: Bureaucrat: the given grade was too low!\n");
-				}
-		};
-		class	GradeTooHighException : public std::exception {
-			public:
-				virtual const char *what( void ) const throw() {
-					return ("\nerror: exception: Bureaucrat: the given grade was too high!\n");
-				}
-		};
 };
 
 #endif

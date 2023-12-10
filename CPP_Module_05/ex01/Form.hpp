@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 22:03:44 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 11:30:59 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #define TRUE 1
 #define FALSE 0
 
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 class Form {
@@ -26,7 +25,6 @@ class Form {
 		const int _gradeSign;
 		const int _gradeExec;
 
-	public:
 		class	GradeTooLowException : public std::exception {
 			public:
 				virtual const char *what( void ) const throw() {
@@ -39,6 +37,7 @@ class Form {
 					return ("\nerror: exception: Form: the given grade was too high!\n");
 				}
 		};
+	public:
 		/* Canonical Form */
 		Form( void );
 		virtual ~Form( void );

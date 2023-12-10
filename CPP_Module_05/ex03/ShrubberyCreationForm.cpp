@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:54:08 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 21:06:41 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 12:41:49 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,16 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target ) : AFo
 	std::cout << "[ShrubberyCreationForm] '" << target << "' has been constructed." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm & p ) : AForm( p.getName(), p.getStatus(), 145, 137) {
-	std::cout << "[RobotomyRequestForm] '" << this->getName() << "' has been constructed." << std::endl;
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & p ) : AForm( p.getName(), p.getStatus(), 145, 137) {
+	std::cout << "[ShrubberyCreationForm] '" << this->getName() << "' has been constructed from '" << p.getName() << "'." << std::endl;
+}
+
+ShrubberyCreationForm&	ShrubberyCreationForm::operator=( const ShrubberyCreationForm& p ) {
+	if (this != &p) {
+		*this = p;
+	}
+	std::cout << "[ShrubberyCreationForm] '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
+	return *this;
 }
 
 void	ShrubberyCreationForm::buildAsciiTree( void ) const {

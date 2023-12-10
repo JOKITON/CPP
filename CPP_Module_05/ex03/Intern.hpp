@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:48:32 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/11 17:23:04 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 12:33:24 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ class Intern {
 	public:
 		Intern( void );
 		~Intern( void );
+
+		Intern( const Intern& p );
+		Intern&	operator=( const Intern& p );
 
 		AForm* makeForm( const std::string & formName, const std::string& formTarget ) const;
 };

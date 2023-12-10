@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/09 09:30:27 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 11:31:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ Form::Form( const std::string name, bool signed_, const int gradeSign, const int
 
 Form& Form::operator=(const Form& p) {
     std::cout << "[Form] Assignment Operator called from '" << p.getName() << "' to '" << this->_name << "' has been called." << std::endl;
+    std::cout << "(warning: name, execution & sign grades cannot be coppied due to 'const' prefix)" << std::endl;
     if (this != &p) { // Checks for self-assigment
         this->_signed = p.getStatus();
     }

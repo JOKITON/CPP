@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:34:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 20:14:36 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 12:46:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class PresidentialPardonForm : public AForm {
 		PresidentialPardonForm( void );
 		~PresidentialPardonForm( void );
 		PresidentialPardonForm( std::string const & target );
-		PresidentialPardonForm( PresidentialPardonForm & p );
+		PresidentialPardonForm( const PresidentialPardonForm & p );
+		PresidentialPardonForm&	operator=( const PresidentialPardonForm& p );
 		/* Inherited */
 		void	execute( Bureaucrat const & executor ) const;
 

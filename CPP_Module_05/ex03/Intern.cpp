@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:50:51 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/05 16:25:52 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 12:35:45 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,19 @@ Intern::Intern( void ) {
 
 Intern::~Intern( void ) {
 	std::cout << "[Intern] Default destructor has been called." << std::endl;
+}
+
+Intern::Intern( const Intern& p ) {
+	(void)p;
+	std::cout << "[Intern] Copy constructor has been called." << std::endl;
+}
+
+Intern&	Intern::operator=( const Intern& p ) {
+	if (this != &p ) {
+		;
+	}
+	std::cout << "[Intern] Assignment Operator Overload has been called." << std::endl;
+	return *this;
 }
 
 AForm*	Intern::makeForm( const std::string & formName, const std::string& formTarget ) const {

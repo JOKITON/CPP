@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:03:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 22:06:41 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 11:22:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,13 @@ int	Bureaucrat::getGrade( void ) const{
 
 void	Bureaucrat::incrementGrade( int val ) {
 	int	temp;
-	
+
+	switch (val < 0)
+	{
+		case 1:
+			std::cout << "warning: Bureucrat: since value given is negative, it will be switched to positive." << std::endl;
+			break;
+	}
 	// Checks if the given value is negative & changes it to positive
 	val *= (val < 0) ? -1 : 1;
 	// Checks if the grade can be out of bounds & is adjusted to '-1'
@@ -90,6 +96,12 @@ void	Bureaucrat::incrementGrade( int val ) {
 void	Bureaucrat::decrementGrade( int val ) {
 	int	temp;
 	
+	switch (val < 0)
+	{
+		case 1:
+			std::cout << "warning: Bureucrat: since value given is negative, it will be switched to positive." << std::endl;
+			break;
+	}
 	// Checks if the given value is negative & changes it to positive
 	val *= (val < 0) ? -1 : 1;
 	// Checks if the grade can be out of bounds & is adjusted to '-1'

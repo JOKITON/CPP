@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:49:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/08 21:06:33 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 12:46:37 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,16 @@ RobotomyRequestForm::RobotomyRequestForm( std::string const & target ) : AForm(t
 	std::cout << "[RobotomyRequestForm] '" << target << "' has been constructed." << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm & p ) : AForm( p.getName(), p.getStatus(), 72, 45 ) {
-	std::cout << "[RobotomyRequestForm] '" << this->getName() << "' has been constructed." << std::endl;
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & p ) : AForm( p.getName(), p.getStatus(), 72, 45 ) {
+	std::cout << "[RobotomyRequestForm] '" << this->getName() << "' has been constructed from '" << p.getName() << "'." << std::endl;
+}
+
+RobotomyRequestForm&	RobotomyRequestForm::operator=( const RobotomyRequestForm& p ) {
+	if (this != &p) {
+		*this = p;
+	}
+	std::cout << "[RobotomyRequestForm] '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
+	return *this;
 }
 
 void RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
