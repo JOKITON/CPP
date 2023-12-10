@@ -6,17 +6,17 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:06:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/16 15:56:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 13:25:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
  /* Using libraries related to C for */
-#include <stdlib.h>
-#include <limits>
-#include <iostream>
-#include <iomanip>
+#include <stdlib.h> // used for atof, const char*->double
+#include <limits> // used to handle numeric limits
+#include <iostream> // general use
+#include <iomanip> // for setting decimal precision
 
 #define INF_NAN -1
 #define IS_CHAR 1

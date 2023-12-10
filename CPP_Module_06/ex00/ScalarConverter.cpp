@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:04:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/17 16:33:54 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/10 13:27:53 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ScalarConverter::ScalarConverter( const std::string & input) : _input(input) {
 }
 
 ScalarConverter::ScalarConverter( const ScalarConverter& p ) : _input(p.getInput()) {
-	std::cout << "[ScalarConstructor] Copy constructor called from {" << p.getDouble() << "}" << std::endl;
+	std::cout << "[ScalarConstructor] Copy constructor called from {" << p.getInput() << "}" << std::endl;
 	_type = p.getType();
 	_char = p.getChar();
 	_int = p.getInteger();
@@ -36,7 +36,7 @@ ScalarConverter::ScalarConverter( const ScalarConverter& p ) : _input(p.getInput
 }
 
 ScalarConverter&	ScalarConverter::operator=( const ScalarConverter& p) {
-	std::cout << "[ScalarConstructor] Overload Assigment Operator called from {" << p.getDouble() << "}" << std::endl;
+	std::cout << "[ScalarConstructor] Overload Assigment Operator called from {" << p.getInput() << "}" << std::endl;
 	if (this != &p) {
 		_type = p.getType();
 		_char = p.getChar();
