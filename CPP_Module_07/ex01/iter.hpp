@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:10:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/21 12:41:31 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:15:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ __attribute_maybe_unused__ static	void	ft_double(double val)
 	std::cout << val << std::endl;
 }
 
-__attribute_maybe_unused__ static	void	ft_char(char val)
+__attribute_maybe_unused__ static	void	ft_char(const char *val)
 {
 	std::cout << val << std::endl;
 }

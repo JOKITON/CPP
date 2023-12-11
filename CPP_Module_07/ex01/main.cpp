@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:15:40 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/21 12:41:04 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:14:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	testsIter( void ) {
 	std::string	ar1[3] = {"1", "2", "3"};
 	int			ar2[3] = {1, 2, 3};
 	float		ar3[3] = {1.4f, 2.3f, 342.4132f};
+	const char		*ar4[3] = {"string1", "string2", "string3"};
 
 	std::cout << "std::string[3]: " << std::endl;
 	iter(ar1, 3, ft_string);
@@ -27,6 +28,9 @@ void	testsIter( void ) {
 	std::cout << std::endl;
 	std::cout << "float[3]: " << std::endl;
 	iter(ar3, 3, ft_float);
+	std::cout << std::endl;
+	std::cout << "char*[3]: " << std::endl;
+	iter(ar4, 3, ft_char);
 	std::cout << std::endl;
 	std::cout << std::endl;
 }

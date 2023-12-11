@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:12:15 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/17 23:00:57 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:06:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ L	max(const L& lhs, const L& rhs) {
 
 template <typename S>
 void swap(S& arg1, S& arg2) {
-    std::cout << "Swap has been called for {" << arg1 << ", " << arg2 << "}" << std::endl;
+    // std::cout << "Swap has been called for {" << arg1 << ", " << arg2 << "}" << std::endl;
     S temp = arg1;
     arg1 = arg2;
     arg2 = temp;

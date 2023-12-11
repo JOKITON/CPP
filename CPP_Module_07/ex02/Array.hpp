@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 00:14:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/21 19:24:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:21:29 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ class Array {
 		~Array( void ) {
 			delete[] _ar;
 		}
-		Array( unsigned int e ) {
-			std::cout << "[Array] Array was created using " << e << std::endl;
-			_ar = new T[e]();
-			_size = e;
+		Array( unsigned int n ) {
+			std::cout << "[Array] Array was created using " << n << std::endl;
+			_ar = new T[n]();
+			_size = n;
 		}
 		Array( const Array& p) {
 			_ar = new T[p.size()](); // allocates new space for array
