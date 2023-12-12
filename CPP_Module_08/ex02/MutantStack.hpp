@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:41:54 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/23 21:38:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:53:36 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class	MutantStack : public std::stack<T> {
 		~MutantStack() {
 			std::cout << "[MutantStack] Default destructor has been called." << std::endl;
 		};
-		MutantStack( const stack & p ) : stack(p) {
+		MutantStack( stack & p ) : stack(p) {
 			std::cout << "[MutantStack] Copy constructor has been called." << std::endl;
 		};
 		MutantStack& operator=( const stack & p ) {

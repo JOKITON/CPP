@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:31:39 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/23 21:41:54 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:33:45 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,14 @@ Span&	Span::operator=( const Span & p ) {
 }
 
 void	Span::addNumber( int number ) {
-	this->_vector->push_back(number);
+	std::size_t	N = _vector->size();
+	if (_N == N) {
+		std::stringstream	oss;
+		oss << "error: exception: too many numbers stored inside: " << N;
+		throw (std::runtime_error(oss.str()));
+	}
+	else
+		this->_vector->push_back(number);
 }
 
 void	Span::addNumbers( void ) {
@@ -61,7 +68,7 @@ void	Span::addNumbers( void ) {
 
 unsigned int Span::shortestSpan( void ) {
     if (_vector->size() < 2) {
-        Span::SpanFailedToFindNumber();
+        throw (Span::SpanFailedToFindNumber());
         return 0;
     }
 
@@ -81,7 +88,7 @@ unsigned int shortest = UINT_MAX;
 
 unsigned int Span::longestSpan() {
 	if (_vector->size() < 2) {
-		Span::SpanFailedToFindNumber();
+		throw (Span::SpanFailedToFindNumber());
 		return 0;
 	}
 
@@ -98,11 +105,4 @@ std::vector<int>	Span::getVector( void ) const {
 
 int					Span::getSize( void ) const {
 	return this->_N;
-}
-
-void	Span::SpanFailedToFindNumber( ) const {
-	std::ostringstream	oss;
-
-	oss << std::endl << "[Vector] error: exception: Span does not have enough numbers..." << std::endl;
-	throw std::runtime_error(oss.str());
 }

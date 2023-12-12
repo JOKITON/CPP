@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:31:50 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/23 21:41:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:16:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ class	Span {
 	private:
 		unsigned int	_N;
 		std::vector<int>	*_vector;
+
+		class	SpanFailedToFindNumber : public std::exception {
+			public:
+				virtual const char*	what() const throw() {
+					return ("error: exception: Span does not have enough numbers...");
+				}
+		};
 	public:
 		Span( void );
 		~Span( void );
@@ -41,8 +48,6 @@ class	Span {
 		void	addNumbers( void );
 		unsigned int		shortestSpan( void );
 		unsigned int		longestSpan( void );
-
-		void	SpanFailedToFindNumber( void ) const;
 
 		std::vector<int>	getVector( void ) const;
 		int					getSize( void ) const;

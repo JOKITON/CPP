@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:31:02 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/23 21:41:50 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:43:46 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,27 @@ void	execTests( void ) {
 	test0.addNumber(0);
 
 	test2.addNumbers();
-
+	try { // error, too many numbers
+		test2.addNumber(1);
+	}
+	catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	test3.addNumbers();
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Shortest & Longest Span]-----------------------" << END << std::endl;
 	try {
-/* 	std::cout << std::endl; // error-case (1 number)
+	std::cout << std::endl; // error-case (1 number)
 	std::cout << "Shortest span for test0: " << test0.shortestSpan() << std::endl;
 	std::cout << "Longest span for test0: " << test0.longestSpan() << std::endl;
-	std::cout << std::endl; */
+	std::cout << std::endl;
+	}
+	catch (std::exception & e ) {
+		std::cout << std::endl;
+		std::cout << BBLACK << RED << "-------------[Exception]-------------" << END << std::endl;
+		std::cout << e.what() << std::endl;
+	}
 
 	std::cout << std::endl;
 	std::cout << "[Span::shortestSpan] span for test2: " << test2.shortestSpan() << std::endl;
@@ -72,29 +83,35 @@ void	execTests( void ) {
 	}
 
 	std::cout << std::endl;
-	}
-	catch (std::exception & e ) {
-		std::cout << std::endl;
-		std::cout << BBLACK << RED << "-----------------------[Exception]-----------------------" << END << std::endl;
-		std::cout << e.what() << std::endl;
-	}
+
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Assignment Operator]-----------------------" << END << std::endl;
-	test2 = test3;
+	
+	Span	*test7 = new Span(10);
+	test7->addNumbers();
+	test2 = *test7;
+
+/* 	std::cout << "Size of test2 : " << test2.getSize() << std::endl;  // test for checking if deep copy works
+
+	delete	test7; // remove the delete in destructors!
 
 	std::cout << "Size of test2 : " << test2.getSize() << std::endl;
-
+	std::vector<int>	getVector1 = test2.getVector();
+	for (long unsigned int N; N < getVector1.size(); N++) {
+		std::cout << getVector1[N] << std::endl;
+	} */
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Copy Constructor]-----------------------" << END << std::endl;
-	Span	test6(test3);
+	Span	test6(test2);
 
 	std::cout << "Size of test6 : " << test6.getSize() << std::endl;
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Destructors]-----------------------" << END << std::endl;
 
+	delete	test7;
 }
 
 void	testsSubject( void ) {
