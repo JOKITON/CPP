@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:31:02 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/12 12:43:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:33:36 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void	execTests( void ) {
 	std::cout << BBLACK << RED << "-----------------------[addNumber]-----------------------" << END << std::endl;
 	test0.addNumber(0);
 
+	// test0.addNumber(-200); // error-case: no space
+	// test1.addNumber(900);
+
 	test2.addNumbers();
 	try { // error, too many numbers
 		test2.addNumber(1);
@@ -46,15 +49,38 @@ void	execTests( void ) {
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Shortest & Longest Span]-----------------------" << END << std::endl;
+	
 	try {
-	std::cout << std::endl; // error-case (1 number)
-	std::cout << "Shortest span for test0: " << test0.shortestSpan() << std::endl;
-	std::cout << "Longest span for test0: " << test0.longestSpan() << std::endl;
-	std::cout << std::endl;
+		std::cout << std::endl; // error-case (1 number)
+		std::cout << "Shortest span for test0: ( 1 number ) " << test0.shortestSpan() << std::endl;
 	}
 	catch (std::exception & e ) {
 		std::cout << std::endl;
-		std::cout << BBLACK << RED << "-------------[Exception]-------------" << END << std::endl;
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		std::cout << std::endl;
+		std::cout << "Longest span for test0: " << test0.longestSpan() << std::endl;
+	}
+	catch (std::exception& e) {
+		std::cout << std::endl;
+		std::cout << e.what() << std::endl;
+	}
+
+	try {
+		std::cout << std::endl; // error-case (0 numbers)
+		std::cout << "Shortest span for test1: ( 0 numbers )" << test1.shortestSpan() << std::endl;
+	}
+	catch (std::exception & e ) {
+		std::cout << std::endl;
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		std::cout << std::endl;
+		std::cout << "Longest span for test1: " << test1.longestSpan() << std::endl;
+	}
+	catch (std::exception& e) {
+		std::cout << std::endl;
 		std::cout << e.what() << std::endl;
 	}
 

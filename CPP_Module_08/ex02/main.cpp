@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:41:22 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/23 21:41:32 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:01:47 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,10 @@ void	subjectTests( void ) {
 	std::cout << *it << std::endl;
 	++it;
 	}
+	/* std::cout << std::endl << "**Another form of iterating through a container: (using '[]') " << std::endl;
+	for (unsigned long int pos = 0; pos != mstack.size(); pos++) {
+		std::cout << mstack[pos] << std::endl;
+	} */
 	std::stack<int> s(mstack);
 }
 

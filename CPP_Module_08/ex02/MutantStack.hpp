@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:41:54 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/12 12:53:36 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:01:52 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,20 @@ class	MutantStack : public std::stack<T> {
 			return stack::c.begin();
 		}
 
-
+		int	operator[]( unsigned long int	pos ) {
+			if (pos > stack::c.size())
+				return -1;
+			iterator it;
+			iterator	end = stack::c.end();
+			unsigned long int len = 0;
+			for (it = stack::c.begin(); it != end; it++) {
+				if (len == pos)
+					break ;
+				else
+					len++;
+			}
+			return *it;
+		}
 };
 
 #endif

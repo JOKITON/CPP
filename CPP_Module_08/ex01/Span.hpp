@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:31:50 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/12 12:16:12 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:28:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class	Span {
 		class	SpanFailedToFindNumber : public std::exception {
 			public:
 				virtual const char*	what() const throw() {
-					return ("error: exception: Span does not have enough numbers...");
+					return ("error: exception: 'Span' object run out of space.");
 				}
 		};
 	public:
