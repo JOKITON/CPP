@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 11:22:52 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:13:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	execBureaucrats( void ) {
 	Bureaucrat Top("Top", 2);
 	Bureaucrat Bottom("Bottom", 149);
 	// Bureaucrat test2("test2", 1321); // error-case
-	// Bureaucrat test3("test3", -432);
+	// Bureaucrat test3("test3", 0);
 
 	std::cout << std::endl;
 	std::cout << BCYAN << BLACK << "-----------------------[CopyConstructor]-----------------------" << END << std::endl;
@@ -103,7 +103,7 @@ int main( void ) {
 
 	try {
 	/* My own tests */
-	execBureaucrats();
+		execBureaucrats();
 	}
 	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;

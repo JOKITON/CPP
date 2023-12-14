@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 11:36:13 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:37:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ AForm::AForm(const AForm& p) : _name(p.getName()), _signed(p.getStatus()), _grad
     // No need to assign to constant members
 }
 
-AForm::AForm( const std::string name, bool signed_, const int gradeSign, const int gradeExec) : _name(name), _signed(signed_), _gradeSign(gradeSign), _gradeExec(gradeExec) {
+AForm::AForm( const std::string name, bool signed_, const unsigned int gradeSign, const unsigned int gradeExec) : _name(name), _signed(signed_), _gradeSign(gradeSign), _gradeExec(gradeExec) {
     /* A better way to check TRUE/FALSE on _signed */
     std::string status = (_signed == TRUE) ? "TRUE" : "FALSE";
     /* Print information about what Form whas created and what data has been given to it. */
     std::cout << "[AForm] Constructor with { '" << _name << "', '" << status << "', " << _gradeSign << ", " << _gradeExec << " } has been called." << std::endl;
 
-    int temp1 = gradeSign;
-    int temp2 = gradeExec;
+    unsigned int temp1 = gradeSign;
+    unsigned int temp2 = gradeExec;
 
     // Checks if the grade can be out of bounds & is adjusted accordingly.
     temp1 = (temp1 < 1) ? 0 : temp1;
@@ -85,16 +85,16 @@ bool AForm::getStatus( void ) const {
     return this->_signed;
 }
 
-int AForm::getGradeSign( void ) const {
+unsigned int AForm::getGradeSign( void ) const {
     return this->_gradeSign;
 }
 
-int AForm::getGradeExec( void ) const {
+unsigned int AForm::getGradeExec( void ) const {
     return this->_gradeExec;
 }
 
 void    AForm::beSigned( const Bureaucrat& p ) {
-    int checkGrade;
+    unsigned int checkGrade;
     
     checkGrade = (_gradeSign < p.getGrade()) ? 1 : 0;
     switch (checkGrade)

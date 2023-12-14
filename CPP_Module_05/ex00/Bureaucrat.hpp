@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 11:18:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 11:59:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define BUREAUCRAT_HPP
 
 #define END "\033[0m"
-#define BLACK "\e[4;30m"
-#define BCYAN "\e[46m"
+#define BLACK "\033[4;30m"
+#define BCYAN "\033[46m"
 
 #include <iostream>
 #include <sstream>
@@ -45,15 +45,15 @@ class Bureaucrat {
 		Bureaucrat( const Bureaucrat& p );
 		Bureaucrat& operator=( const Bureaucrat& p);
 		
-		Bureaucrat( const std::string name, int grade);
+		Bureaucrat( const std::string name, unsigned int grade);
 		friend std::ostream& operator<<( std::ostream& out, Bureaucrat& p);
 		
 		/* Getters */
 		std::string const & getName( void ) const;
 		int getGrade( void ) const;
 	
-		void	incrementGrade( int val );
-		void	decrementGrade( int val );
+		void	incrementGrade( unsigned int val );
+		void	decrementGrade( unsigned int val );
 
 };
 
