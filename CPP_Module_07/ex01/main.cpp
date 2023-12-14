@@ -6,13 +6,38 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:15:40 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/11 12:14:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:40:42 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include <cstdio>
 //#include "Awesome.hpp"
+
+__attribute_maybe_unused__ static	void	ft_int(int val)
+{
+	std::cout << val << std::endl;
+}
+
+__attribute_maybe_unused__ static	void	ft_float(float val)
+{
+	std::cout << val << std::endl;
+}
+
+__attribute_maybe_unused__ static	void	ft_double(double val)
+{
+	std::cout << val << std::endl;
+}
+
+__attribute_maybe_unused__ static	void	ft_char(const char *val)
+{
+	std::cout << val << std::endl;
+}
+
+__attribute_maybe_unused__ static	void	ft_string(std::string val)
+{
+	std::cout << val << std::endl;
+}
 
 void	testsIter( void ) {
 	std::string	ar1[3] = {"1", "2", "3"};

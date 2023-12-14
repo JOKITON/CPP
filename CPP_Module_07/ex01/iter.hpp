@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:10:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/11 12:15:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:40:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,6 @@
 # define ITER_HPP
 
 #include <iostream>
-
-__attribute_maybe_unused__ static	void	ft_int(int val)
-{
-	std::cout << val << std::endl;
-}
-
-__attribute_maybe_unused__ static	void	ft_float(float val)
-{
-	std::cout << val << std::endl;
-}
-
-__attribute_maybe_unused__ static	void	ft_double(double val)
-{
-	std::cout << val << std::endl;
-}
-
-__attribute_maybe_unused__ static	void	ft_char(const char *val)
-{
-	std::cout << val << std::endl;
-}
-
-__attribute_maybe_unused__ static	void	ft_string(std::string val)
-{
-	std::cout << val << std::endl;
-}
 
 template <typename D, typename L, typename F>
 void	iter(D* ar, L length, F	func) {

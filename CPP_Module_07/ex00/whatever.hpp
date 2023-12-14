@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:12:15 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/11 12:06:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:31:31 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #include <iostream>
 
 #define END "\033[0m"
-#define BLACK "\e[4;30m"
-#define RED "\e[1;31m"
+#define BLACK "\033[4;30m"
+#define RED "\033[1;31m"
 
-#define BCYAN "\e[46m"
-#define BBLACK "\e[47m"
+#define BCYAN "\033[46m"
+#define BBLACK "\033[47m"
 
 template <typename T>
 T	min(const T& lhs, const T& rhs) {

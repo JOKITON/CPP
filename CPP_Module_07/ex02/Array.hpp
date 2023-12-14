@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 00:14:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/11 12:21:29 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:45:05 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@ class Array {
 		T*		_ar;
 		int		_size;
 	public:
-		Array( void ) : _ar(NULL), _size(0) {
+		Array( void ) : _ar(new T), _size(0) {
 			std::cout << "[Array] Empty Array has been created." << std::endl;
 		};
 		~Array( void ) {
-			delete[] _ar;
+			if (_size == 0)
+				delete	_ar;
+			else
+				delete[] _ar;
 		}
 		Array( unsigned int n ) {
 			std::cout << "[Array] Array was created using " << n << std::endl;
@@ -49,7 +52,7 @@ class Array {
 			return *this;
 		}
 
-		T&	operator[]( int index ) {
+		T&	operator[]( int index ) const {
 			if (index > -1 && index < _size)
 				return this->_ar[index];
 			else {
