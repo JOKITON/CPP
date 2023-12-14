@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:52:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/17 12:58:18 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:13:49 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #include "Base.hpp"
 
 #define END "\033[0m"
-#define BLACK "\e[4;30m"
-#define RED "\e[1;31m"
+#define BLACK "\033[4;30m"
+#define RED "\033[1;31m"
 
-#define BCYAN "\e[46m"
-#define BBLACK "\e[47m"
+#define BCYAN "\033[46m"
+#define BBLACK "\033[47m"
 
 class A : public Base
 {

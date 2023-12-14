@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:00:06 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 13:33:53 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:08:43 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	execSerializer( void ) {
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Constructors]-----------------------" << END << std::endl;
 	
-	Serializer	serializer1;
 	Data		*data1 = new Data("jokiton", 2);
 	Data		*data2 = new Data("dani", 43);
 
@@ -30,12 +29,12 @@ void	execSerializer( void ) {
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[serialize/deserialize()]-----------------------" << END << std::endl;
 
-	uintptr_t ptr1 = (serializer1.serialize(data1)); // data -> uintprt_t
-	uintptr_t ptr2 = (serializer1.serialize(data2)); // data -> uintprt_t
+	uintptr_t ptr1 = (Serializer::serialize(data1)); // data -> uintprt_t
+	uintptr_t ptr2 = (Serializer::serialize(data2)); // data -> uintprt_t
 	std::cout << std::endl;
 
-	newData1 = serializer1.deserialize(ptr1); // uintptr_t -> data
-	newData2 = serializer1.deserialize(ptr2); // uintptr_t -> data
+	newData1 = Serializer::deserialize(ptr1); // uintptr_t -> data
+	newData2 = Serializer::deserialize(ptr2); // uintptr_t -> data
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[printData]-----------------------" << END << std::endl;

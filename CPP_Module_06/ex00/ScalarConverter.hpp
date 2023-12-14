@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:06:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 13:25:32 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:55:45 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ class ScalarConverter {
 		int					_int;
 		float				_float;
 		double				_double;
+		
+		ScalarConverter( void );
+		ScalarConverter( const std::string & input);
 	public:
 		/* Canonical form */
-		ScalarConverter( void );
 		~ScalarConverter( void );
 		ScalarConverter( const ScalarConverter& p);
 		ScalarConverter& operator=( const ScalarConverter& p);
-		ScalarConverter( const std::string & input);
 
 		/* Convert related */
 		int		checkInput( void );

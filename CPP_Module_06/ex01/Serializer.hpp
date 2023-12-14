@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:00:19 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 13:33:03 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:07:38 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ typedef size_t uintptr_t;
 class Serializer {
 	private:
 
-	public:
 		Serializer( void );
+	public:
 		~Serializer( void );
 		Serializer( const Serializer& p );
 		Serializer& operator=( const Serializer& p );
 
-		uintptr_t	serialize( Data*	ptr );
-		Data*		deserialize( uintptr_t	raw );
+		static uintptr_t	serialize( Data*	ptr );
+		static Data*		deserialize( uintptr_t	raw );
 
 
 

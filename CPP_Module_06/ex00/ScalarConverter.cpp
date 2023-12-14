@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:04:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 13:27:53 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:02:55 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,20 +119,23 @@ void	ScalarConverter::formatChar( void ) {
 }
 
 void	ScalarConverter::formatInt( void ) {
-	this->_int = static_cast<int>(this->_double);
+	this->_int = static_cast<int>(atof(_input.c_str()));
 	if (_int > 32 && _int < 127)
 		this->_char = static_cast<unsigned char>(this->_int);
 	this->_float = static_cast<float>(this->_double);
+	this->_double = atof(_input.c_str());
 }
 
 void	ScalarConverter::formatFloat( void ) {
-	this->_float = static_cast<float>(this->_double);
-	this->_int = static_cast<int>(this->_double);
+	this->_float = static_cast<float>(atof(_input.c_str()));
+	this->_int = static_cast<int>(this->_float);
 	if (_int > 32 && _int < 127)
 		this->_char = static_cast<unsigned char>(this->_int);
+	this->_double = atof(_input.c_str());
 }
 
 void	ScalarConverter::formatDouble( void ) {
+	this->_double = atof(_input.c_str());
 	this->_float = static_cast<float>(this->_double);
 	this->_int = static_cast<int>(this->_double);
 	if (_int > 32 && _int < 127)
