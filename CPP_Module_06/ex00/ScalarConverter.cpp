@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:04:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 15:02:55 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:43:15 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ScalarConverter::~ScalarConverter( void ) {
 }
 
 ScalarConverter::ScalarConverter( const std::string & input) : _input(input) {
-	this->_double = atof(_input.c_str());
+	;
 }
 
 ScalarConverter::ScalarConverter( const ScalarConverter& p ) : _input(p.getInput()) {
@@ -97,7 +97,10 @@ void	ScalarConverter::saveInput( void ) {
 			formatDouble();
 			break ;
 		default :
-			// throw what();
+			if (_type == INF_NAN)
+				break ;
+			else
+				throw	(ScalarConverter::NonAllowedFormat());
 			break ;
 	}
 
@@ -140,10 +143,6 @@ void	ScalarConverter::formatDouble( void ) {
 	this->_int = static_cast<int>(this->_double);
 	if (_int > 32 && _int < 127)
 		this->_char = static_cast<unsigned char>(this->_double);
-}
-
-const char *ScalarConverter::what( void ) const throw() {
-	return ("error: Cannot convert OR Impossible to print.\n");
 }
 
 const	std::string	ScalarConverter::getInput( void ) const {

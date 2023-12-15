@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:06:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 14:55:45 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:40:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ class ScalarConverter {
 		
 		ScalarConverter( void );
 		ScalarConverter( const std::string & input);
+
+		class	NonAllowedFormat : public std::exception {
+			public:
+				virtual const char *what( void ) const throw() {
+					return ("\nerror: exception: Bureaucrat: the given GRADE was too LOW!\n");
+				}
+		};
 	public:
 		/* Canonical form */
 		~ScalarConverter( void );
@@ -60,9 +67,6 @@ class ScalarConverter {
 		int						getInteger( void ) const;
 		float					getFloat( void ) const;
 		double					getDouble( void ) const;
-
-		/* Exception, non-usable */
-		const char *what( void ) const throw();
 
 		/* Utility functions */
 		static bool hasOnlyDigits(const std::string& str);
