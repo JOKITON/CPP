@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 12:13:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 14:46:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,9 @@ int main( void ) {
 
 	try {
 	/* My own tests */
-		execBureaucrats();
+	execBureaucrats();
 	}
-	catch (std::exception& e) {
+	catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
 	return 0;

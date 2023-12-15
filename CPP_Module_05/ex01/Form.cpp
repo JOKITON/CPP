@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 12:37:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 15:39:31 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(void) : _name("default"), _signed(false), _gradeSign(25), _gradeExec(10) {
+Form::Form(void) : _name("defaultForm"), _signed(false), _gradeSign(25), _gradeExec(10) {
     std::cout << "[Form] Default 'constructor' has been called." << std::endl;
 }
 
@@ -30,8 +30,8 @@ Form::Form( const std::string name, bool signed_, const unsigned int gradeSign, 
     std::string status = (_signed == TRUE) ? "TRUE" : "FALSE";
     /* Print information about what Form whas created and what data has been given to it. */
 
-    unsigned int temp1 = gradeSign;
-    unsigned int temp2 = gradeExec;
+    int temp1 = gradeSign;
+    int temp2 = gradeExec;
 
     // Checks if the grade can be out of bounds & is adjusted accordingly.
     temp1 = (temp1 < 1) ? 0 : temp1;
@@ -61,8 +61,8 @@ Form::Form( const std::string name, bool signed_, const unsigned int gradeSign, 
 }
 
 Form& Form::operator=(const Form& p) {
-    std::cout << "[Form] Assignment Operator called to '" << getName() << "' from '" << p.getName() << "' has been called." << std::endl;
-    std::cout << "\033[34m" << "(warning: name, execution & sign grades cannot be coppied due to 'const' prefix)" << END << std::endl;
+    std::cout << "[Form] Assignment Operator called from '" << p.getName() << "' to '" << this->_name << "' has been called." << std::endl;
+    std::cout << "(warning: name, execution & sign grades cannot be coppied due to 'const' prefix)" << std::endl;
     if (this != &p) { // Checks for self-assigment
         this->_signed = p.getStatus();
     }
@@ -84,16 +84,16 @@ bool Form::getStatus( void ) const {
     return this->_signed;
 }
 
-unsigned int Form::getGradeSign( void ) const {
+int Form::getGradeSign( void ) const {
     return this->_gradeSign;
 }
 
-unsigned int Form::getGradeExec( void ) const {
+int Form::getGradeExec( void ) const {
     return this->_gradeExec;
 }
 
 void    Form::beSigned( const Bureaucrat& p ) {
-    unsigned int checkGrade;
+    int checkGrade;
     
     checkGrade = (_gradeSign < p.getGrade()) ? 1 : 0;
     switch (checkGrade)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:49:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 12:41:36 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:21:01 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & p ) : AFor
 }
 
 RobotomyRequestForm&	RobotomyRequestForm::operator=( const RobotomyRequestForm& p ) {
+	std::cout << "(warning: name, execution & sign grades cannot be coppied due to 'const' prefix)" << std::endl;
 	if (this != &p) {
-		*this = p;
+		this->setSign(p.getStatus());
 	}
-	std::cout << "[RobotomyRequestForm] '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
+	std::cout << "[RobotomyRequestForm] A copy of '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
 	return *this;
 }
 

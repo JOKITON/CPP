@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 13:50:51 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 12:35:45 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:37:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ Intern::~Intern( void ) {
 
 Intern::Intern( const Intern& p ) {
 	(void)p;
+	std::cout << "*warning: nothing to copy inside 'Intern'!" << std::endl;
 	std::cout << "[Intern] Copy constructor has been called." << std::endl;
 }
 
 Intern&	Intern::operator=( const Intern& p ) {
 	if (this != &p ) {
-		;
+		std::cout << "*warning: nothing to copy inside 'Intern'!" << std::endl;
 	}
 	std::cout << "[Intern] Assignment Operator Overload has been called." << std::endl;
 	return *this;
@@ -59,7 +60,7 @@ AForm*	Intern::makeForm( const std::string & formName, const std::string& formTa
 			ret = new PresidentialPardonForm(formTarget);
 			break ;
 		case -1:
-			std::cerr << "[Intern] error: '" << formName << "' is not an existant concrete class!" << std::endl;
+			std::cerr << "error: '" << formName << "' is not an existant concrete class!" << std::endl;
 			return NULL;
 	}
 	

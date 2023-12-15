@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 12:35:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:12:26 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@
 #define TRUE 1
 #define FALSE 0
 
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 class AForm {
 	private:
 		const std::string _name;
 		bool _signed;
-		const unsigned int _gradeSign;
-		const unsigned int _gradeExec;
+		const int _gradeSign;
+		const int _gradeExec;
 
 	public:
 		class	GradeTooLowException : public std::exception {
@@ -55,13 +54,15 @@ class AForm {
 		/* Getters */
 		const	std::string& getName( void ) const;
 		bool	getStatus( void ) const;
-		unsigned int		getGradeSign( void ) const;
-		unsigned int		getGradeExec( void ) const;
+		int		getGradeSign( void ) const;
+		int		getGradeExec( void ) const;
 		/* Special functions */
 		virtual void	beSigned( const Bureaucrat& p );
 		friend std::ostream& operator<<( std::ostream& out, AForm& p );
 		/* Pure Virtual function to make AForm abstract */
 		virtual void execute( Bureaucrat const & executor ) const = 0;
+		/* Added for ex02 */
+		void	setSign( bool	signStatus );
 };
 
 #endif

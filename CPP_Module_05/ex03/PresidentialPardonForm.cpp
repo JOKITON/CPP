@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:32:18 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 12:40:32 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:21:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& p 
 }
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=( const PresidentialPardonForm& p ) {
+	std::cout << "(warning: name, execution & sign grades cannot be coppied due to 'const' prefix)" << std::endl;
 	if (this != &p) {
-		*this = p;
+		this->setSign(p.getStatus());
 	}
-	std::cout << "[PresidentialPardonForm] '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
+	std::cout << "[PresidentialPardonForm] A copy of '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
 	return *this;
 }
 

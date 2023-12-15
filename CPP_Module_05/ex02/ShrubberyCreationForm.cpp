@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:54:08 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 12:47:02 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 14:40:43 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm( "_default", FALSE, 145, 137 ) {
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm( "_defaultShrubberyCreationForm", FALSE, 145, 137 ) {
 	std::cout << "[ShrubberyCreationForm] '" << "_default" << "' has been constructed." << std::endl;
 }
 
@@ -25,14 +25,15 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target ) : AFo
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & p ) : AForm( p.getName(), p.getStatus(), 145, 137) {
-	std::cout << "[RobotomyRequestForm] '" << this->getName() << "' has been constructed from '" << p.getName() << "'." << std::endl;
+	std::cout << "[ShrubberyCreationForm] '" << this->getName() << "' has been constructed from '" << p.getName() << "'." << std::endl;
 }
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=( const ShrubberyCreationForm& p ) {
+	std::cout << "(warning: name, execution & sign grades cannot be coppied due to 'const' prefix)" << std::endl;
 	if (this != &p) {
-		*this = p;
+		this->setSign(p.getStatus());
 	}
-	std::cout << "[ShrubberyCreationForm] '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
+	std::cout << "[ShrubberyCreationForm] A copy of '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
 	return *this;
 }
 

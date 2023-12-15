@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 12:49:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:38:02 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,7 +231,7 @@ void	execInterns( void ) {
 	std::cout << std::endl;
 	testForm1 = test1.makeForm("shrubbery creation", "testForm1");
 	std::cout << std::endl;
-	testForm2 = test1.makeForm("robotomy request", "testForm2");
+	testForm2 = test1.makeForm("robotomy request", "Bender");
 	std::cout << std::endl;
 	testForm3 = test1.makeForm("presidential pardon", "testForm3");
 	std::cout << std::endl;

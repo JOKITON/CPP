@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 12:37:54 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 14:40:59 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,14 @@
 #define BBLACK "\033[47m"
 
 #include <iostream>
-#include <sstream>
 #include <fstream>
-#include <ostream>
 
 class AForm; // to avoid looping #include
 
 class Bureaucrat {
 	private:
 		const std::string 	_name;
-		unsigned int			_grade;
+		int			_grade;
 		
 	public:
 		/* Constructors */
@@ -43,7 +41,7 @@ class Bureaucrat {
 		friend std::ostream& operator<<( std::ostream& out, Bureaucrat& p);
 		/* Getters */
 		std::string const & getName( void ) const;
-		unsigned int getGrade( void ) const;
+		int getGrade( void ) const;
 		/* Increment/Decrement Grades */
 		void	incrementGrade( unsigned int val );
 		void	decrementGrade( unsigned int val );

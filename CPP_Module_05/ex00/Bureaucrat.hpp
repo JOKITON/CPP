@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 11:59:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 14:42:57 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 #define END "\033[0m"
 #define BLACK "\033[4;30m"
+#define RED "\033[1;31m"
+
 #define BCYAN "\033[46m"
+#define BBLACK "\033[47m"
 
 #include <iostream>
 #include <sstream>

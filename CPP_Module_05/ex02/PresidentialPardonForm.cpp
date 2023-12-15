@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:32:18 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/10 12:46:27 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:13:41 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : AForm( "_default", FALSE, 25, 5 ) {
+PresidentialPardonForm::PresidentialPardonForm( void ) : AForm( "_defaultPresidentialPardonForm", FALSE, 25, 5 ) {
 	std::cout << "[PresidentialPardonForm] '" << this->getName() << "' has been constructed." << std::endl;
 }
 
@@ -29,10 +29,11 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& p 
 }
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=( const PresidentialPardonForm& p ) {
+	std::cout << "(warning: name, execution & sign grades cannot be coppied due to 'const' prefix)" << std::endl;
 	if (this != &p) {
-		*this = p;
+		this->setSign(p.getStatus());
 	}
-	std::cout << "[PresidentialPardonForm] '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
+	std::cout << "[PresidentialPardonForm] A copy of '" << this->getName() << "' has been assigned by '" << p.getName() << "'." << std::endl;
 	return *this;
 }
 

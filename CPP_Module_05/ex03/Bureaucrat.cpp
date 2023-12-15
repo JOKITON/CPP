@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:03:42 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 12:42:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:28:25 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat& p ) : _name(p._name), _grade(p._grade)
 }
 
 Bureaucrat::Bureaucrat( const std::string name, unsigned int grade ) : _name(name) {
-	unsigned int temp = grade;
+	int temp = grade;
 	
 	// Checks if the grade can be out of bounds & is adjusted accordingly
 	temp = (grade < 1) ? 0 : grade;
@@ -66,26 +66,38 @@ std::string const & Bureaucrat::getName( void ) const {
 	return this->_name;
 }
 
-unsigned int	Bureaucrat::getGrade( void ) const{
+int	Bureaucrat::getGrade( void ) const{
 	return _grade;
 }
 
 void	Bureaucrat::incrementGrade( unsigned int val ) {
+	int	temp;
 	
-	if ( (_grade - val) < 1 ) {
-		throw (Bureaucrat::GradeTooHighException());
+	// Checks if the grade can be out of bounds & is adjusted to '-1'
+	temp = ((_grade - val) < 1) ? -1 : _grade;
+	switch(temp) {
+		case -1:
+			throw (Bureaucrat::GradeTooHighException());
+			break ;
+		default:
+			this->_grade -= val;
+			std::cout << "[Bureaucrat] 'incrementGrade()' for '" << this->_name << "' has been called.  Current grade : [" << this->_grade << "]." << std::endl;
 	}
-	this->_grade -= val;
-	std::cout << "[Bureaucrat] 'incrementGrade(" << val << ")' for '" << this->_name << "' has been called.  Current grade : [" << this->_grade << "]." << std::endl;
 }
 
 void	Bureaucrat::decrementGrade( unsigned int val ) {
+	int	temp;
 	
-	if ( (_grade + val) > 150 ) {
-		throw (Bureaucrat::GradeTooLowException());
+	// Checks if the grade can be out of bounds & is adjusted to '-1'
+	temp = ((_grade + val) > 150) ? -1 : _grade;
+	switch(temp) {
+		case -1:
+			throw (Bureaucrat::GradeTooLowException());
+			break ;
+		default:
+			this->_grade += val;
+			std::cout << "[Bureaucrat] 'decrementGrade()' for '" << this->_name << "' has been called.   Current grade : [" << this->_grade << "]." << std::endl;
 	}
-	this->_grade += val;
-	std::cout << "[Bureaucrat] 'decrementGrade(" << val << ")' for '" << this->_name << "' has been called.   Current grade : [" << this->_grade << "]." << std::endl;
 }
 
 void    Bureaucrat::signForm( AForm& p ) const {

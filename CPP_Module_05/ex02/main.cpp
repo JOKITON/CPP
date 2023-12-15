@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 12:41:08 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:16:58 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,9 +137,10 @@ void	execConcreteClasses( void ) {
 	std::cout << BBLACK << RED << "-----------------------[ Assignment Overload Operator (=) ]-----------------------" << END << std::endl;
 	std::cout << std::endl;
 
-	ShrubberyCreationForm	testCreationForm3 = testCreationForm2;
-	RobotomyRequestForm		testRequestForm3 = testRequestForm2;
-	PresidentialPardonForm	testPardonForm3 = testPardonForm2;
+	ShrubberyCreationForm	testCreationForm3;
+	testCreationForm3 = testCreationForm2;
+	RobotomyRequestForm		testRequestForm3 = testRequestForm1;
+	PresidentialPardonForm	testPardonForm3 = testPardonForm1;
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[Form::execute( Bureaucrat const & p )]-----------------------" << END << std::endl;

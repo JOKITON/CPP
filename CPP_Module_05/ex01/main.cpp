@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:04:03 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 12:39:33 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/13 15:32:29 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,14 +137,14 @@ void	execForms( void ) {
 	std::cout << BCYAN << BLACK << "-----------------------[ OverloadOperator (=) ]-----------------------" << END << std::endl;
 	
 	jobSalary = jobExtraHours;
-	std::cout << jobSalary;
 	std::cout << std::endl;
 
+	std::cout << jobSalary;
 
 	jobSalary = sM2;
-	std::cout << jobSalary;
 	std::cout << std::endl;
 
+	std::cout << jobSalary;
 
 	std::cout << std::endl;
 	std::cout << BCYAN << BLACK << "-----------------------[ OverloadOperator (<<) ]-----------------------" << END << std::endl;
@@ -154,41 +154,19 @@ void	execForms( void ) {
 	std::cout << averageSalary;
 
 	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[Form::beSigned()]-----------------------" << END << std::endl;
+	std::cout << BCYAN << BLACK << "-----------------------[beSigned() & signForm()]-----------------------" << END << std::endl;
 	std::cout << std::endl;
 
 	Bureaucrat	chiefExecutive( "chiefExecutive", 4 );
 	Bureaucrat	streetCleaner( "streetCleaner", 20 );
 	std::cout << std::endl;
 
-	std::cout << "\033[34m" << "(warning: there is no message displayed for 'beSigned()' functions!)" << END << std::endl;
-	std::cout << std::endl;
-
+	// chiefExecutive.decrementGrade(2); // error-case
 	sM2.beSigned( chiefExecutive );
 	// sM2.beSigned( streetCleaner ); // error-case
 	averageSalary.beSigned( chiefExecutive );
 	jobExtraHours.beSigned( streetCleaner );
 
-	std::cout << sM2;
-	std::cout << averageSalary;
-	std::cout << jobExtraHours;
-	std::cout << std::endl;
-
-	sM2 = jobSalary;
-	averageSalary = jobSalary;
-	jobExtraHours = jobSalary;
-	std::cout << std::endl;
-
-	std::cout << sM2;
-	std::cout << averageSalary;
-	std::cout << jobExtraHours;
-	std::cout << std::endl;
-
-	std::cout << std::endl;
-	std::cout << BCYAN << BLACK << "-----------------------[Bureucrat::signForm()]-----------------------" << END << std::endl;
-	std::cout << std::endl;
-
-	// chiefExecutive.decrementGrade(2);
 	chiefExecutive.signForm( sM2 );
 	chiefExecutive.signForm( averageSalary );
 	streetCleaner.signForm( jobExtraHours );
