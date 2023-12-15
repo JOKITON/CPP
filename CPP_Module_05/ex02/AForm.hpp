@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/13 16:12:26 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:14:08 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ class AForm {
 		int		getGradeExec( void ) const;
 		/* Special functions */
 		virtual void	beSigned( const Bureaucrat& p );
-		friend std::ostream& operator<<( std::ostream& out, AForm& p );
 		/* Pure Virtual function to make AForm abstract */
 		virtual void execute( Bureaucrat const & executor ) const = 0;
 		/* Added for ex02 */
 		void	setSign( bool	signStatus );
 };
+
+std::ostream& operator<<( std::ostream& out, AForm& p );
 
 #endif

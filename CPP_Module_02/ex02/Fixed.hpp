@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/18 16:53:31 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:14:24 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ class Fixed {
 	Fixed ( const float p);
 	int  toInt ( void ) const;
 	float  toFloat ( void ) const;
-	friend std::ostream& operator<<(std::ostream& out, const Fixed& t);
-
 	// ex02 Functions
 	// --------------
 	bool operator>(const Fixed& p) const;
@@ -62,5 +60,7 @@ class Fixed {
 	static Fixed& max (Fixed& a, Fixed& b);
 	static const Fixed& max (const Fixed& a, const Fixed& b);
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& t);
 
 #endif

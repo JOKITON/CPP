@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/15 14:42:57 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:15:10 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ class Bureaucrat {
 		Bureaucrat& operator=( const Bureaucrat& p);
 		
 		Bureaucrat( const std::string name, unsigned int grade);
-		friend std::ostream& operator<<( std::ostream& out, Bureaucrat& p);
 		
 		/* Getters */
 		std::string const & getName( void ) const;
@@ -59,5 +58,7 @@ class Bureaucrat {
 		void	decrementGrade( unsigned int val );
 
 };
+
+std::ostream& operator<<( std::ostream& out, Bureaucrat& p);
 
 #endif

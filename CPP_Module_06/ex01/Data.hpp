@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:44:11 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/15 17:33:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:14:50 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ class Data {
 		Data( const Data& p );
 		Data&	operator=( const Data& p );
 
-		friend std::ostream&	operator<<( std::ostream& os, const Data& p );
-
 		const std::string& 	getStr( void ) const;
 		int				getInt( void ) const;
 
 };
+
+std::ostream&	operator<<( std::ostream& os, const Data& p );
 
 #endif

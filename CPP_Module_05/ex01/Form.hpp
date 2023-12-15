@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:29:00 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/13 15:39:39 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:14:33 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ class Form {
 		int		getGradeExec( void ) const;
 		/* Special functions */
 		void	beSigned( const Bureaucrat& p );
-		friend std::ostream& operator<<( std::ostream& out, Form& p );
 };
+
+std::ostream& operator<<( std::ostream& out, Form& p );
 
 #endif

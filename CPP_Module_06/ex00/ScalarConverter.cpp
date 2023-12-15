@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:04:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/15 17:43:15 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:04:24 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,10 @@ void	ScalarConverter::saveInput( void ) {
 	There are more types of casting in C++, ones more suitable for inherited classes,
 	Others are more suitable for storing individual pointers to objects...
 */
+
+// TODO: static_cast: used for small variables, to convert integers, chars ...
+// TODO: reinterpret_cast: used to store pointers of objects
+// TODO: dynamic_cast: used for storing related objects pointers
 
 void	ScalarConverter::formatChar( void ) {
 	this->_char = static_cast<unsigned char>(this->_input[0]);

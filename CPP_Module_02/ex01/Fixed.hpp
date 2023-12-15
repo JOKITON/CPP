@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 17:53:41 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/10/12 00:04:52 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:13:29 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ class Fixed {
 	Fixed ( const float p);
 	int  toInt ( void ) const;
 	float  toFloat ( void ) const;
-	friend std::ostream& operator<<(std::ostream& out, const Fixed& t);
-
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& t);
 
 #endif

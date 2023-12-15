@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:38:26 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/15 14:40:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:15:02 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ class Bureaucrat {
 		virtual ~Bureaucrat( void );
 		 /* Overload operators */
 		Bureaucrat& operator=( Bureaucrat& p);
-		friend std::ostream& operator<<( std::ostream& out, Bureaucrat& p);
 		/* Getters */
 		std::string const & getName( void ) const;
 		int getGrade( void ) const;
@@ -69,5 +68,7 @@ class Bureaucrat {
 		};
 
 };
+
+std::ostream& operator<<( std::ostream& out, Bureaucrat& p);
 
 #endif

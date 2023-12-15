@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:06:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/15 17:40:32 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:01:23 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class ScalarConverter {
 		float				_float;
 		double				_double;
 		
-		ScalarConverter( void );
+		ScalarConverter( void ); // TODO: constructors not public
 		ScalarConverter( const std::string & input);
 
 		class	NonAllowedFormat : public std::exception {
@@ -53,7 +53,7 @@ class ScalarConverter {
 		void	printOutput( void)  const;
 		void	saveInput( void );
 	
-		static void	convert( const std::string& input );
+		static void	convert( const std::string& input ); // TODO: static method
 
 		void					formatChar( void );
 		void					formatInt( void );
@@ -65,11 +65,11 @@ class ScalarConverter {
 		int						getType( void ) const;
 		char					getChar( void ) const;
 		int						getInteger( void ) const;
-		float					getFloat( void ) const;
+		float					getFloat( void ) const; // TODO: const ()
 		double					getDouble( void ) const;
 
 		/* Utility functions */
-		static bool hasOnlyDigits(const std::string& str);
+		static bool hasOnlyDigits(const std::string& str); // TODO: const (Does not change values inside the parameters object) / & (For efficiency getting a reference is far better than making a new copy)
 		static bool hasFloatFormat(const std::string& str);
 		static bool hasDoubleFormat(const std::string& str);
 
