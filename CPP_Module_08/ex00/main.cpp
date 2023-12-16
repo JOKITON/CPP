@@ -15,12 +15,18 @@
 void	execTests( void ) {
 	std::vector<int>	test1; // container of integers
 	std::deque<int>		test2;
+    std::list<int>     test3;
+    std::forward_list<int>     test4;
 	// std::array<double, 4> test2 {2., 3., 4., -10.}; // only C++11 forward
 
 	std::cout << "[std::vector<int>] Executed 'assign'." << std::endl;
 	test1.assign(10, 1);
 	std::cout << "[std::deque<int>] Executed 'assign'." << std::endl;
 	test2.assign(10, 4);
+    std::cout << "[std::list<int>] Executed 'assign'." << std::endl;
+    test3.assign(10, 4);
+    std::cout << "[std::list<int>] Executed 'assign'." << std::endl;
+    test4.assign(10, 4);
 
 	std::cout << "[std::vector<int>] Executed 'size'." << std::endl;
 	std::cout << "Size of test1: " << test1.size() << std::endl;
@@ -54,11 +60,28 @@ void	execTests( void ) {
 	try {
 	easyfind( test1, 100 ); // important function
 	easyfind( test2, 4 );
-	easyfind( test1, -1 );
 	}
 	catch ( std::exception & e ) {
-		std::cout << e.what() << std::endl;
+		std::cout << e.what();
 	}
+    try {
+        easyfind( test1, 40 ); // std::vector
+    }
+    catch ( std::exception & e ) {
+        std::cout << e.what();
+    }
+    try {
+        easyfind( test3, -1 ); // std::list
+    }
+    catch ( std::exception & e ) {
+        std::cout << e.what();
+    }
+    try {
+        easyfind( test4, 4 ); // std::forward_list
+    }
+    catch ( std::exception & e ) {
+        std::cout << e.what();
+    }
 
 	std::cout << "[std::vector<int>] Executed 'clear'." << std::endl;
 	test1.clear();

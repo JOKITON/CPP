@@ -35,7 +35,12 @@ void	execTests( void ) {
 	std::cout << BBLACK << RED << "-----------------------[addNumber]-----------------------" << END << std::endl;
 	test0.addNumber(0);
 
-	// test0.addNumber(-200); // error-case: no space
+	try {
+        test0.addNumber(-200);
+    } // error-case: no space
+    catch ( std::exception & e ) {
+        std::cout << e.what() << std::endl;
+    }
 	// test1.addNumber(900);
 
 	test2.addNumbers();
@@ -118,13 +123,13 @@ void	execTests( void ) {
 	test7->addNumbers();
 	test2 = *test7;
 
-/* 	std::cout << "Size of test2 : " << test2.getSize() << std::endl;  // test for checking if deep copy works
+    std::cout << "Size of test2 : " << test2.getSize() << std::endl;  // test for checking if deep copy works
 
-	delete	test7; // remove the delete in destructors!
+/*	delete	test7; // remove the delete in destructors!
 
 	std::cout << "Size of test2 : " << test2.getSize() << std::endl;
 	std::vector<int>	getVector1 = test2.getVector();
-	for (long unsigned int N; N < getVector1.size(); N++) {
+	for (long unsigned int N = 0; N < getVector1.size(); N++) {
 		std::cout << getVector1[N] << std::endl;
 	} */
 

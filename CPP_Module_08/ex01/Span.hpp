@@ -20,11 +20,11 @@
 #include <climits>
 
 #define END "\033[0m"
-#define BLACK "\e[4;30m"
-#define RED "\e[1;31m"
+#define BLACK "\033[4;30m"
+#define RED "\033[1;31m"
 
-#define BCYAN "\e[46m"
-#define BBLACK "\e[47m"
+#define BCYAN "\033[46m"
+#define BBLACK "\033[47m"
 
 class	Span {
 	private:

@@ -42,13 +42,16 @@ void	execTests( void ) {
 	MutantStack<std::string>::iterator	begin1 = testString.begin();
 	MutantStack<std::string>::iterator	end1 = testString.end();
 
-	std::cout << "[testString] Content : { ";
+	std::cout << "[testString1] Content : { ";
 	while (begin1 != end1)
 		std::cout << *begin1++ << ",";
 	std::cout << " end }" << std::endl;
+    std::cout << std::endl;
 
-	std::cout << "[testString] Size : " << testString.size() << std::endl;
-	std::cout << std::endl;
+	std::cout << "[testString1] Size : " << testString.size() << std::endl;
+    std::cout << "[testString2] Size : " << testString2.size() << std::endl;
+    std::cout << "[testString3] Size : " << testString3.size() << std::endl;
+    std::cout << std::endl;
 
 	std::cout << std::endl;
 	std::cout << BBLACK << RED << "-----------------------[INT]-----------------------" << END << std::endl;
@@ -114,7 +117,7 @@ void	subjectTests( void ) {
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;
-	mstack.pop();
+	mstack.pop(); // pops the number in the top
 	std::cout << mstack.size() << std::endl;
 	mstack.push(3);
 	mstack.push(5);

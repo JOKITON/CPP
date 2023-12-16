@@ -19,11 +19,11 @@
 #include <algorithm>
 
 #define END "\033[0m"
-#define BLACK "\e[4;30m"
-#define RED "\e[1;31m"
+#define BLACK "\033[4;30m"
+#define RED "\033[1;31m"
 
-#define BCYAN "\e[46m"
-#define BBLACK "\e[47m"
+#define BCYAN "\033[46m"
+#define BBLACK "\033[47m"
 
 /* Information about stack : https://cplusplus.com/reference/stack/stack/ */
 /*
@@ -55,6 +55,7 @@ class	MutantStack : public std::stack<T> {
 		MutantStack& operator=( const stack & p ) {
 			std::cout << "[MutantStack] Assignment Operator has been called." << std::endl;
 			static_cast<std::stack<T>&>(*this) = p;
+
 
 			return *this;
 		};
