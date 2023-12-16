@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:10:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 15:40:39 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/16 11:41:53 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	iter(D* ar, L length, F	func) {
 }
 
 /* Evaluation, Blueprint for 'Awesome.hpp' */
-/* #include <iostream>
+#include <iostream>
 
 class Awesome {
 	public:
@@ -46,5 +46,5 @@ static	void	ft_Awesome( Awesome& val )
 
 template<typename T>
 void	print( T const & x ) { std::cout << x << std::endl; return; }
- */
+
 #endif

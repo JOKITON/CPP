@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 00:14:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/14 15:45:05 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:57:08 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ class Array {
 			std::cout << "[Array] Empty Array has been created." << std::endl;
 		};
 		~Array( void ) {
-			if (_size == 0)
-				delete	_ar;
-			else
-				delete[] _ar;
+			delete	_ar;
 		}
 		Array( unsigned int n ) {
 			std::cout << "[Array] Array was created using " << n << std::endl;
@@ -45,7 +42,7 @@ class Array {
 
 		Array& operator=( const Array& p ) {
 			if (this != &p) {
-				delete []_ar;
+				delete _ar;
 				_ar = new T[p.size()]();
 				std::copy(p._ar, p._ar + p.size(), _ar);
 			}

@@ -6,6 +6,7 @@ int main(int, char**)
 {
     Array<int>  test1;
     Array<int> numbers(MAX_VAL);
+    Array<int>  numbers2(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
@@ -14,6 +15,7 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
+    numbers2 = numbers;
     //SCOPE
     {
         Array<int> tmp = numbers;
