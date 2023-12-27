@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:49:05 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/04 23:27:05 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:41:31 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	BitcoinExchange::checkDataInput( void ) {
 }
 
 int	BitcoinExchange::checkDataForm( void ) {
-	if (_day[1] > 31 || _month > 12 || _year > 2022 || _val[1] > INT_MAX)
+	if ((*_day)[1] > 31 || _month > 12 || _year > 2022 || _val[1] > INT_MAX)
 		return ErroneousData( ERROR_OVERSIZE), INCORRECT;
-	else if (_day[1] < 1 || _month< 1 || _year < 2009 || _val[1] < 0)
+	else if ((*_day)[1] < 1 || _month< 1 || _year < 2009 || _val[1] < 0)
 		return ErroneousData( ERROR_NEGATIVE), INCORRECT;
 	return CORRECT;
 } 
@@ -57,8 +57,8 @@ int	BitcoinExchange::getDatesDatabase( int pos ) {
 	// Extract day
 	_database.copy(tmp, 2, pos);
 	tmp[2] = '\0'; // Null-terminate the string
-	_day[0] = _day[1];
-	_day[1] = atoi(tmp);
+	(*_day)[0] = (*_day)[1];
+	(*_day)[1] = atoi(tmp);
 
 	int	check1 = pos; // Assure that _val will exist
 	while (_database[check1++])
@@ -186,16 +186,15 @@ void	BitcoinExchange::iterateDates( void ) {
 int	BitcoinExchange::printDates( void ) {
 	bool	flag;
 	
-	flag = (_day[1] == _dayToFind) ? true : false;
+	flag = ((*_day)[1] == _dayToFind) ? true : false;
 
-	if (_day[1] > _dayToFind && _day[0] < _day[1]) { // check if day has fallen behind
-		_day[1] = _day[0];
+	if ((*_day)[1] > _dayToFind && _day[0] < _day[1]) { // check if day has fallen behind
+		(*_day)[1] = (*_day)[0];
 		_val[1] = _val[0];
 		flag = true; }
 	
-	switch (flag) {
-		case true:
-			std::cout << _yearToFind << "-";
+	if (flag) {
+		std::cout << _yearToFind << "-";
 			if (_monthToFind < 10)
 				std::cout << "0";
 			std::cout << _monthToFind << "-";
@@ -204,7 +203,8 @@ int	BitcoinExchange::printDates( void ) {
 			std::cout << _dayToFind << " => " << _btc << " = " << (_val[1] * _btc) << std::endl;
 			return 0;
 	}
-	return 1;
+	else
+		return 1;
 }
 
 BitcoinExchange::BitcoinExchange( std::string file ) {
