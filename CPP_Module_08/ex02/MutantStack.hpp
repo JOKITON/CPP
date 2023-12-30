@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:41:54 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/12 18:01:52 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:52:47 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,41 @@ class	MutantStack : public std::stack<T> {
 		std::stack<int>	getStack( void ) const {
 			return *this;
 		};
+
+		/* methods */
+		
+		bool	empty ( void ) const {
+			if (stack::c.empty())
+				return false;
+			else
+				return true;
+		}
+
+		size_t size() const {
+			return (stack::c.size());
+		}
+		
+		int top(void) {
+			return stack::c.back();
+		}
+
+		template <typename R>
+		void push (const R& val) {
+			stack::c.push_back(val);
+		}
+
+		void pop() {
+			stack::c.pop_back();
+		}
+
+		/* template <typename R> // C++11 needed...
+		void emplace (R&&... args) {
+			stack::c.emplace_back(args);
+		} */
+
+		/* void swap (stack& x) { // Unknow...
+			stack::c.swap(x);
+		} */
 
 		/* iterators */
 	

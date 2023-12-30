@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:41:22 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/12 18:01:47 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:50:42 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,18 @@ void	execTests( void ) {
 	std::cout << "end }" << std::endl;
 
 	std::cout << "[testIter] Size : " << testInt2.size() << std::endl;
+	std::cout << std::endl;
+
+	testInt2.swap(testInt1);
+
+	beginInt1 = testInt1.begin();
+	endInt1 = testInt1.end();
+
+	std::cout << "[testIter] Content : { ";
+	while (beginInt1 != endInt1)
+		std::cout << *beginInt1++ << ", ";
+	std::cout << "end }" << std::endl;
+	std::cout << "[testIter] Size : " << testInt1.size() << std::endl;
 	std::cout << std::endl;
 
 	std::cout << std::endl;
