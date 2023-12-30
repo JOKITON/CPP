@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:09 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/27 17:38:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/30 17:23:11 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class BitcoinExchange {
 		int	_yearToFind;
 
 		std::string		_database;
-		std::deque<int>	_day[2];
+		std::deque<int>	_day;
 		int				_month;
 		int				_year;
 		std::deque<double>	_val;
