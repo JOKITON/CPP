@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:31:39 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/12 12:33:45 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/18 20:12:36 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,17 @@ unsigned int Span::shortestSpan( void ) {
         return 0;
     }
 
-unsigned int shortest = UINT_MAX;
+	unsigned int shortest = INT_MIN;
+	size_t	size1 = _vector->size();
+	unsigned int span;
+	size_t numb1;
+	size_t numb2;
 
-	for (size_t numb1 = 0; numb1 < _vector->size(); ++numb1) {
+	for (numb1 = 0; numb1 < size1; ++numb1) {
 		
-		for (size_t	numb2 = numb1 + 1; numb2 < _vector->size(); numb2++) {
-			unsigned int span = std::abs((*_vector)[numb1] - (*_vector)[numb2]);
-			shortest = std::min(shortest, span);
+		for (numb2 = numb1 + 1; numb2 < size1; numb2++) {
+			span = ((*_vector)[numb1] - (*_vector)[numb2]);
+			shortest = (shortest < span) ? shortest : span;
 		}
 
 	}

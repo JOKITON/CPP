@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:29:46 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/23 21:42:17 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/18 19:22:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <vector>
 #include <deque>
 #include <list>
-#include <forward_list>
 #include <algorithm>
 
 #define END "\033[0m"
