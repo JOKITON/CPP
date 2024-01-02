@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:20:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/04 23:32:33 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/02 21:34:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 #include <cstdlib>
 #include <algorithm>
 /* containers */
+#include <deque>
 #include <list>
-#include <set>
 /* time */
+#include <chrono>
 
 
 class PmergeMe
@@ -32,18 +33,18 @@ class PmergeMe
 /* 					_timeList;
 					_timeForwardList; */
 		size_t			_size;
-		std::list<unsigned int>	*_list;
-		std::set<unsigned int>	*_set;
+		std::deque<unsigned int>	_deque;
+		std::list<unsigned int>		_list;
 	public:
 		PmergeMe( void );
 		~PmergeMe( void );
 
-		std::list<unsigned int>*	getList( void ) const;
-		std::set<unsigned int>*	getForwardList( void ) const;
+		std::deque<unsigned int>	getDeque( void ) const;
+		std::list<unsigned int>		getList( void ) const;
 
-		void			insertList( char	**ar ) const;
-		void			printList( char	flag ) const;
-		void			printSet( char flag) const;
+		void			insertContainers( char	**ar );
+		void			printDeque( char	flag );
+		void			printList( char flag);
 		void			printTime( void ) const;
 		size_t			getArSize( char **ar );
 		

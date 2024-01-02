@@ -10,7 +10,7 @@ RM = rm
 
 CC = c++
 
-STD = -std=c++98
+STD = 
 
 all : $(NAME)
 
