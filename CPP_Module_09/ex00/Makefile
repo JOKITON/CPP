@@ -4,7 +4,7 @@ SRCS = BitcoinExchange.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -fsanitize=address -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CFLAGS = -fsanitize=address -Wall -Wextra -Werror -Wshadow -Wno-shadow -g03
 
 RM = rm
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:47:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/25 16:14:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/12/31 18:19:08 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	main( int ac, char **ar ) {
 
 			- You must use a container to validate the exercise.
 			- Handle possible errors with appropiate methods, exceptions, return values...
-		*/
 
-		// createOutput(); // Display on output result of the value multiplied by exchange rate according to date inside database.
-		/*
 			- If the date does not exist, use the closest lower date there is in the database.
 		*/
 	}

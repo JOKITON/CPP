@@ -5,12 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 21:49:05 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/30 17:23:23 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/12/31 18:30:37 by jaizpuru          #+#    #+#             */
+/*   Updated: 2024/01/02 19:17:52 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+int	BitcoinExchange::printDates( void ) {
+	bool	flag;
+	
+	flag = (_dataBase["DAY"] == _dataUser["DAY"]) ? true : false;
+
+	if (_dataBase["DAY"] > _dataUser["DAY"] && _dataBase["OLD_DAY"] < _dataBase["DAY"]) { // check if day has fallen behind
+		_dataBase["DAY"] = _dataBase["OLD_DAY"];
+		_dataBase["BTC_VAL"] = _dataBase["OLD_BTC_VAL"];
+		flag = true; }
+	
+	if (flag) {
+		std::cout << _dataUser["YEAR"] << "-";
+			if (_dataUser["MONTH"] < 10)
+				std::cout << "0";
+			std::cout << _dataUser["MONTH"] << "-";
+			if (_dataUser["DAY"] < 10)
+				std::cout << "0";
+			std::cout << _dataUser["DAY"] << " => " << _dataUser["BTC_QUANTITY"] << " = " << (_dataBase["BTC_VAL"] * _dataUser["BTC_QUANTITY"]) << std::endl;
+			return 0;
+	}
+	else
+		return 1;
+}
 
 void	BitcoinExchange::ErroneousData( int flag ) {
 	if (flag == ERROR_NEGATIVE)
@@ -20,105 +44,100 @@ void	BitcoinExchange::ErroneousData( int flag ) {
 }
 
 void	BitcoinExchange::ErroneusInput ( void ) {
-	std::cerr << "Error: bad input => " << _yearToFind << "-" << _monthToFind << "-" << _dayToFind << std::endl;
+	std::cerr << "Error: bad input => " << _dataUser["YEAR"] << "-" << _dataUser["MONTH"] << "-" << _dataUser["DAY"] << "-" << _dataUser["BTC_QUANTITY"] << std::endl;
 }
 
 int	BitcoinExchange::checkDataInput( void ) {
-	if (_dayToFind > 31 || _monthToFind > 12 || _yearToFind > 2022 || _btc > INT_MAX)
+	if (_dataUser["DAY"] > static_cast<unsigned long>(31) || _dataUser["MONTH"] > static_cast<unsigned long>(12) || _dataUser["YEAR"] > static_cast<unsigned long>(2022) || _dataUser["BTC_QUANTITY"] > static_cast<unsigned long>(INT_MAX))
 		return ErroneousData( ERROR_OVERSIZE), INCORRECT;
-	else if (_dayToFind < 1 || _monthToFind < 1 || _yearToFind < 2009 || _btc < 0)
+	else if (_dataUser["DAY"] < static_cast<unsigned long>(1) || _dataUser["MONTH"] < static_cast<unsigned long>(1) || _dataUser["YEAR"] < static_cast<unsigned long>(2009) || _dataUser["BTC_QUANTITY"] < static_cast<unsigned long>(0))
 		return ErroneousData( ERROR_NEGATIVE), INCORRECT;
 	return CORRECT;
 }
 
 int	BitcoinExchange::checkDataForm( void ) {
-	if (_day[1] > 31 || _month > 12 || _year > 2022 || _val[1] > INT_MAX)
+	if (_dataBase["DAY"] > 31 || _dataBase["MONTH"] > 12 || _dataBase["YEAR"] > 2022 || _dataBase["BTC_VAL"] > INT_MAX)
 		return ErroneousData( ERROR_OVERSIZE), INCORRECT;
-	else if (_day[1] < 1 || _month< 1 || _year < 2009 || _val[1] < 0)
+	else if (_dataBase["DAY"] < 1 || _dataBase["MONTH"]< 1 || _dataBase["YEAR"] < 2009 || _dataBase["BTC_VAL"] < 0)
 		return ErroneousData( ERROR_NEGATIVE), INCORRECT;
 	return CORRECT;
 } 
 
-int	BitcoinExchange::getDatesDatabase( int pos ) {
-	char *tmp = new char[20]; // Increased size to handle 4-digit year
+int	BitcoinExchange::getDataDatabase( int	pos ) {
 	
-	// Extract year
-	_database.copy(tmp, 4, pos);
-	tmp[4] = '\0'; // Null-terminate the string
-	_year = atoi(tmp);
+	/* Format : 2012-07-16,7.8 */
+	char	temp1[5];
+	_database.copy(temp1, 4, pos);
+	_dataBase["YEAR"] = atof(temp1);
 	pos += 5;
 
-	// Extract month
-	_database.copy(tmp, 2, pos);
-	tmp[2] = '\0'; // Null-terminate the string
-	_month = atoi(tmp);
+	char	temp2[3];
+	_database.copy(temp2, 2, pos);
+	_dataBase["MONTH"] = atof(temp2);
 	pos += 3;
 
-	// Extract day
-	_database.copy(tmp, 2, pos);
-	tmp[2] = '\0'; // Null-terminate the string
-	_day[0] = _day[1];
-	_day[1] = atoi(tmp);
-
-	int	check1 = pos; // Assure that _val will exist
-	while (_database[check1++])
-		if (check1 == (pos + 3))
+	// Change below:
+	char	temp3[3];
+	_database.copy(temp3, 2, pos);
+	_dataBase["OLD_DAY"] = _dataBase["DAY"];
+	_dataBase["DAY"] = atof(temp3);
+	
+	int	tempPos = pos; // Assure that _val will exist
+	while (_database[tempPos] != '\0') {
+		tempPos++;
+		if (tempPos == (pos + 3))
 			break ;
-		else if (_database[check1] == '\n') {
-			_val[1] = -1;
-			delete[] tmp;
+		else if (_database[tempPos] == '\0' || _database[tempPos] == '\n') {
+			_dataBase["BTC_VAL"] = -1;
 			return ERR_FORMAT; }
+	}
+	
 	pos += 3;
 
-	// Extract btc val
-	while (_database[check1] != '\n')
-		check1++;
-	_database.copy(tmp, check1 - pos, pos);
-	tmp[check1 - pos] = '\0'; // Null-terminate the string
-	_val[0] = _val[1];
-	_val[1] = (atof(tmp));
-
-	delete[] tmp; // Don't forget to free the allocated memory
-
+	char	temp4[10];
+	while (_database[tempPos] != '\0' &&_database[tempPos + 1] != '\0' && _database[tempPos] != '\n')
+		tempPos++;
+	_database.copy(temp4, tempPos - pos, pos);
+	_dataBase["OLD_BTC_VAL"] = _dataBase["BTC_VAL"];
+	_dataBase["BTC_VAL"] = atof(temp4);
+	
 	return pos;
 }
 
-int	BitcoinExchange::getDatesFile( int pos ) {
-	char tmp[20]; // Increased size to handle 4-digit year
-
-	// Extract year
-	_file.copy(tmp, 4, pos);
-	tmp[4] = '\0'; // Null-terminate the string
-	_yearToFind = atoi(tmp);
+int	BitcoinExchange::getDataFile( int	pos ) {
+	
+	/* Format : 2012-01-11 | -1 */
+	char	temp1[5];
+	_file.copy(temp1, 4, pos);
+	_dataUser["YEAR"] = atof(temp1);
 	pos += 5;
 
-	// Extract month
-	_file.copy(tmp, 2, pos);
-	tmp[2] = '\0'; // Null-terminate the string
-	_monthToFind = atoi(tmp);
+	char	temp2[3];
+	_file.copy(temp2, 2, pos);
+	_dataUser["MONTH"] = atof(temp2);
 	pos += 3;
 
-	// Extract day
-	_file.copy(tmp, 2, pos);
-	tmp[2] = '\0'; // Null-terminate the string
-	_dayToFind = atoi(tmp);
+	char	temp3[3];
+	_file.copy(temp3, 2, pos);
+	_dataUser["DAY"] = atof(temp3);
 
-	int	check1 = pos;
-	while (_file[check1++])
-		if (check1 == (pos + 5))
+	int	tempPos = pos;
+	while (_file[tempPos] != '\0') {
+		tempPos++;
+		if (tempPos == (pos + 5))
 			break ;
-		else if (_file[check1] == '\n') {
-			_btc = -1;
+		else if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
+			_dataUser["BTC_QUANTITY"] = -1;
 			return ERR_FORMAT; }
+	}
+
 	pos += 5;
-
-	// Extract btc val
-	while (_file[check1] != '\n' && _file[check1] != '\0')  // Check for both newline and end of file
-        check1++;
-	_file.copy(tmp, check1 - pos, pos);
-	tmp[check1 - pos] = '\0'; // Null-terminate the string
-	_btc = atof(tmp);
-
+	char	temp4[10];
+	while (_file[tempPos] != '\0' &&_file[tempPos + 1] != '\0' && _file[tempPos] != '\n')
+		tempPos++;
+	_file.copy(temp4, tempPos - pos, pos);
+	_dataUser["BTC_QUANTITY"] = atof(temp4);
+	
 	return pos;
 }
 
@@ -126,10 +145,10 @@ int BitcoinExchange::getDates( int pos, int flag ) {
 
 	switch (flag) {
 		case MODE_DATABASE:
-			pos = getDatesDatabase( pos );
+			pos = getDataDatabase( pos );
 			break ;
 		case MODE_TEXT:
-			pos = getDatesFile( pos );
+			pos = getDataFile( pos );
 			break ;
 	}
 
@@ -162,7 +181,7 @@ void	BitcoinExchange::iterateDates( void ) {
 						if (checkDataForm() == INCORRECT)
 							break ;
 						
-						if ((_year == _yearToFind) && (_month == _monthToFind)) {
+						if ((_dataUser["YEAR"] == _dataBase["YEAR"]) && (_dataUser["MONTH"] == _dataBase["MONTH"])) {
 							if (!printDates())
 								break ;
 						}
@@ -180,30 +199,6 @@ void	BitcoinExchange::iterateDates( void ) {
 	}
 }
 
-int	BitcoinExchange::printDates( void ) {
-	bool	flag;
-	
-	flag = (_day[1] == _dayToFind) ? true : false;
-
-	if (_day[1] > _dayToFind && _day[0] < _day[1]) { // check if day has fallen behind
-		_day[1] = _day[0];
-		_val[1] = _val[0];
-		flag = true; }
-	
-	if (flag) {
-		std::cout << _yearToFind << "-";
-			if (_monthToFind < 10)
-				std::cout << "0";
-			std::cout << _monthToFind << "-";
-			if (_dayToFind < 10)
-				std::cout << "0";
-			std::cout << _dayToFind << " => " << _btc << " = " << (_val[1] * _btc) << std::endl;
-			return 0;
-	}
-	else
-		return 1;
-}
-
 BitcoinExchange::BitcoinExchange( std::string file ) {
 	std::ifstream	fileInput(file.c_str());
 	std::ifstream	databaseInput("data.csv");
@@ -216,6 +211,8 @@ BitcoinExchange::BitcoinExchange( std::string file ) {
 		buf2 << databaseInput.rdbuf();
 		_database = buf2.str();
 
+		_dataBase["DAY"] = 0;
+		_dataBase["BTC_VAL"] = 0;
 		iterateDates();
 		fileInput.close();
 		databaseInput.close();

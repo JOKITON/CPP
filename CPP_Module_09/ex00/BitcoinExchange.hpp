@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:09 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/30 17:23:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/02 19:17:18 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <deque>
+#include <map>
 #include <fstream>
 #include <sstream>
 #include <stdlib.h>
@@ -37,29 +38,35 @@
 class BitcoinExchange {
 	private:
 		std::string	_file;
+		std::string		_database;
+
+		std::map	<std::string, float>	_dataBase;
+		std::map	<std::string, float>	_dataUser;
+/* 
 		int	_dayToFind;
 		int	_monthToFind;
 		int	_yearToFind;
 
-		std::string		_database;
 		std::deque<int>	_day;
 		int				_month;
 		int				_year;
 		std::deque<double>	_val;
-		double			_btc;
+		double			_btc; */
 		
+		// int		printDates( void );
 		void	iterateDates( void );
 		int		getDates( int pos, int flag );
-		int		printDates( void );
+
+		int		getDataDatabase( int pos );
+		int		getDataFile( int pos );
 		
 		void	ErroneousData( int flag );
 		void	ErroneusInput( void );
-		
-		int		getDatesDatabase( int pos );
-		int		getDatesFile( int pos );
 
 		int		checkDataForm( void );
 		int		checkDataInput( void );
+
+		int		printDates( void );
 	
 	public:
 		BitcoinExchange( std::string file );
