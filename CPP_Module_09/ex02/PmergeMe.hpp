@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:20:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/04 19:15:27 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/04 23:02:31 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ class PmergeMe
 	private:
 /* 					_timeList;
 					_timeForwardList; */
-		short int		_flag;
 		size_t			_size;
 		std::deque<unsigned int>	_deque;
 		std::list<unsigned int>		_list;
@@ -54,9 +53,12 @@ class PmergeMe
 		size_t			getArSize( char **ar );
 		
 		void			sort( char **args );
-		void			mergeInsertSort( void );
-		void			insertionSort(R& container, unsigned int size);
-		void			merge( void );
+		void			mergeInsertSortDeque( std::deque<unsigned int>& containerDeque );
+		void			mergeInsertSortList( std::list<unsigned int>& containerList );
+		void			insertionSortDeque(std::deque<unsigned int>& container, unsigned int size);
+		void			insertionSortList(std::list<unsigned int>& container);
+		void			mergeDeque( std::deque<unsigned int>& result, std::deque<unsigned int>& leftDeque, std::deque<unsigned int>& rightDeque );
+		void			mergeList( std::list<unsigned int>& result, std::list<unsigned int>& leftList, std::list<unsigned int>& rightList );
 };
 
 #endif

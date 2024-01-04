@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:44:32 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/04 19:15:40 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/04 23:28:40 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,27 +82,10 @@ void	PmergeMe::sort( char	**args ) {
 	
 	insertContainers( args );
 
-/* 	std::string	containerType;
-	while (containerType == "") {
-		std::cout << "What container do you want to use?\n	[1] std::deque\n	[2] std::list" << std::endl;
-		std::getline(std::cin, containerType);
-		if (containerType.compare("1")) {
-			printDeque(BEFORE);
-			break ;
-		}
-		else if (containerType.compare("2")) {
-			printList(BEFORE);
-			break ;
-		}
-		else
-			containerType = "";
-	} */
-
 	printDeque(BEFORE);
 	struct	timeval	timeStart, timeEnd;
 	gettimeofday(&timeStart, 0);
-	_flag = DEQUE;
-	std::sort(_deque.begin(), _deque.end());
+	mergeInsertSortDeque( _deque );
 	gettimeofday(&timeEnd, 0);
 	long microseconds = timeEnd.tv_usec - timeStart.tv_usec;
 	printDeque(AFTER);
@@ -110,60 +93,15 @@ void	PmergeMe::sort( char	**args ) {
 
 	// printList(BEFORE);
 	gettimeofday(&timeStart, 0);
-	_flag = LIST;
-	_list.sort();
+	mergeInsertSortList( _list );
 	gettimeofday(&timeEnd, 0);
 	microseconds = timeEnd.tv_usec - timeStart.tv_usec;
 	// printList(AFTER);
-	std::cout << "Time to process a range of 5 elements with std::[list] : " << microseconds << " microseconds" << std::endl;
+	std::cout << "Time to process a range of " << _size << " elements with std::[list] : " << microseconds << " microseconds" << std::endl;
 	// system("leaks Pmerge");
 }
 
-void PmergeMe::merge( void ) {
-    if ( _flag == DEQUE ) {
-		std::deque<unsigned int> leftDeque(_deque.begin(), _deque.begin() + _deque.size() / 2);
-		std::deque<unsigned int> rightDeque(_deque.begin() + _deque.size() / 2, _deque.end());
-		
-		std::deque<unsigned int>::iterator leftIt = leftDeque.begin();
-		std::deque<unsigned int>::iterator rightIt = rightDeque.begin();
-
-		while (leftIt != leftDeque.end() && rightIt != rightDeque.end()) {
-			if (*leftIt < *rightIt) {
-				_deque.push_back(*leftIt);
-				++leftIt;
-			} else {
-				_deque.push_back(*rightIt);
-				++rightIt;
-			}
-		}
-
-		_deque.insert(_deque.end(), leftIt, leftDeque.end());
-		_deque.insert(_deque.end(), rightIt, rightDeque.end());
-	}
-	else if ( _flag == LIST ) {
-		std::list<unsigned int> leftList(_list.begin(), _list.begin() + _list.size() / 2);
-		std::list<unsigned int> rightList(_list.begin() + _list.size() / 2, _list.end());
-		
-		std::list<unsigned int>::iterator leftIt = leftList.begin();
-		std::list<unsigned int>::iterator rightIt = rightList.begin();
-
-		while (leftIt != leftList.end() && rightIt != rightList.end()) {
-			if (*leftIt < *rightIt) {
-				_deque.push_back(*leftIt);
-				++leftIt;
-			} else {
-				_deque.push_back(*rightIt);
-				++rightIt;
-			}
-		}
-
-		_list.insert(_list.end(), leftIt, _list.end());
-		_list.insert(_list.end(), rightIt, _list.end());
-	}
-}
-
-template <typename R>
-void PmergeMe::insertionSort(R& container, unsigned int size) {
+void PmergeMe::insertionSortDeque(std::deque<unsigned int>& container, unsigned int size) {
     unsigned int i, key;
 	int			j;
     for (i = 1; i < size; i++) {
@@ -178,34 +116,88 @@ void PmergeMe::insertionSort(R& container, unsigned int size) {
     }
 }
 
-void PmergeMe::mergeInsertSort( void ) {
-    
-	if ( _flag == DEQUE ) {
-		if (_deque.size() <= 16)
-			insertionSort(_deque, _deque.size());
+void	PmergeMe::insertionSortList(std::list<unsigned int>& container) {
+	std::list<unsigned int>::iterator j;
+    unsigned int key;
+
+    for (std::list<unsigned int>::iterator it = std::next(container.begin()); it != container.end(); ++it) {
+        key = *it;
+        j = std::prev(it);
+
+        while (j != container.begin() && *j > key) {
+            *std::next(j) = *j;  // Assign the iterator, not the value
+            --j;
+        }
+
+        *std::next(j) = key;  // Assign the iterator, not the value
+    }
+}
+
+void PmergeMe::mergeInsertSortDeque( std::deque<unsigned int>& containerDeque ) {
+	if (containerDeque.size() <= 16)
+		insertionSortDeque(containerDeque, containerDeque.size());
+	else {
+		std::deque<unsigned int> leftDeque(containerDeque.begin(), containerDeque.begin() + containerDeque.size() / 2);
+		std::deque<unsigned int> rightDeque(containerDeque.begin() + containerDeque.size() / 2, containerDeque.end());
+
+		mergeInsertSortDeque( leftDeque );
+		mergeInsertSortDeque( rightDeque );
+
+		containerDeque.clear();
+		mergeDeque( containerDeque, leftDeque, rightDeque );
+	}
+
+}
+void PmergeMe::mergeInsertSortList( std::list<unsigned int>& containerList ) {
+		if (containerList.size() <= 16) // insertionSort works best in small stacks
+			insertionSortList(containerList);
 		else {
-			std::deque<unsigned int> leftDeque(_deque.begin(), _deque.begin() + _deque.size() / 2);
-			std::deque<unsigned int> rightDeque(_deque.begin() + _deque.size() / 2, _deque.end());
+			// We conveniently split the stack into two, so our algorimth can work more efficiently
+			std::list<unsigned int> leftList(containerList.begin(), std::next(containerList.begin(), containerList.size() / 2));
+			std::list<unsigned int> rightList(std::next(containerList.begin(), containerList.size() / 2), containerList.end());
 
-			mergeInsertSort(leftDeque);
-			mergeInsertSort(rightDeque);
+			mergeInsertSortList( leftList );
+			mergeInsertSortList( rightList );
 
-			_deque.clear();
-			merge();
+			containerList.splice(containerList.end(), leftList); // splice makes it far more efficient
+			containerList.splice(containerList.end(), rightList);
+			mergeList( containerList, leftList, rightList );
+		}
+}
+
+void PmergeMe::mergeDeque( std::deque<unsigned int>& result, std::deque<unsigned int>& leftDeque, std::deque<unsigned int>& rightDeque ) {
+    std::deque<unsigned int>::iterator leftIt = leftDeque.begin();
+	std::deque<unsigned int>::iterator rightIt = rightDeque.begin();
+
+	while ( leftIt != leftDeque.end() && rightIt != rightDeque.end() ) {
+		if (*leftIt < *rightIt) {
+			result.push_back(*leftIt);
+			++leftIt;
+		} else {
+			result.push_back(*rightIt);
+			++rightIt;
 		}
 	}
-	else if ( _flag == LIST ) {
-		if (_list.size() <= 16)
-			insertionSort(_list, _list.size());
-		else {
-			std::list<unsigned int> leftList(_list.begin(), _list.begin() + _list.size() / 2);
-			std::list<unsigned int> rightList(_list.begin() + _list.size() / 2, _list.end());
 
-			mergeInsertSort(leftList);
-			mergeInsertSort(rightList);
+	result.insert( result.end(), leftIt, leftDeque.end() );
+	result.insert( result.end(), rightIt, rightDeque.end() );
+}
 
-			_list.clear();
-			merge();
+void PmergeMe::mergeList( std::list<unsigned int>& result, std::list<unsigned int>& leftList, std::list<unsigned int>& rightList ) {
+
+	std::list<unsigned int>::iterator leftIt = leftList.begin();
+	std::list<unsigned int>::iterator rightIt = rightList.begin();
+
+	while (leftIt != leftList.end() && rightIt != rightList.end()) {
+		if (*leftIt < *rightIt) {
+			result.push_back(*leftIt);
+			++leftIt;
+		} else {
+			result.push_back(*rightIt);
+			++rightIt;
 		}
 	}
+
+	result.insert(result.end(), leftIt, leftList.end());
+	result.insert(result.end(), rightIt, rightList.end());
 }
