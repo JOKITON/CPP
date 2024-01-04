@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:20:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/04 14:56:04 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:15:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #define BEFORE 101
 #define AFTER 102
+
+#define DEQUE 201
+#define LIST 202
 
 /* general use*/
 #include <iostream>
@@ -33,6 +36,7 @@ class PmergeMe
 	private:
 /* 					_timeList;
 					_timeForwardList; */
+		short int		_flag;
 		size_t			_size;
 		std::deque<unsigned int>	_deque;
 		std::list<unsigned int>		_list;
@@ -50,6 +54,9 @@ class PmergeMe
 		size_t			getArSize( char **ar );
 		
 		void			sort( char **args );
+		void			mergeInsertSort( void );
+		void			insertionSort(R& container, unsigned int size);
+		void			merge( void );
 };
 
 #endif
