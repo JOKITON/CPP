@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:21:45 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/30 12:22:13 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/04 14:50:41 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main( int ac, char **ar ) {
 		
 		test1.sort(ar);
 
-		return true;
+		return 0;
 	}
 	else
 		std::cerr << "Error: bad arguments" << std::endl;
-	return false;
+	return 1;
 }

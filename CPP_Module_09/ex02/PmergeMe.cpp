@@ -6,14 +6,13 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:44:32 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/02 21:38:58 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:25:00 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe( void ) : _size(0), _deque(), _list() {
-	// _array(NULL);
 	/* std::cout << "[PmergeMe] Default constructor has been called" << std::endl; */
 }
 
@@ -83,22 +82,37 @@ void	PmergeMe::sort( char	**args ) {
 	
 	insertContainers( args );
 
+/* 	std::string	containerType;
+	while (containerType == "") {
+		std::cout << "What container do you want to use?\n	[1] std::deque\n	[2] std::list" << std::endl;
+		std::getline(std::cin, containerType);
+		if (containerType.compare("1")) {
+			printDeque(BEFORE);
+			break ;
+		}
+		else if (containerType.compare("2")) {
+			printList(BEFORE);
+			break ;
+		}
+		else
+			containerType = "";
+	} */
 
 	printDeque(BEFORE);
-	std::chrono::_V2::system_clock::time_point timeStart = std::chrono::high_resolution_clock::now();
+	struct	timeval	timeStart, timeEnd;
+	gettimeofday(&timeStart, 0);
 	std::sort(_deque.begin(), _deque.end());
-	std::chrono::_V2::system_clock::time_point timeEnd = (std::chrono::high_resolution_clock::now());
-	std::chrono::microseconds timeDuration = std::chrono::duration_cast<std::chrono::microseconds>(timeEnd - timeStart);
+	gettimeofday(&timeEnd, 0);
+	long microseconds = timeEnd.tv_usec - timeStart.tv_usec;
 	printDeque(AFTER);
-	std::cout << "Time to process a range of " << _size << " elements with std::[deque] : " << timeDuration.count() << " microseconds"<< std::endl;
+	std::cout << "Time to process a range of " << _size << " elements with std::[deque] : " << microseconds << " microseconds"<< std::endl;
 
-	printList(BEFORE);
-	timeStart = std::chrono::high_resolution_clock::now();
+	// printList(BEFORE);
+	gettimeofday(&timeStart, 0);
 	_list.sort();
-	timeEnd = (std::chrono::high_resolution_clock::now());
-	timeDuration = std::chrono::duration_cast<std::chrono::microseconds>(timeEnd - timeStart);
-	printList(AFTER);
-	std::cout << "Time to process a range of 5 elements with std::[list] : " << timeDuration.count() << " microseconds" << std::endl;
-
-	// printTime();
+	gettimeofday(&timeEnd, 0);
+	microseconds = timeEnd.tv_usec - timeStart.tv_usec;
+	// printList(AFTER);
+	std::cout << "Time to process a range of 5 elements with std::[list] : " << microseconds << " microseconds" << std::endl;
+	// system("leaks Pmerge");
 }
