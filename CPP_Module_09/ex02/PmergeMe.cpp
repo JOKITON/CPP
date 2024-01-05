@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:44:32 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/04 23:28:40 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:03:49 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,6 @@ PmergeMe::PmergeMe( void ) : _size(0), _deque(), _list() {
 
 PmergeMe::~PmergeMe( void ) {
 	/* std::cout << "[PmergeMe] Default destructor has been called." << std::endl; */
-}
-
-std::deque<unsigned int>	PmergeMe::getDeque( void ) const {
-	return (_deque);
-}
-
-std::list<unsigned int>	PmergeMe::getList ( void ) const {
-	return (_list);
 }
 
 size_t	PmergeMe::getArSize( char **ar ) {
@@ -200,4 +192,31 @@ void PmergeMe::mergeList( std::list<unsigned int>& result, std::list<unsigned in
 
 	result.insert(result.end(), leftIt, leftList.end());
 	result.insert(result.end(), rightIt, rightList.end());
+}
+
+std::deque<unsigned int>	PmergeMe::getDeque( void ) const {
+	return (this->_deque);
+}
+
+std::list<unsigned int>	PmergeMe::getList ( void ) const {
+	return (this->_list);
+}
+
+size_t						PmergeMe::getSize( void ) const {
+	return (this->_size);
+}
+
+PmergeMe&	PmergeMe::operator=( const PmergeMe& ref ) {
+	if (this != &ref) {
+		this->_deque = (ref.getDeque());
+		this->_list = (ref.getList());
+		this->_size = (ref.getSize());
+	}
+	return *this;
+}
+
+PmergeMe::PmergeMe( PmergeMe& ref ) {
+	this->_deque = (ref.getDeque());
+	this->_list = (ref.getList());
+	this->_size = (ref.getSize());
 }

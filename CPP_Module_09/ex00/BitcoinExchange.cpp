@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 18:30:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 12:56:23 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:57:50 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,29 +107,49 @@ int	BitcoinExchange::getDataFile( std::map<std::string, float>& dataUser, int	po
 	
 	/* Format : 2012-01-11 | -1 */
 	std::string	temp1, temp2, temp3, temp4;
+	int	tempPos;
+
 	temp1 = _file.substr(pos, 4);
 	dataUser["YEAR"] = atof(temp1.c_str());
-	pos += 5;
-
-	temp2 = _file.substr(pos, 2);
-	dataUser["MONTH"] = atof(temp2.c_str());
-	pos += 3;
-
-	temp3 = _file.substr(pos, 2);
-	dataUser["DAY"] = atof(temp3.c_str());
-
-	int	tempPos = pos;
+	tempPos = pos;
 	while (_file[tempPos] != '\0') {
 		tempPos++;
 		if (tempPos == (pos + 5))
 			break ;
 		else if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
-			dataUser["BTC_QUANTITY"] = -1;
+			dataUser["MONTH"] = 0;
+			return ERR_FORMAT; }
+	}
+	pos += 5;
+
+	temp2 = _file.substr(pos, 2);
+	dataUser["MONTH"] = atof(temp2.c_str());
+	tempPos = pos;
+	while (_file[tempPos] != '\0') {
+		tempPos++;
+		if (tempPos == (pos + 3))
+			break ;
+		else if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
+			dataUser["DAY"] = 0;
+			return ERR_FORMAT; }
+	}
+	pos += 3;
+
+	temp3 = _file.substr(pos, 2);
+	dataUser["DAY"] = atof(temp3.c_str());
+
+	tempPos = pos;
+	while (_file[tempPos] != '\0') {
+		tempPos++;
+		if (tempPos == (pos + 5))
+			break ;
+		else if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
+			dataUser["BTC_QUANTITY"] = 0;
 			return ERR_FORMAT; }
 	}
 
 	pos += 5;
-	while (_file[tempPos] != '\0' &&_file[tempPos + 1] != '\0' && _file[tempPos] != '\n')
+	while (_file[tempPos] != '\0' && _file[tempPos] != '\n')
 		tempPos++;
 	temp4 = _file.substr(pos, tempPos - pos);
 	dataUser["BTC_QUANTITY"] = static_cast<float>(atof(temp4.c_str()));

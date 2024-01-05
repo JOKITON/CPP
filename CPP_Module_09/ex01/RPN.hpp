@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:39:58 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 00:15:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:56:16 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,29 @@
 #define TRUE 0
 #define FALSE 1
 
-#define CASE_SPACE 101
-#define CASE_DIGIT 102
-#define CASE_SIGN 103
+#define SPACE ' '
+#define DIGIT 102
+#define SIGN 103
+
+#define PLUS '+'
+#define MINUS '-'
+#define TIMES '*'
+#define DIVISION '/'
 
 class RPN
 {
 	private:
-		std::string		_str;
 		std::vector<float>	_vector;
 
 		void	handleSigns( char ch );
 	public:
 		RPN( void );
-		RPN( std::string& str );
 		~RPN( void );
+		RPN( std::string& str );
+		
+		RPN( RPN& ref );
+		RPN& operator=( const RPN& ref );
+		std::vector<float>	cpyVector( void ) const;
 };
 
 #endif

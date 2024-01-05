@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:20:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/04 23:02:31 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:02:25 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class PmergeMe
 		PmergeMe( void );
 		~PmergeMe( void );
 
+		size_t						getSize( void ) const;
 		std::deque<unsigned int>	getDeque( void ) const;
 		std::list<unsigned int>		getList( void ) const;
 
@@ -59,6 +60,10 @@ class PmergeMe
 		void			insertionSortList(std::list<unsigned int>& container);
 		void			mergeDeque( std::deque<unsigned int>& result, std::deque<unsigned int>& leftDeque, std::deque<unsigned int>& rightDeque );
 		void			mergeList( std::list<unsigned int>& result, std::list<unsigned int>& leftList, std::list<unsigned int>& rightList );
+
+
+		PmergeMe&	operator=( const PmergeMe& ref );
+		PmergeMe( PmergeMe& ref );
 };
 
 #endif
