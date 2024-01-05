@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:44:32 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 17:03:49 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:15:38 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,26 @@ void	PmergeMe::printTime( void ) const{
 	// std::cout << "Time to process a range of " << _size << " elements with std::forward_deque : " << _timeForwardList << " us" << std::endl;
 }
 
-void	PmergeMe::insertContainers( char	**ar ) {
+bool	PmergeMe::insertContainers( char	**ar ) {
 
 	for (size_t i = 0; i < _size; i++) {
+		int numb = atoi(ar[i + 1]);
+		if (numb < 0)
+			return false;
 		_deque.push_back(atoi(ar[i + 1]));
 		_list.push_back(atoi(ar[i + 1]));
 	}
+	return true;
 }
 
 void	PmergeMe::sort( char	**args ) {
 	_size = getArSize( args );
 	
-	insertContainers( args );
+	if (insertContainers( args ) == false) {
+		/* Standard output */
+		std::cout << "Error" << std::endl;
+		return ;
+	}
 
 	printDeque(BEFORE);
 	struct	timeval	timeStart, timeEnd;

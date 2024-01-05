@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:20:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 17:02:25 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:14:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class PmergeMe
 		std::deque<unsigned int>	getDeque( void ) const;
 		std::list<unsigned int>		getList( void ) const;
 
-		void			insertContainers( char	**ar );
+		bool			insertContainers( char	**ar );
 		void			printDeque( char	flag );
 		void			printList( char flag);
 		void			printTime( void ) const;
