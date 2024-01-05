@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:09 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/02 19:17:18 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/05 12:47:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,38 +35,35 @@
 #define CORRECT 0
 #define INCORRECT 1
 
+#define DAY_MAXLIMIT 32.0f
+#define MONTH_MAXLIMIT 13.0f
+#define YEAR_MAXLIMIT 2023.0f
+#define BTC_MAXLIMIT 1001.0f
+
+#define DAY_MINLIMIT 0.0f
+#define MONTH_MINLIMIT 0.0f
+#define YEAR_MINLIMIT 2008.0f
+#define BTC_MINLIMIT -1.0f
+
 class BitcoinExchange {
 	private:
 		std::string	_file;
 		std::string		_database;
-
-		std::map	<std::string, float>	_dataBase;
-		std::map	<std::string, float>	_dataUser;
-/* 
-		int	_dayToFind;
-		int	_monthToFind;
-		int	_yearToFind;
-
-		std::deque<int>	_day;
-		int				_month;
-		int				_year;
-		std::deque<double>	_val;
-		double			_btc; */
 		
 		// int		printDates( void );
-		void	iterateDates( void );
-		int		getDates( int pos, int flag );
+		void	iterateDates( std::map<std::string, float>& dataBase, std::map<std::string, float>& dataUser );
+		int		getDates( std::map<std::string, float>& dataBase, std::map<std::string, float>& dataUser, int pos, int flag );
 
-		int		getDataDatabase( int pos );
-		int		getDataFile( int pos );
+		int		getDataDatabase( std::map<std::string, float>& dataBase, int	pos );
+		int		getDataFile( std::map<std::string, float>& dataUser, int	pos );
 		
 		void	ErroneousData( int flag );
-		void	ErroneusInput( void );
+		void	ErroneusInput( std::map<std::string, float>& dataUser );
 
-		int		checkDataForm( void );
-		int		checkDataInput( void );
+		int		checkDataForm( std::map<std::string, float>& dataBase );
+		int		checkDataInput( std::map<std::string, float>& dataUser );
 
-		int		printDates( void );
+		int		printDates( std::map<std::string, float>& dataUser, std::map<std::string, float>& dataBase );
 	
 	public:
 		BitcoinExchange( std::string file );

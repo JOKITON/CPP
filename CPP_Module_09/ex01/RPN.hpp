@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:39:58 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/11/28 22:02:41 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/05 00:15:22 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class RPN
 	private:
 		std::string		_str;
 		std::vector<float>	_vector;
-		size_t			_size;
 
 		void	handleSigns( char ch );
 	public:

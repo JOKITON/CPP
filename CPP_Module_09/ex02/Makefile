@@ -4,7 +4,7 @@ SRCS = PmergeMe.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -fsanitize=address -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 RM = rm
 
