@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 18:30:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 16:57:50 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/06 00:44:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int	BitcoinExchange::printDates( std::map<std::string, float>& dataUser, std::map<std::string, float>& dataBase ) {
 	bool	flag;
 	
-	flag = (dataBase["DAY"] == dataUser["DAY"]) ? true : false;
+	if (dataBase["DAY"] == dataUser["DAY"])
+        flag = true;
+	else
+        flag = false;
 
 	if (dataBase["DAY"] > dataUser["DAY"] && dataBase["OLD_DAY"] < dataBase["DAY"]) { // check if day has fallen behind
 		dataBase["DAY"] = dataBase["OLD_DAY"];
@@ -39,9 +42,8 @@ int	BitcoinExchange::printDates( std::map<std::string, float>& dataUser, std::ma
 void	BitcoinExchange::ErroneousData( int flag ) {
 	if (flag == ERROR_NEGATIVE)
 		std::cerr << "Error (Database) : not a positive number." << std::endl;
-	else if (flag == ERROR_OVERSIZE) {
+	else
 		std::cerr << "Error (Database) : too large a number." << std::endl;
-		}
 }
 
 void	BitcoinExchange::ErroneusInput ( std::map<std::string, float>& dataUser ) {
@@ -57,9 +59,9 @@ int	BitcoinExchange::checkDataInput( std::map<std::string, float>& dataUser ) {
 }
 
 int	BitcoinExchange::checkDataForm( std::map<std::string, float>& dataBase ) {
-	if (dataBase["DAY"] > 31 || dataBase["MONTH"] > 12 || dataBase["YEAR"] > 2022 || dataBase["BTC_VAL"] > INT_MAX)
+	if (dataBase["DAY"] >= DAY_MAXLIMIT || dataBase["MONTH"] >= MONTH_MAXLIMIT || dataBase["YEAR"] >= YEAR_MAXLIMIT || dataBase["BTC_VAL"] > static_cast<float>(INT_MAX))
 		return ErroneousData( ERROR_OVERSIZE), INCORRECT;
-	else if (dataBase["DAY"] < 1 || dataBase["MONTH"]< 1 || dataBase["YEAR"] < 2009 || dataBase["BTC_VAL"] < 0)
+	else if (dataBase["DAY"] <= DAY_MINLIMIT || dataBase["MONTH"] <= MONTH_MINLIMIT || dataBase["YEAR"] <= YEAR_MINLIMIT || dataBase["BTC_VAL"] < 0.0f)
 		return ErroneousData( ERROR_NEGATIVE), INCORRECT;
 	return CORRECT;
 } 

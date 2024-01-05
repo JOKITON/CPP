@@ -76,7 +76,7 @@ bool	PmergeMe::insertContainers( char	**ar ) {
 void	PmergeMe::sort( char	**args ) {
 	_size = getArSize( args );
 	
-	if (insertContainers( args ) == false) {
+	if (!insertContainers( args )) {
 		/* Standard output */
 		std::cout << "Error" << std::endl;
 		return ;
