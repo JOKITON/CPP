@@ -4,13 +4,13 @@ SRCS = BitcoinExchange.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -fsanitize=address -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CFLAGS = -fsanitize=address -fno-omit-frame-pointer -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 RM = rm
 
 CC = c++
 
-STD = -std=c++98
+STD = -std=c++98 -pedantic
 
 all : $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:20:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 17:14:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/05 22:39:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@
 class PmergeMe
 {
 	private:
-/* 					_timeList;
-					_timeForwardList; */
 		size_t			_size;
 		std::deque<unsigned int>	_deque;
 		std::list<unsigned int>		_list;
+
 	public:
 		PmergeMe( void );
 		~PmergeMe( void );

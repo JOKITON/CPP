@@ -4,11 +4,11 @@ SRCS = PmergeMe.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CFLAGS = -fsanitize=address -fno-omit-frame-pointer -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 RM = rm
 
-CC = c++ -O3
+CC = c++
 
 STD = -std=c++98 -pedantic
 
