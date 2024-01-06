@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:47:25 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/12/31 18:19:08 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/06 13:17:35 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 int	main( int ac, char **ar ) {
 
 	if (ac > 1) {// program takes 1 file as argument
-		BitcoinExchange	test1(ar[1]);
+		 try {
+			BitcoinExchange	test1(ar[1]);
+		}
+		catch ( std::exception& e ) {
+			std::cerr << e.what() << std::endl;
+		}
 		/*
 			A valid date will have this format: Year-Month-Day (2004-06-13).
 			A valid value must be either a float or a positive integer : 0-1000.

@@ -6,14 +6,14 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:40:20 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/06 00:40:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/06 13:38:45 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 RPN::RPN( void ) {
-	std::cout << "[RPN] Default constructor called" << std::endl;
+	// std::cout << "[RPN] Default constructor called" << std::endl;
 }
 
 bool	isasign( char c ) {
@@ -54,10 +54,9 @@ void	RPN::handleSigns( char ch ) {
 	}
 }
 
-RPN::RPN( std::string& str ) {
-	int	flagCase;
-	
+void	RPN::calc( const std::string& str ) {
 	for (size_t pos = 0; str[pos]; pos++ ) {
+		int	flagCase;
 		/* Format: 8 9 * 9 - 9 - 9 - 4 - 1 + */
 		/* Calculation:
 			1: ( 8 * 9 ) = 72
@@ -100,8 +99,8 @@ std::vector<float>	RPN::cpyVector( void ) const {
 	return this->_vector;
 }
 
-RPN::RPN( RPN& ref ) {
-	_vector = ref.cpyVector();
+RPN::RPN( RPN& ref ) : _vector(ref.cpyVector()) {
+
 }
 
 RPN& RPN::operator=( const RPN& ref ) {

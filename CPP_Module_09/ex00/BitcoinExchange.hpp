@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:09 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 16:57:53 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/06 12:43:35 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 #define MODE_TEXT 201
 #define MODE_DATABASE 202
 
-#define ERR_FORMAT 301
+#define ERR_FORMAT -301
 
 #define CORRECT 0
 #define INCORRECT 1

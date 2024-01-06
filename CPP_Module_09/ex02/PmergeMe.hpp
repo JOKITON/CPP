@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:20:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 22:39:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/06 13:51:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,19 @@ class PmergeMe
 		bool			insertContainers( char	**ar );
 		void			printDeque( char	flag );
 		void			printList( char flag);
-		void			printTime( void ) const;
 		size_t			getArSize( char **ar );
 		
 		void			sort( char **args );
 		void			mergeInsertSortDeque( std::deque<unsigned int>& containerDeque );
 		void			mergeInsertSortList( std::list<unsigned int>& containerList );
 		void			insertionSortDeque(std::deque<unsigned int>& container, unsigned int size);
-		void			insertionSortList(std::list<unsigned int>& container);
+		void			insertionSortList(const std::list<unsigned int>& container);
 		void			mergeDeque( std::deque<unsigned int>& result, std::deque<unsigned int>& leftDeque, std::deque<unsigned int>& rightDeque );
 		void			mergeList( std::list<unsigned int>& result, std::list<unsigned int>& leftList, std::list<unsigned int>& rightList );
 
 
 		PmergeMe&	operator=( const PmergeMe& ref );
-		PmergeMe( PmergeMe& ref );
+		PmergeMe( const PmergeMe& ref );
 };
 
 #endif

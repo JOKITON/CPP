@@ -10,7 +10,7 @@ RM = rm
 
 CC = c++
 
-STD = -std=c++98 -pedantic
+STD = -std=c++98 -pedantic -g
 
 all : $(NAME)
 

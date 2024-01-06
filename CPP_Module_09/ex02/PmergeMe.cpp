@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:44:32 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 23:30:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/06 13:51:26 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	PmergeMe::printDeque( char	flag ) {
 		std::cout << "Before: ";
 	else
 		std::cout << "After: ";
-	for (ptDeque = _deque.begin(); ptDeque != _deque.end(); ptDeque++) {
+	for (ptDeque = _deque.begin(); ptDeque != _deque.end(); ++ptDeque) {
 		std::cout << *ptDeque << " ";
 	}
 	std::cout << std::endl;
@@ -48,17 +48,10 @@ void	PmergeMe::printList( char	flag ) {
 		std::cout << "Before: ";
 	else
 		std::cout << "After: ";
-	for (ptList = _list.begin(); ptList != _list.end(); ptList++) {
+	for (ptList = _list.begin(); ptList != _list.end(); ++ptList) {
 		std::cout << *ptList << " ";
 	}
 	std::cout << std::endl;
-}
-	
-
-void	PmergeMe::printTime( void ) const{
-	// std::cout << "Time to process a range of " << _size << " elements with std::list : " << _timeList << " us" << std::endl;
-
-	// std::cout << "Time to process a range of " << _size << " elements with std::forward_deque : " << _timeForwardList << " us" << std::endl;
 }
 
 bool	PmergeMe::insertContainers( char	**ar ) {
@@ -102,9 +95,10 @@ void	PmergeMe::sort( char	**args ) {
 }
 
 void PmergeMe::insertionSortDeque(std::deque<unsigned int>& container, unsigned int size) {
-    unsigned int i, key;
-	int			j;
-    for (i = 1; i < size; i++) {
+    unsigned int i;
+	for (i = 1; i < size; i++) {
+		unsigned int key;
+		int			j;
         key = container[i];
         j = i - 1;
  
@@ -116,11 +110,11 @@ void PmergeMe::insertionSortDeque(std::deque<unsigned int>& container, unsigned 
     }
 }
 
-void	PmergeMe::insertionSortList(std::list<unsigned int>& container) {
+void	PmergeMe::insertionSortList(const std::list<unsigned int>& container) {
 	std::list<unsigned int>::iterator j;
-    unsigned int key;
 
     for (std::list<unsigned int>::iterator it = std::next(container.begin()); it != container.end(); ++it) {
+    	unsigned int key;
         key = *it;
         j = std::prev(it);
 
@@ -223,7 +217,7 @@ PmergeMe&	PmergeMe::operator=( const PmergeMe& ref ) {
 	return *this;
 }
 
-PmergeMe::PmergeMe( PmergeMe& ref ) {
+PmergeMe::PmergeMe( const PmergeMe& ref ) {
 	this->_deque = (ref.getDeque());
 	this->_list = (ref.getList());
 	this->_size = (ref.getSize());

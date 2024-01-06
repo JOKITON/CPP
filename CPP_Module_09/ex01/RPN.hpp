@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:39:58 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 16:56:16 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/06 13:36:05 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ class RPN
 	public:
 		RPN( void );
 		~RPN( void );
-		RPN( std::string& str );
 		
+		void	calc( const std::string& str );
 		RPN( RPN& ref );
 		RPN& operator=( const RPN& ref );
 		std::vector<float>	cpyVector( void ) const;

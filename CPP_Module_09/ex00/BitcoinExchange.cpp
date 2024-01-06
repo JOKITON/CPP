@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 18:30:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/06 00:44:39 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/06 13:20:08 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,16 @@ void	BitcoinExchange::ErroneousData( int flag ) {
 }
 
 void	BitcoinExchange::ErroneusInput ( std::map<std::string, float>& dataUser ) {
-	std::cerr << "Error: bad input => " << dataUser["YEAR"] << "-" << dataUser["MONTH"] << "-" << dataUser["DAY"] << std::endl;
+	std::cerr << "Error: bad input => " << dataUser["YEAR"];
+	if (dataUser["MONTH"] != 0) {
+	std::cout << "-" << dataUser["MONTH"];
+		if (dataUser["DAY"] != 0)
+			std::cout << "-" << dataUser["DAY"] << std::endl;
+		else
+			std::cout << std::endl;
+	}
+	else
+		std::cout << std::endl;
 }
 
 int	BitcoinExchange::checkDataInput( std::map<std::string, float>& dataUser ) {
@@ -106,7 +115,6 @@ int	BitcoinExchange::getDataDatabase( std::map<std::string, float>& dataBase, in
 }
 
 int	BitcoinExchange::getDataFile( std::map<std::string, float>& dataUser, int	pos ) {
-	
 	/* Format : 2012-01-11 | -1 */
 	std::string	temp1, temp2, temp3, temp4;
 	int	tempPos;
@@ -115,12 +123,12 @@ int	BitcoinExchange::getDataFile( std::map<std::string, float>& dataUser, int	po
 	dataUser["YEAR"] = atof(temp1.c_str());
 	tempPos = pos;
 	while (_file[tempPos] != '\0') {
-		tempPos++;
-		if (tempPos == (pos + 5))
-			break ;
-		else if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
+		if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
 			dataUser["MONTH"] = 0;
 			return ERR_FORMAT; }
+		if (tempPos == (pos + 5))
+			break ;
+		tempPos++;
 	}
 	pos += 5;
 
@@ -128,12 +136,12 @@ int	BitcoinExchange::getDataFile( std::map<std::string, float>& dataUser, int	po
 	dataUser["MONTH"] = atof(temp2.c_str());
 	tempPos = pos;
 	while (_file[tempPos] != '\0') {
-		tempPos++;
-		if (tempPos == (pos + 3))
-			break ;
-		else if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
+		if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
 			dataUser["DAY"] = 0;
 			return ERR_FORMAT; }
+		if (tempPos == (pos + 3))
+			break ;
+		tempPos++;
 	}
 	pos += 3;
 
@@ -142,12 +150,12 @@ int	BitcoinExchange::getDataFile( std::map<std::string, float>& dataUser, int	po
 
 	tempPos = pos;
 	while (_file[tempPos] != '\0') {
-		tempPos++;
-		if (tempPos == (pos + 5))
-			break ;
-		else if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
+		if (_file[tempPos] == '\0' || _file[tempPos] == '\n') {
 			dataUser["BTC_QUANTITY"] = 0;
 			return ERR_FORMAT; }
+		if (tempPos == (pos + 5))
+			break ;
+		tempPos++;
 	}
 
 	pos += 5;
@@ -177,8 +185,8 @@ int BitcoinExchange::getDates( std::map<std::string, float>& dataBase, std::map<
 void	BitcoinExchange::iterateDates( std::map<std::string, float>& dataBase, std::map<std::string, float>& dataUser ) {
 	int	flag1 = 0;
 	int	flag2 = 0;
-	int	temp1;
-	int	temp2;
+	int	temp1 = 0;
+	int	temp2 = 0;
 
 	for (int j = 0; _file[j]; j++) { // starts reading from text.txt
 		if (flag1 == 0 && _file[j] >= '0' && _file[j] <= '9') { // tries to find numbers
@@ -228,7 +236,11 @@ BitcoinExchange::BitcoinExchange( std::string file ) {
 	std::map<std::string, float>dataBase;
 	std::map<std::string, float>dataUser;
 
-	if (fileInput.is_open() && databaseInput.is_open()) {
+	if (fileInput.fail() || databaseInput.fail()) {
+		throw (std::runtime_error("error: file could not be opened"));
+		return ;
+	}
+	else if (fileInput.is_open() && databaseInput.is_open()) {
 		buf1 << fileInput.rdbuf();
 		_file = buf1.str();
 		buf2 << databaseInput.rdbuf();
@@ -240,9 +252,6 @@ BitcoinExchange::BitcoinExchange( std::string file ) {
 		fileInput.close();
 		databaseInput.close();
 	}
-	else
-		throw (std::runtime_error("error: file could not be opened"));
-
 }
 
 BitcoinExchange::~BitcoinExchange( void ) {
