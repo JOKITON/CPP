@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:44:32 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/06 13:51:26 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/08 22:09:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void PmergeMe::insertionSortDeque(std::deque<unsigned int>& container, unsigned 
     }
 }
 
-void	PmergeMe::insertionSortList(const std::list<unsigned int>& container) {
+void	PmergeMe::insertionSortList( std::list<unsigned int>& container) {
 	std::list<unsigned int>::iterator j;
 
     for (std::list<unsigned int>::iterator it = std::next(container.begin()); it != container.end(); ++it) {
@@ -163,6 +163,7 @@ void PmergeMe::mergeDeque( std::deque<unsigned int>& result, std::deque<unsigned
     std::deque<unsigned int>::iterator leftIt = leftDeque.begin();
 	std::deque<unsigned int>::iterator rightIt = rightDeque.begin();
 
+	// Arrange the sorted numbers in order
 	while ( leftIt != leftDeque.end() && rightIt != rightDeque.end() ) {
 		if (*leftIt < *rightIt) {
 			result.push_back(*leftIt);
@@ -173,6 +174,7 @@ void PmergeMe::mergeDeque( std::deque<unsigned int>& result, std::deque<unsigned
 		}
 	}
 
+	// Insert remaining numbers in case anything is left
 	result.insert( result.end(), leftIt, leftDeque.end() );
 	result.insert( result.end(), rightIt, rightDeque.end() );
 }
@@ -182,6 +184,7 @@ void PmergeMe::mergeList( std::list<unsigned int>& result, std::list<unsigned in
 	std::list<unsigned int>::iterator leftIt = leftList.begin();
 	std::list<unsigned int>::iterator rightIt = rightList.begin();
 
+	// Arrange the sorted numbers in order
 	while (leftIt != leftList.end() && rightIt != rightList.end()) {
 		if (*leftIt < *rightIt) {
 			result.push_back(*leftIt);
@@ -192,6 +195,7 @@ void PmergeMe::mergeList( std::list<unsigned int>& result, std::list<unsigned in
 		}
 	}
 
+	// Insert remaining numbers in case anything is left
 	result.insert(result.end(), leftIt, leftList.end());
 	result.insert(result.end(), rightIt, rightList.end());
 }

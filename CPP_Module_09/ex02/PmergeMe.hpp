@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:20:53 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/06 13:51:27 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/08 21:49:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ class PmergeMe
 		void			mergeInsertSortDeque( std::deque<unsigned int>& containerDeque );
 		void			mergeInsertSortList( std::list<unsigned int>& containerList );
 		void			insertionSortDeque(std::deque<unsigned int>& container, unsigned int size);
-		void			insertionSortList(const std::list<unsigned int>& container);
+		void			insertionSortList( std::list<unsigned int>& container);
 		void			mergeDeque( std::deque<unsigned int>& result, std::deque<unsigned int>& leftDeque, std::deque<unsigned int>& rightDeque );
 		void			mergeList( std::list<unsigned int>& result, std::list<unsigned int>& leftList, std::list<unsigned int>& rightList );
 

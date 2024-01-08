@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:09 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/06 12:43:35 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/08 21:24:28 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ class BitcoinExchange {
 		void	iterateDates( std::map<std::string, float>& dataBase, std::map<std::string, float>& dataUser );
 		int		getDates( std::map<std::string, float>& dataBase, std::map<std::string, float>& dataUser, int pos, int flag );
 
-		int		getDataDatabase( std::map<std::string, float>& dataBase, int	pos );
-		int		getDataFile( std::map<std::string, float>& dataUser, int	pos );
+		int		getDataDatabase( std::map<std::string, float>& dataBase, int pos );
+		int		getDataFile( std::map<std::string, float>& dataUser, int pos );
 		
 		void	ErroneousData( int flag );
 		void	ErroneusInput( std::map<std::string, float>& dataUser );

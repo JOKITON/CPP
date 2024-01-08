@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:21:45 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/05 23:32:27 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/08 21:50:36 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main( int ac, char **ar ) {
 		
 		test1.sort(ar);
 
-		// system("leaks PmergeMe");
+		//system("leaks PmergeMe");
 		return 0;
 	}
 	else
