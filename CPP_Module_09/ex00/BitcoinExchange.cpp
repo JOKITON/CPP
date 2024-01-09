@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 18:30:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/06 13:20:08 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/09 23:55:54 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,39 +39,88 @@ int	BitcoinExchange::printDates( std::map<std::string, float>& dataUser, std::ma
 		return 1;
 }
 
-void	BitcoinExchange::ErroneousData( int flag ) {
+void	BitcoinExchange::ErroneousData( int flag, std::map<std::string, float>& dataUser, std::map<std::string, float>&	dataBase ) {
 	if (flag == ERROR_NEGATIVE)
 		std::cerr << "Error (Database) : not a positive number." << std::endl;
-	else
+	else if ( flag == ERROR_OVERSIZE )
 		std::cerr << "Error (Database) : too large a number." << std::endl;
+	else if ( flag == UNVALID_DATE_USER ) {
+		std::cerr << "Error: bad input => " << dataUser["YEAR"];
+		if (dataUser["MONTH"] != 0) {
+			std::cout << "-";
+			if ( dataUser["MONTH"] < 10)
+				std::cout << "0";
+			std::cout << dataUser["MONTH"];
+			if (dataUser["DAY"] != 0) {
+				std::cout << "-";
+				if (dataUser["DAY"] < 10)
+					std::cout << "0";
+				std::cout << dataUser["DAY"] << std::endl;
+			}
+			else
+				std::cout << std::endl;
+			}
+		else
+			std::cout << std::endl;
+	}
+	else if ( flag == UNVALID_DATE_DATABASE ) {
+		std::cerr << "Error: bad input => " << dataBase["YEAR"];
+		if (dataBase["MONTH"] != 0) {
+			std::cout << "-";
+			if ( dataBase["MONTH"] < 10)
+				std::cout << "0";
+			std::cout << dataBase["MONTH"];
+			if (dataBase["DAY"] != 0) {
+				std::cout << "-";
+				if (dataBase["DAY"] < 10)
+					std::cout << "0";
+				std::cout << dataBase["DAY"] << std::endl;
+			}
+			else
+				std::cout << std::endl;
+			}
+		else
+			std::cout << std::endl;
+	}
 }
 
 void	BitcoinExchange::ErroneusInput ( std::map<std::string, float>& dataUser ) {
 	std::cerr << "Error: bad input => " << dataUser["YEAR"];
-	if (dataUser["MONTH"] != 0) {
-	std::cout << "-" << dataUser["MONTH"];
-		if (dataUser["DAY"] != 0)
-			std::cout << "-" << dataUser["DAY"] << std::endl;
+		if (dataUser["MONTH"] != 0) {
+			std::cout << "-";
+			if ( dataUser["MONTH"] < 10)
+				std::cout << "0";
+			std::cout << dataUser["MONTH"];
+			if (dataUser["DAY"] != 0) {
+				std::cout << "-";
+				if (dataUser["DAY"] < 10)
+					std::cout << "0";
+				std::cout << dataUser["DAY"] << std::endl;
+			}
+			else
+				std::cout << std::endl;
+			}
 		else
 			std::cout << std::endl;
-	}
-	else
-		std::cout << std::endl;
 }
 
-int	BitcoinExchange::checkDataInput( std::map<std::string, float>& dataUser ) {
-	if (dataUser["DAY"] >= DAY_MAXLIMIT || dataUser["MONTH"] >= MONTH_MAXLIMIT || dataUser["YEAR"] >= YEAR_MAXLIMIT || dataUser["BTC_QUANTITY"] >= BTC_MAXLIMIT)
-		return ErroneousData( ERROR_OVERSIZE), INCORRECT;
-	else if (dataUser["DAY"] <= DAY_MINLIMIT || dataUser["MONTH"] <= MONTH_MINLIMIT || dataUser["YEAR"] <= YEAR_MINLIMIT || dataUser["BTC_QUANTITY"] <= BTC_MINLIMIT)
-		return ErroneousData( ERROR_NEGATIVE), INCORRECT;
+int	BitcoinExchange::checkDataInput( std::map<std::string, float>& dataUser, std::map<std::string, float>& dataBase ) {
+	if ( dataUser["BTC_QUANTITY"] >= BTC_MAXLIMIT)
+		return ErroneousData( ERROR_OVERSIZE, dataUser, dataBase ), INCORRECT;
+	else if ( dataUser["BTC_QUANTITY"] <= BTC_MINLIMIT)
+		return ErroneousData( ERROR_NEGATIVE, dataUser, dataBase ), INCORRECT;
+	else if ( (dataUser["DAY"] <= DAY_MINLIMIT || dataUser["MONTH"] <= MONTH_MINLIMIT || dataUser["YEAR"] <= YEAR_MINLIMIT) || ( dataUser["DAY"] >= DAY_MAXLIMIT || dataUser["MONTH"] >= MONTH_MAXLIMIT || dataUser["YEAR"] >= YEAR_MAXLIMIT ))
+		return ( ErroneousData( UNVALID_DATE_USER, dataUser, dataBase ), INCORRECT );
 	return CORRECT;
 }
 
-int	BitcoinExchange::checkDataForm( std::map<std::string, float>& dataBase ) {
-	if (dataBase["DAY"] >= DAY_MAXLIMIT || dataBase["MONTH"] >= MONTH_MAXLIMIT || dataBase["YEAR"] >= YEAR_MAXLIMIT || dataBase["BTC_VAL"] > static_cast<float>(INT_MAX))
-		return ErroneousData( ERROR_OVERSIZE), INCORRECT;
-	else if (dataBase["DAY"] <= DAY_MINLIMIT || dataBase["MONTH"] <= MONTH_MINLIMIT || dataBase["YEAR"] <= YEAR_MINLIMIT || dataBase["BTC_VAL"] < 0.0f)
-		return ErroneousData( ERROR_NEGATIVE), INCORRECT;
+int	BitcoinExchange::checkDataForm( std::map<std::string, float>& dataBase, std::map<std::string, float>& dataUser ) {
+	if ( dataBase["BTC_VAL"] > static_cast<float>(INT_MAX))
+		return ErroneousData( ERROR_OVERSIZE, dataUser, dataBase ), INCORRECT;
+	else if ( dataBase["BTC_VAL"] < 0.0f)
+		return ErroneousData( ERROR_NEGATIVE, dataUser, dataBase ), INCORRECT;
+	else if ( ( dataBase["DAY"] >= DAY_MAXLIMIT || dataBase["MONTH"] >= MONTH_MAXLIMIT || dataBase["YEAR"] >= YEAR_MAXLIMIT ) || ( dataBase["DAY"] <= DAY_MINLIMIT || dataBase["MONTH"] <= MONTH_MINLIMIT || dataBase["YEAR"] <= YEAR_MINLIMIT ) )
+		return ErroneousData( UNVALID_DATE_DATABASE, dataUser, dataBase ), INCORRECT;
 	return CORRECT;
 } 
 
@@ -197,7 +246,7 @@ void	BitcoinExchange::iterateDates( std::map<std::string, float>& dataBase, std:
 				for (j = temp1; _file[j + 1] != '\n'; j++)
 					;
 			}
-			else if (checkDataInput(dataUser) == CORRECT ) {
+			else if (checkDataInput(dataUser, dataBase) == CORRECT ) {
 			
 				for (int i = 0; _database[i]; i++) {
 					if (flag2 == 0 && _database[i] >= '0' && _database[i] <= '9') {
@@ -207,7 +256,7 @@ void	BitcoinExchange::iterateDates( std::map<std::string, float>& dataBase, std:
 							ErroneusInput( dataUser );
 							i = temp2; }
 
-						if (checkDataForm( dataBase ) == INCORRECT)
+						if (checkDataForm( dataBase, dataUser ) == INCORRECT)
 							break ;
 						
 						if ((dataUser["YEAR"] == dataBase["YEAR"]) && (dataUser["MONTH"] == dataBase["MONTH"])) {

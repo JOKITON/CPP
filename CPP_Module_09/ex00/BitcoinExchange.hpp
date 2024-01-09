@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 21:48:09 by jaizpuru          #+#    #+#             */
-/*   Updated: 2024/01/08 21:24:28 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2024/01/09 23:47:11 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define BITCOINEXCHANGE_HPP
 
 #include <iostream>
-#include <deque>
 #include <map>
 #include <fstream>
 #include <sstream>
@@ -26,6 +25,8 @@
 #define ERROR_YEAR 103
 #define ERROR_VAL 104
 #define ERROR_CV_VAL 105
+#define UNVALID_DATE_USER 106
+#define UNVALID_DATE_DATABASE 107
 
 #define MODE_TEXT 201
 #define MODE_DATABASE 202
@@ -57,11 +58,11 @@ class BitcoinExchange {
 		int		getDataDatabase( std::map<std::string, float>& dataBase, int pos );
 		int		getDataFile( std::map<std::string, float>& dataUser, int pos );
 		
-		void	ErroneousData( int flag );
+		void	ErroneousData( int flag, std::map<std::string, float>& dataUser, std::map<std::string, float>& dataBase );
 		void	ErroneusInput( std::map<std::string, float>& dataUser );
 
-		int		checkDataForm( std::map<std::string, float>& dataBase );
-		int		checkDataInput( std::map<std::string, float>& dataUser );
+		int		checkDataForm( std::map<std::string, float>& dataBase, std::map<std::string, float>& dataUser );
+		int		checkDataInput( std::map<std::string, float>& dataUser, std::map<std::string, float>& dataBase );
 
 		int		printDates( std::map<std::string, float>& dataUser, std::map<std::string, float>& dataBase );
 	
